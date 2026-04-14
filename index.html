@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Cake House Jaela | Fresh Homemade Cakes</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-pink: #ffb6c1;
+      --dark-pink: #b03060;
+      --light-pink: #ffd1dc;
+      --cream: #fff7f3;
+      --brown: #4a2c2a;
+      --light-brown: #8b6f6f;
+      --white: #ffffff;
+      --shadow: rgba(0,0,0,0.1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Header & Navigation */
+    header {
+      background: linear-gradient(135deg, var(--primary-pink), var(--light-pink));
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--dark-pink);
+      text-decoration: none;
+    }
+
+    .logo i {
+      font-size: 2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--brown);
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--dark-pink);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--dark-pink);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .cart-icon {
+      position: relative;
+      cursor: pointer;
+      font-size: 1.3rem;
+      color: var(--dark-pink);
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--dark-pink);
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: var(--dark-pink);
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(rgba(255,182,193,0.3), rgba(255,215,220,0.3)), 
+                  url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1920') center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .hero-content {
+      background: rgba(255,255,255,0.95);
+      padding: 60px 40px;
+      border-radius: 30px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      max-width: 700px;
+      animation: fadeInUp 1s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: var(--dark-pink);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      color: var(--light-brown);
+      margin-bottom: 30px;
+    }
+
+    .btn-primary {
+      background: var(--dark-pink);
+      color: white;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 5px 15px rgba(176,48,96,0.3);
+    }
+
+    .btn-primary:hover {
+      background: #8b2650;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(176,48,96,0.4);
+    }
+
+    /* Section Styles */
+    section {
+      padding: 80px 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: var(--dark-pink);
+      margin-bottom: 50px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '🎂';
+      display: block;
+      font-size: 2rem;
+      margin-top: 10px;
+    }
+
+    /* Cakes Section */
+    .cakes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .cake-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px var(--shadow);
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .cake-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    .cake-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .cake-card:hover .cake-image {
+      transform: scale(1.05);
+    }
+
+    .cake-content {
+      padding: 25px;
+    }
+
+    .cake-name {
+      font-size: 1.4rem;
+      color: var(--dark-pink);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .cake-description {
+      color: var(--light-brown);
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+
+    .cake-price {
+      font-size: 1.5rem;
+      color: var(--dark-pink);
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .btn-order {
+      width: 100%;
+      background: var(--primary-pink);
+      color: var(--dark-pink);
+      border: 2px solid var(--dark-pink);
+      padding: 12px;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-order:hover {
+      background: var(--dark-pink);
+      color: white;
+    }
+
+    /* Gallery Section */
+    #gallery {
+      background: white;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      cursor: pointer;
+      aspect-ratio: 1;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(176,48,96,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .gallery-overlay i {
+      color: white;
+      font-size: 2rem;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    /* About Section */
+    .about-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-image {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px var(--shadow);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .about-content h3 {
+      font-size: 2rem;
+      color: var(--dark-pink);
+      margin-bottom: 20px;
+    }
+
+    .about-content p {
+      color: var(--light-brown);
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .feature i {
+      color: var(--dark-pink);
+      font-size: 1.2rem;
+    }
+
+    /* Contact Section */
+    #contact {
+      background: linear-gradient(135deg, var(--cream), white);
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .contact-item i {
+      font-size: 1.5rem;
+      color: var(--dark-pink);
+      margin-top: 5px;
+    }
+
+    .contact-item h4 {
+      color: var(--dark-pink);
+      margin-bottom: 5px;
+    }
+
+    .contact-item p {
+      color: var(--light-brown);
+    }
+
+    .contact-form {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px var(--shadow);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--dark-pink);
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      font-family: inherit;
+      transition: border-color 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary-pink);
+    }
+
+    .error-message {
+      color: #e74c3c;
+      font-size: 0.85rem;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .success-message {
+      background: #d4edda;
+      color: #155724;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark-pink);
+      color: white;
+      padding: 50px 5% 20px;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 30px;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+    }
+
+    .footer-section p,
+    .footer-section a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      line-height: 2;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: var(--primary-pink);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      background: white;
+      color: var(--dark-pink);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* Shopping Cart Sidebar */
+    .cart-sidebar {
+      position: fixed;
+      top: 0;
+      right: -400px;
+      width: 400px;
+      height: 100vh;
+      background: white;
+      box-shadow: -5px 0 30px rgba(0,0,0,0.2);
+      z-index: 2000;
+      transition: right 0.4s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-sidebar.active {
+      right: 0;
+    }
+
+    .cart-header {
+      background: linear-gradient(135deg, var(--primary-pink), var(--light-pink));
+      padding: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-header h3 {
+      color: var(--dark-pink);
+      font-size: 1.5rem;
+    }
+
+    .close-cart {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--dark-pink);
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 15px;
+      padding: 15px;
+      background: var(--cream);
+      border-radius: 10px;
+      margin-bottom: 15px;
+      align-items: center;
+    }
+
+    .cart-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .cart-item-details {
+      flex: 1;
+    }
+
+    .cart-item-name {
+      font-weight: 600;
+      color: var(--dark-pink);
+      margin-bottom: 5px;
+    }
+
+    .cart-item-price {
+      color: var(--light-brown);
+      font-size: 0.9rem;
+    }
+
+    .remove-item {
+      background: none;
+      border: none;
+      color: #e74c3c;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: transform 0.2s;
+    }
+
+    .remove-item:hover {
+      transform: scale(1.1);
+    }
+
+    .cart-footer {
+      padding: 25px;
+      border-top: 2px solid var(--cream);
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: var(--dark-pink);
+      margin-bottom: 20px;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      background: var(--dark-pink);
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .checkout-btn:hover {
+      background: #8b2650;
+    }
+
+    .empty-cart {
+      text-align: center;
+      padding: 40px;
+      color: var(--light-brown);
+    }
+
+    .empty-cart i {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      color: var(--primary-pink);
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1500;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.9);
+      z-index: 3000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 968px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: linear-gradient(135deg, var(--primary-pink), var(--light-pink));
+        flex-direction: column;
+        padding: 40px 0;
+        transition: left 0.4s ease;
+        gap: 0;
+      }
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      .nav-links li {
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 20px;
+        font-size: 1.2rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .about-container,
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image {
+        order: -1;
+      }
+
+      .cart-sidebar {
+        width: 100%;
+        right: -100%;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-content {
+        padding: 40px 25px;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .contact-form {
+        padding: 25px;
+      }
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <a href="#" class="logo">
+        <i class="fas fa-birthday-cake"></i>
+        <span>The Cake House Jaela</span>
+      </a>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#cakes">Cakes</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+          <div class="cart-icon" onclick="toggleCart()">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cartCount">0</span>
+          </div>
+        </li>
+      </ul>
+
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Welcome to The Cake House Jaela</h1>
+      <p>Delicious homemade cakes for every occasion. Freshly baked with love and the finest ingredients.</p>
+      <a href="#cakes" class="btn-primary">Order Now <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <!-- Cakes Section -->
+  <section id="cakes">
+    <h2 class="section-title fade-in">Our Delicious Cakes</h2>
+    <div class="cakes-grid" id="cakesGrid">
+      <!-- Cake cards will be inserted by JavaScript -->
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery">
+    <h2 class="section-title fade-in">Our Gallery</h2>
+    <div class="gallery-grid" id="galleryGrid">
+      <!-- Gallery items will be inserted by JavaScript -->
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="about-container">
+      <div class="about-content fade-in">
+        <h3>About The Cake House Jaela</h3>
+        <p>We are a passionate home-based bakery located in Jaela, Sri Lanka, dedicated to creating beautiful and delicious cakes for all your special moments. Every cake is handcrafted with love, using only the freshest ingredients.</p>
+        <p>From birthday celebrations to weddings, we bring your sweet dreams to life with our custom designs and mouthwatering flavors.</p>
+        
+        <div class="features">
+          <div class="feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Fresh Ingredients Daily</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Custom Designs Available</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Home Delivery Service</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Affordable Prices</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="about-image fade-in">
+        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800" alt="Baker decorating cake">
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2 class="section-title fade-in">Contact Us</h2>
+    <div class="contact-container">
+      <div class="contact-info fade-in">
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <h4>Visit Us</h4>
+            <p>Jaela, Sri Lanka</p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <div>
+            <h4>Call Us</h4>
+            <p>+94 77 123 4567</p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <h4>Email Us</h4>
+            <p>info@cakehousejaela.com</p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <i class="fas fa-clock"></i>
+          <div>
+            <h4>Opening Hours</h4>
+            <p>Mon - Sat: 8:00 AM - 8:00 PM<br>Sunday: 9:00 AM - 6:00 PM</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form fade-in">
+        <div class="success-message" id="successMessage">
+          <i class="fas fa-check-circle"></i>
+          <span>Thank you! Your message has been sent successfully.</span>
+        </div>
+        
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label for="name">Your Name *</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name">
+            <span class="error-message" id="nameError">Please enter your name</span>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+            <span class="error-message" id="phoneError">Please enter a valid phone number</span>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Your Message *</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell us about your cake requirements..."></textarea>
+            <span class="error-message" id="messageError">Please enter your message</span>
+          </div>
+          
+          <button type="submit" class="btn-primary" style="width: 100%;">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>The Cake House Jaela</h3>
+        <p>Making every celebration sweeter with our delicious homemade cakes. Your satisfaction is our priority.</p>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <p><a href="#home">Home</a></p>
+        <p><a href="#cakes">Our Cakes</a></p>
+        <p><a href="#gallery">Gallery</a></p>
+        <p><a href="#about">About Us</a></p>
+        <p><a href="#contact">Contact</a></p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Our Services</h3>
+        <p><a href="#">Birthday Cakes</a></p>
+        <p><a href="#">Wedding Cakes</a></p>
+        <p><a href="#">Custom Cakes</a></p>
+        <p><a href="#">Cupcakes</a></p>
+        <p><a href="#">Cake Delivery</a></p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Jaela, Sri Lanka</p>
+        <p><i class="fas fa-phone"></i> +94 77 123 4567</p>
+        <p><i class="fas fa-envelope"></i> info@cakehousejaela.com</p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 The Cake House Jaela. All rights reserved. Made with <i class="fas fa-heart"></i> in Sri Lanka</p>
+    </div>
+  </footer>
+
+  <!-- Cart Sidebar -->
+  <div class="overlay" id="overlay" onclick="toggleCart()"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
+      <button class="close-cart" onclick="toggleCart()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <div class="cart-items" id="cartItems">
+      <div class="empty-cart">
+        <i class="fas fa-shopping-basket"></i>
+        <p>Your cart is empty</p>
+      </div>
+    </div>
+    
+    <div class="cart-footer" id="cartFooter" style="display: none;">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cartTotal">Rs. 0</span>
+      </div>
+      <button class="checkout-btn" onclick="checkout()">
+        <i class="fas fa-check"></i> Place Order
+      </button>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">
+      <i class="fas fa-times"></i>
+    </button>
+    <img src="" alt="Gallery Image" id="lightboxImg">
+  </div>
+
+  <script>
+    // Cake Data
+    const cakes = [
+      {
+        id: 1,
+        name: "Chocolate Cake",
+        description: "Rich chocolate sponge with creamy chocolate frosting and ganache layers.",
+        price: 3500,
+        image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600"
+      },
+      {
+        id: 2,
+        name: "Birthday Cake",
+        description: "Colorful custom birthday cake with buttercream decorations and sprinkles.",
+        price: 4500,
+        image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600"
+      },
+      {
+        id: 3,
+        name: "Wedding Cake",
+        description: "Elegant multi-tier wedding cake with fondant flowers and pearl details.",
+        price: 12000,
+        image: "https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=600"
+      },
+      {
+        id: 4,
+        name: "Cupcakes (6 pcs)",
+        description: "Assorted flavored cupcakes with beautiful frosting swirls.",
+        price: 1800,
+        image: "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=600"
+      },
+      {
+        id: 5,
+        name: "Red Velvet Cake",
+        description: "Classic red velvet with cream cheese frosting and red crumb topping.",
+        price: 4200,
+        image: "https://images.unsplash.com/photo-1586788680434-30cfe7c8e0a5?w=600"
+      },
+      {
+        id: 6,
+        name: "Strawberry Cake",
+        description: "Fresh strawberry cake with whipped cream and strawberry glaze.",
+        price: 3800,
+        image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600"
+      }
+    ];
+
+    // Gallery Data
+    const galleryImages = [
+      "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800",
+      "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=800",
+      "https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=800",
+      "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=800",
+      "https://images.unsplash.com/photo-1586788680434-30cfe7c8e0a5?w=800",
+      "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800",
+      "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=800",
+      "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=800"
+    ];
+
+    // Cart State
+    let cart = [];
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+      renderCakes();
+      renderGallery();
+      setupScrollAnimation();
+    });
+
+    // Render Cakes
+    function renderCakes() {
+      const grid = document.getElementById('cakesGrid');
+      grid.innerHTML = cakes.map(cake => `
+        <div class="cake-card fade-in">
+          <img src="${cake.image}" alt="${cake.name}" class="cake-image">
+          <div class="cake-content">
+            <h3 class="cake-name">${cake.name}</h3>
+            <p class="cake-description">${cake.description}</p>
+            <div class="cake-price">Rs. ${cake.price.toLocaleString()}</div>
+            <button class="btn-order" onclick="addToCart(${cake.id})">
+              <i class="fas fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Render Gallery
+    function renderGallery() {
+      const grid = document.getElementById('galleryGrid');
+      grid.innerHTML = galleryImages.map((img, index) => `
+        <div class="gallery-item fade-in" onclick="openLightbox('${img}')" style="animation-delay: ${index * 0.1}s">
+          <img src="${img}" alt="Cake Gallery ${index + 1}">
+          <div class="gallery-overlay">
+            <i class="fas fa-search-plus"></i>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Mobile Menu Toggle
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('active');
+    }
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('active');
+      });
+    });
+
+    // Cart Functions
+    function toggleCart() {
+      document.getElementById('cartSidebar').classList.toggle('active');
+      document.getElementById('overlay').classList.toggle('active');
+      document.body.style.overflow = document.getElementById('cartSidebar').classList.contains('active') ? 'hidden' : '';
+    }
+
+    function addToCart(cakeId) {
+      const cake = cakes.find(c => c.id === cakeId);
+      const existingItem = cart.find(item => item.id === cakeId);
+      
+      if (existingItem) {
+        existingItem.quantity++;
+      } else {
+        cart.push({ ...cake, quantity: 1 });
+      }
+      
+      updateCart();
+      toggleCart();
+      
+      // Show added notification
+      showNotification(`${cake.name} added to cart!`);
+    }
+
+    function removeFromCart(cakeId) {
+      cart = cart.filter(item => item.id !== cakeId);
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartItems = document.getElementById('cartItems');
+      const cartCount = document.getElementById('cartCount');
+      const cartFooter = document.getElementById('cartFooter');
+      const cartTotal = document.getElementById('cartTotal');
+      
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      cartCount.textContent = totalItems;
+      
+      if (cart.length === 0) {
+        cartItems.innerHTML = `
+          <div class="empty-cart">
+            <i class="fas fa-shopping-basket"></i>
+            <p>Your cart is empty</p>
+          </div>
+        `;
+        cartFooter.style.display = 'none';
+      } else {
+        cartItems.innerHTML = cart.map(item => `
+          <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}">
+            <div class="cart-item-details">
+              <div class="cart-item-name">${item.name}</div>
+              <div class="cart-item-price">Rs. ${item.price.toLocaleString()} x ${item.quantity}</div>
+            </div>
+            <button class="remove-item" onclick="removeFromCart(${item.id})">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        `).join('');
+        
+        const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        cartTotal.textContent = `Rs. ${total.toLocaleString()}`;
+        cartFooter.style.display = 'block';
+      }
+    }
+
+    function checkout() {
+      if (cart.length === 0) return;
+      
+      const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      const message = cart.map(item => `${item.name} (x${item.quantity}) - Rs. ${(item.price * item.quantity).toLocaleString()}`).join('%0A');
+      
+      // Open WhatsApp with order details
+      const whatsappUrl = `https://wa.me/94771234567?text=New Order from The Cake House Jaela:%0A%0A${message}%0A%0ATotal: Rs. ${total.toLocaleString()}`;
+      window.open(whatsappUrl, '_blank');
+      
+      // Clear cart
+      cart = [];
+      updateCart();
+      toggleCart();
+      showNotification('Order placed successfully!');
+    }
+
+    // Form Validation
+    function handleSubmit(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('name');
+      const phone = document.getElementById('phone');
+      const message = document.getElementById('message');
+      const successMessage = document.getElementById('successMessage');
+      
+      let isValid = true;
+      
+      // Reset errors
+      document.querySelectorAll('.error-message').forEach(err => err.style.display = 'none');
+      
+      // Validate name
+      if (!name.value.trim()) {
+        document.getElementById('nameError').style.display = 'block';
+        isValid = false;
+      }
+      
+      // Validate phone
+      const phoneRegex = /^[0-9+\-\s]{10,}$/;
+      if (!phoneRegex.test(phone.value.trim())) {
+        document.getElementById('phoneError').style.display = 'block';
+        isValid = false;
+      }
+      
+      // Validate message
+      if (!message.value.trim()) {
+        document.getElementById('messageError').style.display = 'block';
+        isValid = false;
+      }
+      
+      if (isValid) {
+        // Simulate form submission
+        successMessage.style.display = 'flex';
+        document.getElementById('contactForm').reset();
+        
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+        }, 5000);
+      }
+    }
+
+    // Lightbox Functions
+    function openLightbox(src) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Scroll Animation
+    function setupScrollAnimation() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    }
+
+    // Notification
+    function showNotification(text) {
+      const notification = document.createElement('div');
+      notification.style.cssText = `
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%) translateY(100px);
+        background: var(--dark-pink);
+        color: white;
+        padding: 15px 30px;
+        border-radius: 50px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        z-index: 4000;
+        font-weight: 600;
+        transition: transform 0.3s ease;
+      `;
+      notification.innerHTML = `<i class="fas fa-check-circle"></i> ${text}`;
+      document.body.appendChild(notification);
+      
+      setTimeout(() => notification.style.transform = 'translateX(-50%) translateY(0)', 100);
+      setTimeout(() => {
+        notification.style.transform = 'translateX(-50%) translateY(100px)';
+        setTimeout(() => notification.remove(), 300);
+      }, 3000);
+    }
+
+    // Keyboard accessibility
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeLightbox();
+        if (document.getElementById('cartSidebar').classList.contains('active')) {
+          toggleCart();
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
