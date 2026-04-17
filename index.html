@@ -296,20 +296,25 @@
       margin: 0 auto;
     }
 
-    .section-title {
-      text-align: center;
-      font-size: 2.5rem;
-      color: var(--dark-pink);
-      margin-bottom: 50px;
-      position: relative;
-    }
+   .section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--dark-pink);
+  margin-bottom: 50px;
+  position: relative;
+  display: flex; /* Flexbox use karanna header eka design karaganna */
+  flex-direction: column-reverse; /* Icon eka text ekata udin thiyaganna */
+  align-items: center; /* Center karanna horizontal wa */
+  gap: 15px; /* Icon ekath ekka heading eke thiyana ida */
+}
 
-    .section-title::after {
-      content: '🧁';
-      display: block;
-      font-size: 2rem;
-      margin-top: 5px;
-    }
+/* Cake icon eka (🎂) style karanna */
+.section-title::after {
+  content: '🎂';
+  display: block;
+  font-size: 2rem; /* 👈 Icon eke size eka meken wenas karanna */
+  color: var(--dark-pink); /* Paata wenas karanna ona nam */
+}
 
     /* Cakes Section */
     .cakes-grid {
