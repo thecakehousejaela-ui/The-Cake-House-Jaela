@@ -1,32 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<header>
-  
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Cake House Jaela | Fresh Homemade Cakes</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>.logo-img {
-  width: 65px !important;
-  height: 65px !important;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid var(--dark-pink);
-  display: block;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
+  <style>
     * {
       margin: 0;
       padding: 0;
@@ -42,14 +21,17 @@
       --light-brown: #8b6f6f;
       --white: #ffffff;
       --shadow: rgba(0,0,0,0.1);
+      --logo-purple: #9b59b6;
+      --logo-orange: #e67e22;
+      --success: #27ae60;
+      --gold: #f1c40f;
     }
 
     html {
       scroll-behavior: smooth;
     }
 
-    body {<h1>Hello</h1>
-<img src="https://via.placeholder.com/150">
+    body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: var(--cream);
       color: var(--brown);
@@ -70,23 +52,49 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 5%;
+      padding: 10px 5%;
       max-width: 1400px;
       margin: 0 auto;
     }
 
-    . {
+    .logo {
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--dark-pink);
+      gap: 12px;
       text-decoration: none;
     }
 
-    .logo i { 
-      font-size: 2rem;
+    .logo img {
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      background: white;
+    }
+
+    .logo:hover img {
+      transform: scale(1.05) rotate(5deg);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-text .main-title {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: var(--dark-pink);
+      line-height: 1.2;
+    }
+
+    .logo-text .sub-title {
+      font-size: 0.75rem;
+      color: var(--light-brown);
+      font-weight: 500;
     }
 
     .nav-links {
@@ -164,8 +172,8 @@
     /* Hero Section */
     .hero {
       min-height: 100vh;
-      background: linear-gradient(rgba(255,182,193,0.3), rgba(255,215,220,0.3)), 
-                  url('https://lh3.googleusercontent.com/gps-cs-s/APNQkAEu7_CwLe2PPUPpFv72IBocy6MEPUArOlGyr4MY_DgBvwlvn1exP078OMSXglQDGbIRd9-aGonU-Ckc4pyGUo0fU5UVJOz6nLvG6fBpCFwdbFuV-v3g7dhux6r6Jw2eiRiARa4qfN_1NpA=s680-w680-h510-rw') center/cover;
+      background: linear-gradient(135deg, rgba(155,89,182,0.2), rgba(230,126,34,0.2)), 
+                  url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1920') center/cover;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -183,6 +191,23 @@
       animation: fadeInUp 1s ease;
     }
 
+    .hero-logo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      margin-bottom: 25px;
+      border: 5px solid white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      animation: float 3s ease-in-out infinite;
+      object-fit: cover;
+      background: white;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -195,7 +220,7 @@
     }
 
     .hero h1 {
-      font-size: 3rem;
+      font-size: 2.8rem;
       color: var(--dark-pink);
       margin-bottom: 20px;
       font-weight: 700;
@@ -228,6 +253,27 @@
       box-shadow: 0 8px 25px rgba(176,48,96,0.4);
     }
 
+    .btn-secondary {
+      background: white;
+      color: var(--dark-pink);
+      border: 2px solid var(--dark-pink);
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-secondary:hover {
+      background: var(--dark-pink);
+      color: white;
+    }
+
     /* Section Styles */
     section {
       padding: 80px 5%;
@@ -244,7 +290,7 @@
     }
 
     .section-title::after {
-      content: '🎂';
+      content: '🧁';
       display: block;
       font-size: 2rem;
       margin-top: 10px;
@@ -325,6 +371,158 @@
     .btn-order:hover {
       background: var(--dark-pink);
       color: white;
+    }
+
+    /* Reviews Section */
+    #reviews {
+      background: linear-gradient(135deg, #fdfbfb, #ebedee);
+    }
+
+    .reviews-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .review-card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px var(--shadow);
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+
+    .review-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .review-card::before {
+      content: '"';
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 4rem;
+      color: var(--primary-pink);
+      opacity: 0.3;
+      font-family: serif;
+    }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .review-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-pink), var(--dark-pink));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .review-info h4 {
+      color: var(--dark-pink);
+      margin-bottom: 5px;
+    }
+
+    .review-stars {
+      color: var(--gold);
+      font-size: 0.9rem;
+    }
+
+    .review-text {
+      color: var(--light-brown);
+      line-height: 1.8;
+      font-style: italic;
+    }
+
+    .review-date {
+      margin-top: 15px;
+      font-size: 0.85rem;
+      color: #999;
+    }
+
+    .add-review-btn {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    /* Review Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 2500;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .review-modal {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 500px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      animation: modalSlide 0.3s ease;
+    }
+
+    @keyframes modalSlide {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--light-brown);
+    }
+
+    .star-rating {
+      display: flex;
+      gap: 10px;
+      font-size: 2rem;
+      color: #ddd;
+      cursor: pointer;
+      margin: 15px 0;
+    }
+
+    .star-rating .star.active {
+      color: var(--gold);
+    }
+
+    .star-rating .star:hover {
+      color: var(--gold);
     }
 
     /* Gallery Section */
@@ -487,7 +685,8 @@
     }
 
     .form-group input,
-    .form-group textarea {
+    .form-group textarea,
+    .form-group select {
       width: 100%;
       padding: 15px;
       border: 2px solid #e0e0e0;
@@ -498,7 +697,8 @@
     }
 
     .form-group input:focus,
-    .form-group textarea:focus {
+    .form-group textarea:focus,
+    .form-group select:focus {
       outline: none;
       border-color: var(--primary-pink);
     }
@@ -523,7 +723,7 @@
 
     /* Footer */
     footer {
-      background: var(--dark-pink);
+      background: linear-gradient(135deg, #9b59b6, #8e44ad);
       color: white;
       padding: 50px 5% 20px;
     }
@@ -554,6 +754,17 @@
       color: var(--primary-pink);
     }
 
+    .footer-logo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 4px solid white;
+      object-fit: cover;
+      background: white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
     .social-icons {
       display: flex;
       gap: 15px;
@@ -573,7 +784,7 @@
 
     .social-icons a:hover {
       background: white;
-      color: var(--dark-pink);
+      color: #9b59b6;
       transform: translateY(-3px);
     }
 
@@ -588,8 +799,8 @@
     .cart-sidebar {
       position: fixed;
       top: 0;
-      right: -400px;
-      width: 400px;
+      right: -450px;
+      width: 450px;
       height: 100vh;
       background: white;
       box-shadow: -5px 0 30px rgba(0,0,0,0.2);
@@ -662,6 +873,32 @@
       font-size: 0.9rem;
     }
 
+    .quantity-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .qty-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--dark-pink);
+      background: white;
+      color: var(--dark-pink);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .qty-btn:hover {
+      background: var(--dark-pink);
+      color: white;
+    }
+
     .remove-item {
       background: none;
       border: none;
@@ -680,18 +917,60 @@
       border-top: 2px solid var(--cream);
     }
 
-    .cart-total {
+    .cart-summary {
+      margin-bottom: 20px;
+    }
+
+    .summary-row {
       display: flex;
       justify-content: space-between;
+      margin-bottom: 10px;
+      color: var(--light-brown);
+    }
+
+    .summary-row.total {
       font-size: 1.3rem;
       font-weight: bold;
       color: var(--dark-pink);
+      border-top: 2px solid var(--cream);
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+
+    .payment-methods {
       margin-bottom: 20px;
+    }
+
+    .payment-methods label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .payment-methods label:hover,
+    .payment-methods input:checked + label {
+      border-color: var(--dark-pink);
+      background: var(--cream);
+    }
+
+    .payment-methods input {
+      display: none;
+    }
+
+    .payment-icon {
+      font-size: 1.5rem;
+      color: var(--dark-pink);
     }
 
     .checkout-btn {
       width: 100%;
-      background: var(--dark-pink);
+      background: var(--success);
       color: white;
       border: none;
       padding: 15px;
@@ -700,10 +979,19 @@
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
     }
 
     .checkout-btn:hover {
-      background: #8b2650;
+      background: #219a52;
+    }
+
+    .checkout-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
     }
 
     .empty-cart {
@@ -734,6 +1022,50 @@
     .overlay.active {
       opacity: 1;
       visibility: visible;
+    }
+
+    /* Payment Modal */
+    .payment-modal {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 450px;
+      width: 100%;
+      text-align: center;
+      animation: modalSlide 0.3s ease;
+    }
+
+    .payment-success-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--success);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      color: white;
+      font-size: 2.5rem;
+      animation: scaleIn 0.5s ease;
+    }
+
+    @keyframes scaleIn {
+      from { transform: scale(0); }
+      to { transform: scale(1); }
+    }
+
+    .payment-details {
+      background: var(--cream);
+      padding: 20px;
+      border-radius: 15px;
+      margin: 20px 0;
+      text-align: left;
+    }
+
+    .payment-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
     }
 
     /* Lightbox */
@@ -772,6 +1104,44 @@
       border: none;
     }
 
+    /* Order History */
+    .order-history {
+      margin-top: 30px;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px var(--shadow);
+    }
+
+    .order-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .order-item:last-child {
+      border-bottom: none;
+    }
+
+    .order-status {
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .status-completed {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    .status-pending {
+      background: #fff3cd;
+      color: #856404;
+    }
+
     /* Responsive Design */
     @media (max-width: 968px) {
       .hamburger {
@@ -780,10 +1150,10 @@
 
       .nav-links {
         position: fixed;
-        top: 70px;
+        top: 80px;
         left: -100%;
         width: 100%;
-        height: calc(100vh - 70px);
+        height: calc(100vh - 80px);
         background: linear-gradient(135deg, var(--primary-pink), var(--light-pink));
         flex-direction: column;
         padding: 40px 0;
@@ -814,6 +1184,11 @@
         font-size: 1rem;
       }
 
+      .hero-logo {
+        width: 140px;
+        height: 140px;
+      }
+
       .about-container,
       .contact-container {
         grid-template-columns: 1fr;
@@ -831,6 +1206,14 @@
       .features {
         grid-template-columns: 1fr;
       }
+
+      .logo-text {
+        display: none;
+      }
+
+      .reviews-container {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 480px) {
@@ -842,8 +1225,20 @@
         font-size: 2rem;
       }
 
-      .contact-form {
+      .contact-form,
+      .review-modal,
+      .payment-modal {
         padding: 25px;
+      }
+
+      .logo img {
+        height: 50px;
+        width: 50px;
+      }
+
+      .hero-logo {
+        width: 120px;
+        height: 120px;
       }
     }
 
@@ -865,13 +1260,18 @@
   <!-- Header -->
   <header>
     <nav>
- <a href="#" class="logo">
-  <img src="https://lh3.googleusercontent.com/p/AF1QipPeAvVhO1Pd-kHR3Cfag5g0BncNlqF9-mjjrQ3Y=s680-w680-h510-rw" alt="The Cake House Logo" class="logo-img">
-  <span>The Cake House Jaela</span>
-</a>
+      <a href="#" class="logo">
+        <img src="Blue and White Circle Surfing Club Logo (1)(1).png" alt="The Cake House Jaela Logo" id="headerLogo">
+        <div class="logo-text">
+          <span class="main-title">The Cake House</span>
+          <span class="sub-title">Jaela, Sri Lanka</span>
+        </div>
+      </a>
+      
       <ul class="nav-links" id="navLinks">
         <li><a href="#home">Home</a></li>
         <li><a href="#cakes">Cakes</a></li>
+        <li><a href="#reviews">Reviews</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#about">About Us</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -894,6 +1294,7 @@
   <!-- Hero Section -->
   <section class="hero" id="home">
     <div class="hero-content">
+      <img src="Blue and White Circle Surfing Club Logo (1)(1).png" alt="The Cake House Jaela Logo" class="hero-logo" id="heroLogo">
       <h1>Welcome to The Cake House Jaela</h1>
       <p>Delicious homemade cakes for every occasion. Freshly baked with love and the finest ingredients.</p>
       <a href="#cakes" class="btn-primary">Order Now <i class="fas fa-arrow-right"></i></a>
@@ -904,7 +1305,20 @@
   <section id="cakes">
     <h2 class="section-title fade-in">Our Delicious Cakes</h2>
     <div class="cakes-grid" id="cakesGrid">
-      <!-- Cake cards will be inserted by JavaScript -->
+      <!-- Cake cards inserted by JavaScript -->
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section id="reviews">
+    <h2 class="section-title fade-in">Customer Reviews</h2>
+    <div class="reviews-container" id="reviewsContainer">
+      <!-- Reviews inserted by JavaScript -->
+    </div>
+    <div class="add-review-btn">
+      <button class="btn-secondary" onclick="openReviewModal()">
+        <i class="fas fa-star"></i> Write a Review
+      </button>
     </div>
   </section>
 
@@ -912,7 +1326,7 @@
   <section id="gallery">
     <h2 class="section-title fade-in">Our Gallery</h2>
     <div class="gallery-grid" id="galleryGrid">
-      <!-- Gallery items will be inserted by JavaScript -->
+      <!-- Gallery items inserted by JavaScript -->
     </div>
   </section>
 
@@ -935,11 +1349,11 @@
           </div>
           <div class="feature">
             <i class="fas fa-check-circle"></i>
-            <span>Home Delivery Service</span>
+            <span>Secure Online Payments</span>
           </div>
           <div class="feature">
             <i class="fas fa-check-circle"></i>
-            <span>Affordable Prices</span>
+            <span>Fast Delivery Service</span>
           </div>
         </div>
       </div>
@@ -959,7 +1373,7 @@
           <i class="fas fa-map-marker-alt"></i>
           <div>
             <h4>Visit Us</h4>
-            <p>145/f/2 Wwevallagara Bollatha Ganeemulla, Sri Lanka</p>
+            <p>Jaela, Sri Lanka</p>
           </div>
         </div>
         
@@ -967,7 +1381,7 @@
           <i class="fas fa-phone"></i>
           <div>
             <h4>Call Us</h4>
-            <p>+94 76-6555687</p>
+            <p>+94 77 123 4567</p>
           </div>
         </div>
         
@@ -975,7 +1389,7 @@
           <i class="fas fa-envelope"></i>
           <div>
             <h4>Email Us</h4>
-            <p>thecakehousejaela@gmail.com</p>
+            <p>info@cakehousejaela.com</p>
           </div>
         </div>
         
@@ -983,7 +1397,7 @@
           <i class="fas fa-clock"></i>
           <div>
             <h4>Opening Hours</h4>
-            <p>Mon - Sat: 9:00 AM - 9:00 PM<br>Sunday: Close </p>
+            <p>Mon - Sat: 8:00 AM - 8:00 PM<br>Sunday: 9:00 AM - 6:00 PM</p>
           </div>
         </div>
       </div>
@@ -1025,6 +1439,7 @@
   <footer>
     <div class="footer-content">
       <div class="footer-section">
+        <img src="Blue and White Circle Surfing Club Logo (1)(1).png" alt="The Cake House Jaela Logo" class="footer-logo" id="footerLogo">
         <h3>The Cake House Jaela</h3>
         <p>Making every celebration sweeter with our delicious homemade cakes. Your satisfaction is our priority.</p>
         <div class="social-icons">
@@ -1039,25 +1454,25 @@
         <h3>Quick Links</h3>
         <p><a href="#home">Home</a></p>
         <p><a href="#cakes">Our Cakes</a></p>
+        <p><a href="#reviews">Reviews</a></p>
         <p><a href="#gallery">Gallery</a></p>
         <p><a href="#about">About Us</a></p>
         <p><a href="#contact">Contact</a></p>
       </div>
       
       <div class="footer-section">
-        <h3>Our Services</h3>
-        <p><a href="#">Birthday Cakes</a></p>
-        <p><a href="#">Wedding Cakes</a></p>
-        <p><a href="#">Custom Cakes</a></p>
-        <p><a href="#">Cupcakes</a></p>
-        <p><a href="#">Cake Delivery</a></p>
+        <h3>Payment Methods</h3>
+        <p><i class="fas fa-credit-card"></i> Visa / Mastercard</p>
+        <p><i class="fas fa-university"></i> Bank Transfer</p>
+        <p><i class="fas fa-mobile-alt"></i> PayHere</p>
+        <p><i class="fas fa-money-bill-wave"></i> Cash on Delivery</p>
       </div>
       
       <div class="footer-section">
         <h3>Contact Info</h3>
-        <p><i class="fas fa-map-marker-alt"></i> 145/f/2 Wevallagara Bollatha Ganeemulla, Sri Lanka</p>
-        <p><i class="fas fa-phone"></i> +94 76-6555687</p>
-        <p><i class="fas fa-envelope"></i> thecakehousejaela@gmail.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> Jaela, Sri Lanka</p>
+        <p><i class="fas fa-phone"></i> +94 77 123 4567</p>
+        <p><i class="fas fa-envelope"></i> info@cakehousejaela.com</p>
       </div>
     </div>
     
@@ -1084,12 +1499,118 @@
     </div>
     
     <div class="cart-footer" id="cartFooter" style="display: none;">
-      <div class="cart-total">
-        <span>Total:</span>
-        <span id="cartTotal">Rs. 0</span>
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>Subtotal:</span>
+          <span id="cartSubtotal">Rs. 0</span>
+        </div>
+        <div class="summary-row">
+          <span>Delivery:</span>
+          <span id="cartDelivery">Rs. 300</span>
+        </div>
+        <div class="summary-row total">
+          <span>Total:</span>
+          <span id="cartTotal">Rs. 0</span>
+        </div>
       </div>
-      <button class="checkout-btn" onclick="checkout()">
-        <i class="fas fa-check"></i> Place Order
+      
+      <div class="payment-methods">
+        <label>
+          <input type="radio" name="payment" value="card" checked>
+          <span class="payment-icon"><i class="fas fa-credit-card"></i></span>
+          <span>Credit/Debit Card</span>
+        </label>
+        <label>
+          <input type="radio" name="payment" value="bank">
+          <span class="payment-icon"><i class="fas fa-university"></i></span>
+          <span>Bank Transfer</span>
+        </label>
+        <label>
+          <input type="radio" name="payment" value="cod">
+          <span class="payment-icon"><i class="fas fa-money-bill-wave"></i></span>
+          <span>Cash on Delivery</span>
+        </label>
+      </div>
+      
+      <button class="checkout-btn" onclick="processCheckout()">
+        <i class="fas fa-lock"></i> Pay Securely
+      </button>
+    </div>
+  </div>
+
+  <!-- Review Modal -->
+  <div class="modal-overlay" id="reviewModal">
+    <div class="review-modal">
+      <button class="modal-close" onclick="closeReviewModal()">
+        <i class="fas fa-times"></i>
+      </button>
+      <h3 style="color: var(--dark-pink); margin-bottom: 20px; text-align: center;">
+        <i class="fas fa-star"></i> Write a Review
+      </h3>
+      
+      <form id="reviewForm" onsubmit="submitReview(event)">
+        <div class="form-group">
+          <label>Your Rating</label>
+          <div class="star-rating" id="starRating">
+            <span class="star" data-rating="1"><i class="fas fa-star"></i></span>
+            <span class="star" data-rating="2"><i class="fas fa-star"></i></span>
+            <span class="star" data-rating="3"><i class="fas fa-star"></i></span>
+            <span class="star" data-rating="4"><i class="fas fa-star"></i></span>
+            <span class="star" data-rating="5"><i class="fas fa-star"></i></span>
+          </div>
+          <input type="hidden" id="ratingValue" value="0">
+          <span class="error-message" id="ratingError">Please select a rating</span>
+        </div>
+        
+        <div class="form-group">
+          <label for="reviewerName">Your Name *</label>
+          <input type="text" id="reviewerName" placeholder="Enter your name">
+          <span class="error-message" id="reviewerNameError">Please enter your name</span>
+        </div>
+        
+        <div class="form-group">
+          <label for="reviewText">Your Review *</label>
+          <textarea id="reviewText" rows="4" placeholder="Share your experience with us..."></textarea>
+          <span class="error-message" id="reviewTextError">Please write your review</span>
+        </div>
+        
+        <button type="submit" class="btn-primary" style="width: 100%;">
+          <i class="fas fa-paper-plane"></i> Submit Review
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Payment Success Modal -->
+  <div class="modal-overlay" id="paymentModal">
+    <div class="payment-modal">
+      <div class="payment-success-icon">
+        <i class="fas fa-check"></i>
+      </div>
+      <h3 style="color: var(--success); margin-bottom: 10px;">Payment Successful!</h3>
+      <p style="color: var(--light-brown); margin-bottom: 20px;">Thank you for your order. We'll deliver your cakes fresh and on time!</p>
+      
+      <div class="payment-details">
+        <div class="payment-row">
+          <span>Order ID:</span>
+          <strong id="orderId">#ORD-001</strong>
+        </div>
+        <div class="payment-row">
+          <span>Amount Paid:</span>
+          <strong id="paidAmount">Rs. 0</strong>
+        </div>
+        <div class="payment-row">
+          <span>Payment Method:</span>
+          <strong id="paymentMethod">Card</strong>
+        </div>
+        <div class="payment-row">
+          <span>Estimated Delivery:</span>
+          <strong>2-3 Hours</strong>
+        </div>
+      </div>
+      
+      <button class="btn-primary" onclick="closePaymentModal()" style="margin-top: 20px;">
+        <i class="fas fa-home"></i> Continue Shopping
       </button>
     </div>
   </div>
@@ -1128,24 +1649,52 @@
       },
       {
         id: 4,
-        name: "Cupcakes (1 pcs)",
+        name: "Cupcakes (6 pcs)",
         description: "Assorted flavored cupcakes with beautiful frosting swirls.",
-        price: 140,
+        price: 1800,
         image: "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=600"
       },
       {
         id: 5,
-        name: "Butter Cake",
+        name: "Red Velvet Cake",
         description: "Classic red velvet with cream cheese frosting and red crumb topping.",
         price: 4200,
         image: "https://images.unsplash.com/photo-1586788680434-30cfe7c8e0a5?w=600"
       },
       {
         id: 6,
-        name: "Ribbon Cake",
+        name: "Strawberry Cake",
         description: "Fresh strawberry cake with whipped cream and strawberry glaze.",
         price: 3800,
         image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600"
+      }
+    ];
+
+    // Sample Reviews Data
+    let reviews = [
+      {
+        id: 1,
+        name: "Sarah Perera",
+        rating: 5,
+        text: "Absolutely loved the chocolate cake! It was moist, rich, and beautifully decorated. Delivery was on time too. Will definitely order again!",
+        date: "2 days ago",
+        avatar: "S"
+      },
+      {
+        id: 2,
+        name: "Kamal Fernando",
+        rating: 5,
+        text: "Ordered a birthday cake for my daughter. The custom design was exactly what we wanted. Everyone at the party loved it. Thank you Cake House!",
+        date: "1 week ago",
+        avatar: "K"
+      },
+      {
+        id: 3,
+        name: "Nisha Silva",
+        rating: 4,
+        text: "Great taste and beautiful presentation. The red velvet was perfect. Only suggestion is to offer more sugar-free options. Overall very satisfied!",
+        date: "2 weeks ago",
+        avatar: "N"
       }
     ];
 
@@ -1163,13 +1712,36 @@
 
     // Cart State
     let cart = [];
+    const DELIVERY_FEE = 300;
 
     // Initialize
     document.addEventListener('DOMContentLoaded', function() {
       renderCakes();
+      renderReviews();
       renderGallery();
       setupScrollAnimation();
+      setupStarRating();
+      setupLogoErrorHandling();
     });
+
+    // Logo Error Handling
+    function setupLogoErrorHandling() {
+      const logos = ['headerLogo', 'heroLogo', 'footerLogo'];
+      logos.forEach(id => {
+        const img = document.getElementById(id);
+        if (img) {
+          img.onerror = function() {
+            if (id === 'heroLogo') {
+              this.style.display = 'none';
+              const placeholder = document.createElement('div');
+              placeholder.innerHTML = '🧁';
+              placeholder.style.cssText = 'font-size: 100px; margin-bottom: 20px; animation: float 3s ease-in-out infinite;';
+              this.parentNode.insertBefore(placeholder, this);
+            }
+          };
+        }
+      });
+    }
 
     // Render Cakes
     function renderCakes() {
@@ -1189,6 +1761,28 @@
       `).join('');
     }
 
+    // Render Reviews
+    function renderReviews() {
+      const container = document.getElementById('reviewsContainer');
+      container.innerHTML = reviews.map(review => `
+        <div class="review-card fade-in">
+          <div class="review-header">
+            <div class="review-avatar">${review.avatar}</div>
+            <div class="review-info">
+              <h4>${review.name}</h4>
+              <div class="review-stars">
+                ${Array(5).fill(0).map((_, i) => 
+                  `<i class="${i < review.rating ? 'fas' : 'far'} fa-star"></i>`
+                ).join('')}
+              </div>
+            </div>
+          </div>
+          <p class="review-text">${review.text}</p>
+          <p class="review-date"><i class="far fa-clock"></i> ${review.date}</p>
+        </div>
+      `).join('');
+    }
+
     // Render Gallery
     function renderGallery() {
       const grid = document.getElementById('galleryGrid');
@@ -1202,13 +1796,11 @@
       `).join('');
     }
 
-    // Mobile Menu Toggle
+    // Mobile Menu
     function toggleMenu() {
-      const navLinks = document.getElementById('navLinks');
-      navLinks.classList.toggle('active');
+      document.getElementById('navLinks').classList.toggle('active');
     }
 
-    // Close mobile menu when clicking a link
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
         document.getElementById('navLinks').classList.remove('active');
@@ -1234,9 +1826,18 @@
       
       updateCart();
       toggleCart();
-      
-      // Show added notification
       showNotification(`${cake.name} added to cart!`);
+    }
+
+    function updateQuantity(cakeId, change) {
+      const item = cart.find(item => item.id === cakeId);
+      if (item) {
+        item.quantity += change;
+        if (item.quantity <= 0) {
+          cart = cart.filter(i => i.id !== cakeId);
+        }
+        updateCart();
+      }
     }
 
     function removeFromCart(cakeId) {
@@ -1248,6 +1849,7 @@
       const cartItems = document.getElementById('cartItems');
       const cartCount = document.getElementById('cartCount');
       const cartFooter = document.getElementById('cartFooter');
+      const cartSubtotal = document.getElementById('cartSubtotal');
       const cartTotal = document.getElementById('cartTotal');
       
       const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -1267,7 +1869,12 @@
             <img src="${item.image}" alt="${item.name}">
             <div class="cart-item-details">
               <div class="cart-item-name">${item.name}</div>
-              <div class="cart-item-price">Rs. ${item.price.toLocaleString()} x ${item.quantity}</div>
+              <div class="cart-item-price">Rs. ${item.price.toLocaleString()}</div>
+              <div class="quantity-control">
+                <button class="qty-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
+                <span>${item.quantity}</span>
+                <button class="qty-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+              </div>
             </div>
             <button class="remove-item" onclick="removeFromCart(${item.id})">
               <i class="fas fa-trash"></i>
@@ -1275,30 +1882,138 @@
           </div>
         `).join('');
         
-        const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        const total = subtotal + DELIVERY_FEE;
+        
+        cartSubtotal.textContent = `Rs. ${subtotal.toLocaleString()}`;
         cartTotal.textContent = `Rs. ${total.toLocaleString()}`;
         cartFooter.style.display = 'block';
       }
     }
 
-    function checkout() {
+    // Checkout Process
+    function processCheckout() {
       if (cart.length === 0) return;
       
-      const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-      const message = cart.map(item => `${item.name} (x${item.quantity}) - Rs. ${(item.price * item.quantity).toLocaleString()}`).join('%0A');
+      const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      const total = subtotal + DELIVERY_FEE;
       
-      // Open WhatsApp with order details
-      const whatsappUrl = `https://wa.me/94771234567?text=New Order from The Cake House Jaela:%0A%0A${message}%0A%0ATotal: Rs. ${total.toLocaleString()}`;
-      window.open(whatsappUrl, '_blank');
+      // Simulate payment processing
+      const btn = document.querySelector('.checkout-btn');
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
       
-      // Clear cart
-      cart = [];
-      updateCart();
-      toggleCart();
-      showNotification('Order placed successfully!');
+      setTimeout(() => {
+        // Show success modal
+        document.getElementById('orderId').textContent = `#ORD-${Date.now().toString().slice(-6)}`;
+        document.getElementById('paidAmount').textContent = `Rs. ${total.toLocaleString()}`;
+        document.getElementById('paymentMethod').textContent = 
+          paymentMethod === 'card' ? 'Credit/Debit Card' : 
+          paymentMethod === 'bank' ? 'Bank Transfer' : 'Cash on Delivery';
+        
+        document.getElementById('paymentModal').classList.add('active');
+        
+        // Clear cart
+        cart = [];
+        updateCart();
+        toggleCart();
+        
+        // Reset button
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-lock"></i> Pay Securely';
+      }, 2000);
     }
 
-    // Form Validation
+    function closePaymentModal() {
+      document.getElementById('paymentModal').classList.remove('active');
+    }
+
+    // Review Modal Functions
+    function openReviewModal() {
+      document.getElementById('reviewModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeReviewModal() {
+      document.getElementById('reviewModal').classList.remove('active');
+      document.body.style.overflow = '';
+      document.getElementById('reviewForm').reset();
+      document.querySelectorAll('.star').forEach(s => s.classList.remove('active'));
+      document.getElementById('ratingValue').value = 0;
+    }
+
+    function setupStarRating() {
+      const stars = document.querySelectorAll('.star');
+      const ratingInput = document.getElementById('ratingValue');
+      
+      stars.forEach(star => {
+        star.addEventListener('click', () => {
+          const rating = parseInt(star.dataset.rating);
+          ratingInput.value = rating;
+          
+          stars.forEach((s, index) => {
+            if (index < rating) {
+              s.classList.add('active');
+            } else {
+              s.classList.remove('active');
+            }
+          });
+        });
+      });
+    }
+
+    function submitReview(e) {
+      e.preventDefault();
+      
+      const rating = parseInt(document.getElementById('ratingValue').value);
+      const name = document.getElementById('reviewerName').value.trim();
+      const text = document.getElementById('reviewText').value.trim();
+      
+      let isValid = true;
+      
+      // Reset errors
+      document.querySelectorAll('.error-message').forEach(err => err.style.display = 'none');
+      
+      if (rating === 0) {
+        document.getElementById('ratingError').style.display = 'block';
+        isValid = false;
+      }
+      
+      if (!name) {
+        document.getElementById('reviewerNameError').style.display = 'block';
+        isValid = false;
+      }
+      
+      if (!text) {
+        document.getElementById('reviewTextError').style.display = 'block';
+        isValid = false;
+      }
+      
+      if (isValid) {
+        const newReview = {
+          id: reviews.length + 1,
+          name: name,
+          rating: rating,
+          text: text,
+          date: "Just now",
+          avatar: name.charAt(0).toUpperCase()
+        };
+        
+        reviews.unshift(newReview);
+        renderReviews();
+        closeReviewModal();
+        showNotification('Thank you for your review!');
+        
+        // Re-trigger animation for new review
+        setTimeout(() => {
+          const firstCard = document.querySelector('.review-card');
+          if (firstCard) firstCard.classList.add('visible');
+        }, 100);
+      }
+    }
+
+    // Contact Form
     function handleSubmit(e) {
       e.preventDefault();
       
@@ -1309,30 +2024,25 @@
       
       let isValid = true;
       
-      // Reset errors
       document.querySelectorAll('.error-message').forEach(err => err.style.display = 'none');
       
-      // Validate name
       if (!name.value.trim()) {
         document.getElementById('nameError').style.display = 'block';
         isValid = false;
       }
       
-      // Validate phone
       const phoneRegex = /^[0-9+\-\s]{10,}$/;
       if (!phoneRegex.test(phone.value.trim())) {
         document.getElementById('phoneError').style.display = 'block';
         isValid = false;
       }
       
-      // Validate message
       if (!message.value.trim()) {
         document.getElementById('messageError').style.display = 'block';
         isValid = false;
       }
       
       if (isValid) {
-        // Simulate form submission
         successMessage.style.display = 'flex';
         document.getElementById('contactForm').reset();
         
@@ -1342,7 +2052,7 @@
       }
     }
 
-    // Lightbox Functions
+    // Lightbox
     function openLightbox(src) {
       document.getElementById('lightboxImg').src = src;
       document.getElementById('lightbox').classList.add('active');
@@ -1398,10 +2108,21 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeLightbox();
+        closeReviewModal();
+        closePaymentModal();
         if (document.getElementById('cartSidebar').classList.contains('active')) {
           toggleCart();
         }
       }
+    });
+
+    // Close modals on overlay click
+    document.getElementById('reviewModal').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) closeReviewModal();
+    });
+    
+    document.getElementById('paymentModal').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) closePaymentModal();
     });
   </script>
 
