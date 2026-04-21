@@ -1559,22 +1559,19 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
       </div>
       
       <div class="payment-methods">
-        <label>
-          <input type="radio" name="payment" value="card" checked>
-          <span class="payment-icon"><i class="fas fa-credit-card"></i></span>
-          <span>Credit/Debit Card</span>
-        </label>
-        <label>
-          <input type="radio" name="payment" value="bank">
-          <span class="payment-icon"><i class="fas fa-university"></i></span>
-          <span>Bank Transfer</span>
-        </label>
-        <label>
-          <input type="radio" name="payment" value="cod">
-          <span class="payment-icon"><i class="fas fa-money-bill-wave"></i></span>
-          <span></span>
-        </label>
-      </div>
+ <div id="bankDetails" style="display:none; margin-top:15px; background:#fff7f3; padding:15px; border-radius:10px;">
+  <h4 style="color:#b03060;">Bank Transfer Details</h4>
+  <p><strong>Bank:</strong> Bank of ceylon </p>
+  <p><strong>Account Name:</strong> k inoka dilrukshi</p>
+  <p><strong>Account Number:</strong> 486100 </p>
+  <p><strong>Branch:</strong> Ja-Ela</p>
+</div>
+  <label>
+    <input type="radio" name="payment" value="cod">
+    <span class="payment-icon"><i class="fas fa-money-bill-wave"></i></span>
+    <span></span>
+  </label>
+</div>
       
       <button class="checkout-btn" onclick="processCheckout()">
         <i class="fas fa-lock"></i> Pay Securely
