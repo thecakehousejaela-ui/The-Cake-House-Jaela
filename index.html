@@ -1452,18 +1452,32 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
           <i class="fas fa-check-circle"></i>
           <span>Thank you! Your message has been sent successfully.</span>
         </div>
-        
-        <form id="contactForm" onsubmit="<form id="contactForm" onsubmit="handleSubmit(event)"> 
+         <form id="contactForm" onsubmit="handleSubmit(event)">
           <div class="form-group">
-            <label for="name">Your Name *</label> 
-            <input type="text" id="name" name="name" placeholder="Enter your name"> 
-            <span class="error-message" id="nameError">Please enter your name</span> </div>
-          <div class="form-group"> <label for="phone">Phone Number *</label> 
-            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number"> 
-            <span class="error-message" id="phoneError">Please enter a valid phone number</span> </div> 
-          <div class="form-group"> <label for="message">Your Message *</label> 
-            <textarea id="message" name="message" rows="5" placeholder="Tell us about your cake requirements..."></textarea> 
-            <span class="error-message" id="messageError">Please enter your message</span> </div>
+            <label for="name">Your Name *</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name">
+            <span class="error-message" id="nameError">Please enter your name</span>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+            <span class="error-message" id="phoneError">Please enter a valid phone number</span>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Your Message *</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell us about your cake requirements..."></textarea>
+            <span class="error-message" id="messageError">Please enter your message</span>
+          </div>
+          
+          <button type="submit" class="btn-primary" style="width: 100%;">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
 }
   <!-- Footer -->
   <footer>
