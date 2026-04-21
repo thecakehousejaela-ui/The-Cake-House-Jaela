@@ -2063,7 +2063,7 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
     }
 
     // Contact Form
-   function handleSubmit(e) {
+  function handleSubmit(e) {
   e.preventDefault();
 
   const name = document.getElementById('name').value.trim();
@@ -2076,19 +2076,19 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
   }
 
   emailjs.send("service_uj65yqp", "template_ybqu6iu", {
-  from_name: name,
-  phone: phone,
-  message: message
-})
-.then(function(response) {
-  console.log("SUCCESS", response);
-  alert("Message sent!");
-}, function(error) {
-  console.log("FAILED", error);
-  alert("Error: " + JSON.stringify(error));
-});
+    from_name: name,
+    phone: phone,
+    message: message
+  })
+  .then(function(response) {
+    alert("Message sent successfully!");
+    document.getElementById('contactForm').reset();
+  })
+  .catch(function(error) {
+    console.log("ERROR:", error);
+    alert("Failed: " + error.text);
+  });
 }
-
     // Lightbox
     function openLightbox(src) {
       document.getElementById('lightboxImg').src = src;
