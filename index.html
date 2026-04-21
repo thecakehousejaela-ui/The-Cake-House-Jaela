@@ -2076,16 +2076,17 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
   }
 
   emailjs.send("service_uj65yqp", "template_ybqu6iu", {
-    from_name: name,
-    phone: phone,
-    message: message
-  })
-  .then(function(response) {
-    alert("Message sent successfully!");
-    document.getElementById('contactForm').reset();
-  }, function(error) {
-    alert("Failed to send message");
-  });
+  from_name: name,
+  phone: phone,
+  message: message
+})
+.then(function(response) {
+  console.log("SUCCESS", response);
+  alert("Message sent!");
+}, function(error) {
+  console.log("FAILED", error);
+  alert("Error: " + JSON.stringify(error));
+});
 }
 
     // Lightbox
