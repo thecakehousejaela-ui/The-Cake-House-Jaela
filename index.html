@@ -1560,11 +1560,10 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
       
       <div class="payment-methods">
         <label>
-         <label>
-  <input type="radio" name="payment" value="card" checked>
+          <input type="radio" name="payment" value="card" checked>
           <span class="payment-icon"><i class="fas fa-credit-card"></i></span>
           <span>Credit/Debit Card</span>
-</label>
+        </label>
         <label>
           <input type="radio" name="payment" value="bank">
           <span class="payment-icon"><i class="fas fa-university"></i></span>
@@ -1942,18 +1941,13 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
     }
 
     // Checkout Process
-   if (cart.length === 0) return;
+    function processCheckout() {
+      if (cart.length === 0) return;
       
       const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
       const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
       const total = subtotal + DELIVERY_FEE;
       
-      // Simulate payment processing
-      const btn = document.querySelector('.checkout-btn');
-      btn.disabled = true;
-      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-      
-      setTimeout(() => {
       // Simulate payment processing
       const btn = document.querySelector('.checkout-btn');
       btn.disabled = true;
