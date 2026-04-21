@@ -1761,14 +1761,21 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
     const DELIVERY_FEE = 300;
 
     // Initialize
-    document.addEventListener('DOMContentLoaded', function() {
-      renderCakes();
-      renderReviews();
-      renderGallery();
-      setupScrollAnimation();
-      setupStarRating();
-      setupLogoErrorHandling();
+   document.addEventListener('DOMContentLoaded', function() {
+
+  document.querySelectorAll('input[name="payment"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+      const bankBox = document.getElementById('bankDetails');
+
+      if (this.value === 'bank') {
+        bankBox.style.display = 'block';
+      } else {
+        bankBox.style.display = 'none';
+      }
     });
+  });
+
+});
 
     // Logo Error Handling
     function setupLogoErrorHandling() {
