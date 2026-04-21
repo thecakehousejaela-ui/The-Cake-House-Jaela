@@ -2185,5 +2185,28 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
 (function(){
   emailjs.init("_S3Qh4V3ugjrLFHRn");
 })();
-</script> </body>
+</script> function handleSubmit(e) {
+  e.preventDefault();
+
+  const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  if (!name || !phone || !message) {
+    alert("Please fill all fields");
+    return;
+  }
+
+  emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+    from_name: name,
+    phone: phone,
+    message: message
+  })
+  .then(function(response) {
+    alert("Message sent successfully!");
+    document.getElementById('contactForm').reset();
+  }, function(error) {
+    alert("Failed to send message");</script>
+  });
+} </body>
 </html>
