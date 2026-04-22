@@ -1576,8 +1576,8 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
 
 </div>
       
-      <button onclick="sendToWhatsApp()" class="btn-secondary">
-  <i class="fab fa-whatsapp"></i> Send Payment Proof
+      <button onclick="sendSlipWhatsApp()" class="btn-secondary" style="width:100%; margin-top:15px;">
+  <i class="fab fa-whatsapp"></i> Send Payment Slip via WhatsApp
 </button>
     </div>
   </div>
@@ -2179,5 +2179,27 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
 (function(){
   emailjs.init("083YxnTuLZbc3vVeS");
 })();
-</script> </body>
+</script> 
+  
+  <script> function sendSlipWhatsApp() {
+
+  if (cart.length === 0) {
+    alert("Your cart is empty!");
+    return;
+  }
+
+  let message = "Hello, I have completed a bank transfer.%0A%0AOrder Details:%0A";
+
+  cart.forEach(item => {
+    message += `${item.name} x${item.quantity} - Rs.${item.price}%0A`;
+  });
+
+  message += "%0ATotal: Rs." + 
+    cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+  message += "%0A%0APlease find my payment slip attached.";
+
+  window.open(`https://wa.me/94766555687?text=${message}`, "_blank");
+} </script>
+</body>
 </html>
