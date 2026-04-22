@@ -1559,11 +1559,6 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
       </div>
       
       <div class="payment-methods">
-        <div id="slipUploadBox" style="display:none; margin-top:15px;">
-  <label style="color:#b03060; font-weight:600;">Upload Bank Slip</label>
-  <input type="file" id="bankSlip" accept="image/*" 
-         style="margin-top:10px; padding:10px; width:100%; border-radius:10px; border:1px solid #ccc;">
-</div>
  <div id="bankDetails" style="display:none; margin-top:15px; background:#fff7f3; padding:15px; border-radius:10px;">
   <h4 style="color:#b03060;">Bank Transfer Details</h4>
   <p><strong>Bank:</strong> Bank of ceylon </p>
@@ -1582,29 +1577,7 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
 </div>
       
       <button class="checkout-btn" onclick="processCheckout()">
-        <i function processCheckout() {
-  if (cart.length === 0) return;
-
-  const selected = document.querySelector('input[name="payment"]:checked');
-
-  if (!selected) {
-    alert("Please select a payment method");
-    return;
-  }
-
-  const paymentMethod = selected.value;
-
-  // ðŸ”¥ Check slip upload
-  if (paymentMethod === 'bank') {
-    const slip = document.getElementById('bankSlip').files[0];
-
-    if (!slip) {
-      alert("Please upload your bank slip!");
-      return;
-    }
-  }
-
-  // continue normal process...
+        <i class="fas fa-lock"></i> Pay Securely
       </button>
     </div>
   </div>
@@ -1874,21 +1847,17 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
 
     // Mobile Menu
     function toggleMenu() {
-      function sendSlipToWhatsApp() {
-  window.open("https://wa.me/94766555687?text=Hi,%20I%20have%20completed%20the%20bank%20transfer.%20Here%20is%20my%20slip.");
-}
+      document.getElementById('navLinks').classList.toggle('active');
+    }
 
-  document.querySelectorAll('input[name="payment"]').forEach(radio => {
+   document.querySelectorAll('input[name="payment"]').forEach(radio => {
   radio.addEventListener('change', function() {
     const bankBox = document.getElementById('bankDetails');
-    const slipBox = document.getElementById('slipUploadBox');
 
     if (this.value === 'bank') {
       bankBox.style.display = 'block';
-      slipBox.style.display = 'block'; // ðŸ‘ˆ ADD THIS
     } else {
       bankBox.style.display = 'none';
-      slipBox.style.display = 'none';
     }
   });
 });
