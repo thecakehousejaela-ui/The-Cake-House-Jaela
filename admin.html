@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cake House Admin</title>
+    <style>
+        body { font-family: sans-serif; background: #fff7f3; padding: 20px; }
+        .admin-container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        h2 { color: #b03060; text-align: center; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+        .btn-save { background: #27ae60; color: white; border: none; padding: 12px; width: 100%; border-radius: 8px; cursor: pointer; font-size: 16px; }
+        .btn-save:hover { background: #219150; }
+        #adminContent { display: none; } /* මුලින්ම පේන්නේ නැහැ */
+    </style>
+</head>
+<body>
+
+<div class="admin-container" id="loginBox">
+    <h2>Admin Login</h2>
+    <input type="password" id="passInput" placeholder="මුරපදය ඇතුළත් කරන්න">
+    <button class="btn-save" style="margin-top:10px" onclick="checkPass()">Login</button>
+</div>
+
+<div class="admin-container" id="adminContent">
+    <h2>Add New Cake</h2>
+    <div class="form-group">
+        <label>Cake Name</label>
+        <input type="text" id="cakeName" placeholder="උදා: Chocolate Dream">
+    </div>
+    <div class="form-group">
+        <label>Price (Rs.)</label>
+        <input type="number" id="cakePrice" placeholder="උදා: 3500">
+    </div>
+    <div class="form-group">
+        <label>Image URL</label>
+        <input type="text" id="cakeImg" placeholder="පින්තූරයේ link එක">
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea id="cakeDesc" rows="3"></textarea>
+    </div>
+    <button class="btn-save" onclick="saveCake()">කේක් එක ඇතුළත් කරන්න</button>
+    <p id="status"></p>
+</div>
+
+<script>
+    // සරල මුරපද පරීක්ෂාව
+    function checkPass() {
+        const pass = document.getElementById('passInput').value;
+        if(pass === "1988") { // ඔබේ රහස් අංකය මෙතනට දාන්න
+            document.getElementById('loginBox').style.display = 'none';
+            document.getElementById('adminContent').style.display = 'block';
+        } else {
+            alert("වැරදි මුරපදයක්!");
+        }
+    }
+
+    // මීළඟ පියවරේදී Supabase සමඟ සම්බන්ධ කරමු
+    function saveCake() {
+        const name = document.getElementById('cakeName').value;
+        const price = document.getElementById('cakePrice').value;
+        const img = document.getElementById('cakeImg').value;
+        const desc = document.getElementById('cakeDesc').value;
+
+        if(!name || !price) {
+            alert("නම සහ මිල අනිවාර්යයි!");
+            return;
+        }
+
+        console.log("Saving:", { name, price, img, desc });
+        document.getElementById('status').innerText = "සාර්ථකව සුරැකුණා! (Supabase සම්බන්ධ කළ පසු)";
+    }
+</script> 
+  <script>// Supabase සම්බන්ධ කිරීම (admin.html හි script එකට එක් කරන්න)
+const SU_URL = "https://qnaawcdcafdpysykdokv.supabase.co/rest/v1/";
+const SU_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFuYWF3Y2RjYWZkcHlzeWtkb2t2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY4NDk5ODcsImV4cCI6MjA5MjQyNTk4N30.hBkiamUOmidDEuLnc7YctmnOdM4RoSEF4j2qw2q4vTQ";
+
+async function saveCake() {
+    // දත්ත ලබා ගැනීම...
+    const { data, error } = await supabase
+        .from('cakes')
+        .insert([{ name, price, image_url: img, description: desc }]);
+        
+    if(error) alert("වැරදීමක් සිදු විය!");
+    else alert("සාර්ථකව ඇතුළත් කළා!");
+}</script>
+
+</body>
+</html>
