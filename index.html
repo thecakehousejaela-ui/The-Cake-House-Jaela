@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> <script>
+<head> 
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Cake House">
+<link rel="apple-touch-icon" href="https://via.placeholder.com/192">
+    
+    <link rel="manifest" href="manifest.json">
+    <script>
 if (location.protocol !== 'https:') {
     location.replace(`https:${location.href.substring(location.protocol.length)}`);
 }
@@ -2204,6 +2211,14 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
   message += "%0A%0APlease find my payment slip attached.";
 
   window.open(`https://wa.me/94766555687?text=${message}`, "_blank");
-} </script>
+} </script> 
+    <script> 
+  if('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js')
+      .then(reg => console.log('Service Worker Registered'))
+      .catch(err => console.log('Service Worker Not Registered', err));
+  }
+</script>
+</script>
 </body>
 </html>
