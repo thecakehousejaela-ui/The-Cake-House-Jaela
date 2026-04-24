@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Cake House">
@@ -1197,10 +1198,82 @@ if (location.protocol !== 'https:') {
     }
 
     /* Responsive Design */
-    @media (max-width: 968px) {
-      .hamburger {
+    /* --- RESPONSIVE DESIGN FOR ALL DEVICES --- */
+
+/* 1. Tablets (iPads) සහ කුඩා Laptops සඳහා (Width 1024px ට අඩු නම්) */
+@media (max-width: 1024px) {
+    .logo-text {
         display: flex;
-      }
+        flex-direction: column;
+    }
+    .logo-text .main-title {
+        font-size: 1.1rem;
+    }
+    .logo-text .sub-title {
+        font-size: 0.6rem;
+    }
+}
+
+/* 2. Mobile Phones සඳහා (Width 768px ට අඩු නම්) */
+@media (max-width: 768px) {
+    header {
+        padding: 0 15px; /* දෙපැත්තෙන් ඉඩ චුට්ටක් තැබුවා */
+    }
+
+    .logo img {
+        height: 40px;
+        width: 40px;
+    }
+
+    .logo-text .main-title {
+        font-size: 0.9rem; /* ෆෝන් එකේදී නම තවත් චුට්ටක් පොඩි වෙනවා */
+    }
+
+    .logo-text .sub-title {
+        font-size: 0.5rem;
+    }
+
+    /* Hamburger Menu එක පෙන්වීම */
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: white; /* ඔයාට කැමති පාටක් මෙතනට දාන්න */
+        flex-direction: column;
+        transition: 0.4s;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    /* Hero Section එකේ අකුරු ෆෝන් එකට ගැලපෙන්න */
+    .hero h1 {
+        font-size: 1.5rem;
+        padding: 0 10px;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+}
+
+/* 3. ඉතා කුඩා Phones සඳහා (Width 480px ට අඩු නම්) */
+@media (max-width: 480px) {
+    .logo-text .main-title {
+        font-size: 0.8rem;
+    }
+    /* ඉඩ මදි නම් "Sri Lanka" කොටස අයින් කිරීමට */
+    .logo-text .sub-title {
+        display: none; 
+    }
+}
 
       .nav-links {
         position: fixed;
