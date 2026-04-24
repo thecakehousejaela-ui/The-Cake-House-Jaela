@@ -1,0 +1,21 @@
+{
+  "name": "The Cake House Ja-Ela",
+  "short_name": "CakeHouse",
+  "description": "Fresh Homemade Cakes in Ja-Ela",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#fff7f3",
+  "theme_color": "#ffb6c1",
+  "icons": [
+    {
+      "src": "https://lh3.googleusercontent.com/p/AF1QipPeAvVhO1Pd-kHR3Cfag5g0BncNlqF9-mjjrQ3Y=s680-w680-h510-rw",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://lh3.googleusercontent.com/p/AF1QipPeAvVhO1Pd-kHR3Cfag5g0BncNlqF9-mjjrQ3Y=s680-w680-h510-rw",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
