@@ -1478,7 +1478,7 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
       </div>
     </div>
   </section>
-
+}
   <!-- Footer -->
   <footer>
     <div class="footer-content">
@@ -1761,7 +1761,7 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
 
     // Cart State
     let cart = [];
-    const DELIVERY_FEE = 0;
+    const DELIVERY_FEE = 300;
 
     // Initialize
     document.addEventListener('DOMContentLoaded', function() {
@@ -2017,32 +2017,13 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
       });
     }
 
-   function submitReview(e) {
-  e.preventDefault();
-  
-  const rating = parseInt(document.getElementById('ratingValue').value);
-  const name = document.getElementById('reviewerName').value.trim();
-  const text = document.getElementById('reviewText').value.trim();
-  
-  if (!rating || !name || !text) {
-    alert("Please fill all fields");
-    return;
-  }
-
-  const newReview = {
-    id: reviews.length + 1,
-    name: name,
-    rating: rating,
-    text: text,
-    date: "Just now",
-    avatar: name.charAt(0).toUpperCase()
-  };
-  
-  reviews.unshift(newReview);
-  renderReviews();
-  closeReviewModal();
-  showNotification("Review added!");
-}
+    function submitReview(e) {
+      e.preventDefault();
+      
+      const rating = parseInt(document.getElementById('ratingValue').value);
+      const name = document.getElementById('reviewerName').value.trim();
+      const text = document.getElementById('reviewText').value.trim();
+      
       let isValid = true;
       
       // Reset errors
@@ -2210,7 +2191,7 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
   let message = "Hello, I have completed a bank transfer.%0A%0AOrder Details:%0A";
 
   cart.forEach(item => {
-    message += `${item.name} x${item.quantity} -Rs.${item.price * item.quantity}%0A`;
+    message += `${item.name} x${item.quantity} - Rs.${item.price}%0A`;
   });
 
   message += "%0ATotal: Rs." + 
@@ -2219,9 +2200,6 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
   message += "%0A%0APlease find my payment slip attached.";
 
   window.open(`https://wa.me/94766555687?text=${message}`, "_blank");
-} </script> 
-
-}
-</script>
+} </script>
 </body>
 </html>
