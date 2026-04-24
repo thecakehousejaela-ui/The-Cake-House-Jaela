@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Cake House Ja-Ela | Fresh Homemade Cakes</title>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    .whatsapp-float {
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>.whatsapp-float {
   position: fixed;
   bottom: 25px;
   right: 25px;
@@ -20,7 +19,7 @@
   align-items: center;
   justify-content: center;
   font-size: 28px;
-  box-shadow: 0.5px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   z-index: 5000;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -807,7 +806,7 @@
       border: 1px solid (--dark-pink);
       object-fit: cover;
       background: white;
-      box-shadow: 0 4px 10px rgba(255, 112, 129, 0.3);
+      box-shadow: 10px rgba(#FF7081);
     }
 
     .social-icons {
@@ -1480,7 +1479,7 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
       </div>
     </div>
   </section>
-
+}
   <!-- Footer -->
   <footer>
     <div class="footer-content">
@@ -1715,7 +1714,34 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
         image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600"
       }
     ];
-   
+
+    // Sample Reviews Data
+    let reviews = [
+      {
+        id: 1,
+        name: "Sarah Perera",
+        rating: 5,
+        text: "Absolutely loved the chocolate cake! It was moist, rich, and beautifully decorated. Delivery was on time too. Will definitely order again!",
+        date: "2 days ago",
+        avatar: "S"
+      },
+      {
+        id: 2,
+        name: "Kamal Fernando",
+        rating: 5,
+        text: "Ordered a birthday cake for my daughter. The custom design was exactly what we wanted. Everyone at the party loved it. Thank you Cake House!",
+        date: "1 week ago",
+        avatar: "K"
+      },
+      {
+        id: 3,
+        name: "Nisha Silva",
+        rating: 4,
+        text: "Great taste and beautiful presentation. The red velvet was perfect. Only suggestion is to offer more sugar-free options. Overall very satisfied!",
+        date: "2 weeks ago",
+        avatar: "N"
+      }
+    ];
 
     // Gallery Data
     const galleryImages = [
@@ -1736,11 +1762,12 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
 
     // Cart State
     let cart = [];
-    const DELIVERY_FEE = 0;
+    const DELIVERY_FEE = 300;
 
     // Initialize
     document.addEventListener('DOMContentLoaded', function() {
       renderCakes();
+      renderReviews();
       renderGallery();
       setupScrollAnimation();
       setupStarRating();
@@ -1786,6 +1813,8 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
 
     // Render Reviews
     function renderReviews() {
+      const container = document.getElementById('reviewsContainer');
+      container.innerHTML = reviews.map(review => `
         <div class="review-card fade-in">
           <div class="review-header">
             <div class="review-avatar">${review.avatar}</div>
@@ -2175,41 +2204,39 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
 } </script> <script> // 1. Supabase Initialization
 const supabaseUrl = 'https://qnaawcdcafdpysykdokv.supabase.co';
 const supabaseKey = 'sb_publishable_pIsElpqPvaTtyEBUgVxUlw_2PFcptbC';
-const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
-  
+const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
 // 2. Reviews Display karanna
 async function displayReviews() {
     const reviewsContainer = document.getElementById('reviewsContainer');
     
-    
-async function displayReviews() {
-  const reviewsContainer = document.getElementById('reviewsContainer');
-  
-  const { data: reviews, error } = await supabaseClient
-    .from('reviews')
-    .select('*')
-    .order('created_at', { ascending: false });
+    // Database eken reviews ganna
+    const { data: reviews, error } = await supabase
+        .from('reviews')
+        .select('*')
+        .order('created_at', { ascending: false });
 
-  if (error) {
-    console.error(error);
-    return;
-  }
+    if (error) {
+        console.error('Error fetching reviews:', error);
+        return;
+    }
 
-  reviewsContainer.innerHTML = reviews.map(rev => `
-    <div class="review-card">
-      <div class="review-header">
-        <div class="review-avatar">${rev.user_name.charAt(0).toUpperCase()}</div>
-        <div class="review-info">
-          <h4>${rev.user_name}</h4>
-          <div class="review-stars">
-            ${'â˜…'.repeat(rev.rating)}${'â˜†'.repeat(5 - rev.rating)}
-          </div>
+    // HTML eka update karanna
+    reviewsContainer.innerHTML = reviews.map(rev => `
+        <div class="review-card">
+            <div class="review-header">
+                <div class="review-avatar">${rev.user_name.charAt(0).toUpperCase()}</div>
+                <div class="review-info">
+                    <h4>${rev.user_name}</h4>
+                    <div class="review-stars">
+                        ${'â˜…'.repeat(rev.rating)}${'â˜†'.repeat(5 - rev.rating)}
+                    </div>
+                </div>
+            </div>
+            <p class="review-text">${rev.review_text}</p>
+            <div class="review-date">${new Date(rev.created_at).toLocaleDateString()}</div>
         </div>
-      </div>
-      <p class="review-text">${rev.review_text}</p>
-      <div class="review-date">${new Date(rev.created_at).toLocaleDateString()}</div>
-    </div>
-  `).join('');
+    `).join('');
 }
 
 // Page eka load weddi reviews pennanna
