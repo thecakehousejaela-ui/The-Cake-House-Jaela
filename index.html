@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Cake House Ja-Ela | Fresh Homemade Cakes</title>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>.whatsapp-float {
   position: fixed;
@@ -2018,13 +2017,32 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
       });
     }
 
-    function submitReview(e) {
-      e.preventDefault();
-      
-      const rating = parseInt(document.getElementById('ratingValue').value);
-      const name = document.getElementById('reviewerName').value.trim();
-      const text = document.getElementById('reviewText').value.trim();
-      
+   function submitReview(e) {
+  e.preventDefault();
+  
+  const rating = parseInt(document.getElementById('ratingValue').value);
+  const name = document.getElementById('reviewerName').value.trim();
+  const text = document.getElementById('reviewText').value.trim();
+  
+  if (!rating || !name || !text) {
+    alert("Please fill all fields");
+    return;
+  }
+
+  const newReview = {
+    id: reviews.length + 1,
+    name: name,
+    rating: rating,
+    text: text,
+    date: "Just now",
+    avatar: name.charAt(0).toUpperCase()
+  };
+  
+  reviews.unshift(newReview);
+  renderReviews();
+  closeReviewModal();
+  showNotification("Review added!");
+}
       let isValid = true;
       
       // Reset errors
@@ -2201,46 +2219,9 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
   message += "%0A%0APlease find my payment slip attached.";
 
   window.open(`https://wa.me/94766555687?text=${message}`, "_blank");
-} </script> <script> // 1. Supabase Initialization
-const supabaseUrl = 'https://qnaawcdcafdpysykdokv.supabase.co';
-const supabaseKey = 'sb_publishable_pIsElpqPvaTtyEBUgVxUlw_2PFcptbC';
-const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+} </script> 
 
-// 2. Reviews Display karanna
-async function displayReviews() {
-    const reviewsContainer = document.getElementById('reviewsContainer');
-    
-    // Database eken reviews ganna
-    const { data: reviews, error } = await supabase
-        .from('reviews')
-        .select('*')
-        .order('created_at', { ascending: false });
-
-    if (error) {
-        console.error('Error fetching reviews:', error);
-        return;
-    }
-
-    // HTML eka update karanna
-    reviewsContainer.innerHTML = reviews.map(rev => `
-        <div class="review-card">
-            <div class="review-header">
-                <div class="review-avatar">${rev.user_name.charAt(0).toUpperCase()}</div>
-                <div class="review-info">
-                    <h4>${rev.user_name}</h4>
-                    <div class="review-stars">
-                        ${'â˜…'.repeat(rev.rating)}${'â˜†'.repeat(5 - rev.rating)}
-                    </div>
-                </div>
-            </div>
-            <p class="review-text">${rev.review_text}</p>
-            <div class="review-date">${new Date(rev.created_at).toLocaleDateString()}</div>
-        </div>
-    `).join('');
 }
-
-// Page eka load weddi reviews pennanna
-document.addEventListener('DOMContentLoaded', displayReviews);
 </script>
 </body>
 </html>
