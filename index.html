@@ -1479,7 +1479,7 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
       </div>
     </div>
   </section>
-}
+
   <!-- Footer -->
   <footer>
     <div class="footer-content">
@@ -1762,7 +1762,7 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
 
     // Cart State
     let cart = [];
-    const DELIVERY_FEE = 300;
+    const DELIVERY_FEE = 0;
 
     // Initialize
     document.addEventListener('DOMContentLoaded', function() {
@@ -2192,7 +2192,7 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
   let message = "Hello, I have completed a bank transfer.%0A%0AOrder Details:%0A";
 
   cart.forEach(item => {
-    message += `${item.name} x${item.quantity} - Rs.${item.price}%0A`;
+    message += `${item.name} x${item.quantity} -Rs.${item.price * item.quantity}%0A`;
   });
 
   message += "%0ATotal: Rs." + 
