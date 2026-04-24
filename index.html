@@ -1213,65 +1213,60 @@ if (location.protocol !== 'https:') {
         font-size: 0.6rem;
     }
 }
+/* --- UPDATED RESPONSIVE DESIGN --- */
 
-/* 2. Mobile Phones සඳහා (Width 768px ට අඩු නම්) */
-@media (max-width: 768px) {
-    header {
-        padding: 0 15px; /* දෙපැත්තෙන් ඉඩ චුට්ටක් තැබුවා */
-    }
-
-    .logo img {
-        height: 40px;
-        width: 40px;
+@media (max-width: 968px) {
+    /* 1. iPad සහ Phones වල නම පෙන්නන්න */
+    .logo-text {
+        display: flex !important; /* !important එකෙන් අනිවාර්යයෙන්ම නම පෙන්වයි */
+        flex-direction: column;
     }
 
     .logo-text .main-title {
-        font-size: 0.9rem; /* ෆෝන් එකේදී නම තවත් චුට්ටක් පොඩි වෙනවා */
+        font-size: 1.1rem;
     }
 
     .logo-text .sub-title {
-        font-size: 0.5rem;
+        font-size: 0.6rem;
     }
 
-    /* Hamburger Menu එක පෙන්වීම */
-    .hamburger {
-        display: flex;
-    }
-
+    /* 2. Menu එක සකස් කිරීම */
     .nav-links {
         position: fixed;
-        top: 70px;
+        top: 80px;
         left: -100%;
         width: 100%;
-        height: calc(100vh - 70px);
-        background: white; /* ඔයාට කැමති පාටක් මෙතනට දාන්න */
+        height: calc(100vh - 80px);
+        background: linear-gradient(135deg, var(--primary-pink), var(--light-pink));
         flex-direction: column;
-        transition: 0.4s;
+        padding: 40px 0;
+        transition: left 0.4s ease;
+        gap: 0;
+        display: flex; /* Menu එක වැඩ කිරීමට මෙය අවශ්‍යයි */
     }
 
     .nav-links.active {
         left: 0;
     }
 
-    /* Hero Section එකේ අකුරු ෆෝන් එකට ගැලපෙන්න */
+    /* 3. Hero Section එක iPad/Phone වලට ගැලපීම */
     .hero h1 {
-        font-size: 1.5rem;
-        padding: 0 10px;
+        font-size: 1.8rem;
     }
 
-    .hero p {
-        font-size: 0.9rem;
+    .hero-logo {
+        width: 100px;
+        height: 100px;
     }
 }
 
-/* 3. ඉතා කුඩා Phones සඳහා (Width 480px ට අඩු නම්) */
 @media (max-width: 480px) {
+    /* 4. ඉතා කුඩා පෝන් වලදී අකුරු තවත් පොඩි කිරීම */
     .logo-text .main-title {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
-    /* ඉඩ මදි නම් "Sri Lanka" කොටස අයින් කිරීමට */
     .logo-text .sub-title {
-        display: none; 
+        font-size: 0.5rem;
     }
 }
 
@@ -1334,9 +1329,7 @@ if (location.protocol !== 'https:') {
         grid-template-columns: 1fr;
       }
 
-      .logo-text {
-        display: none;
-      }
+     
 
       .reviews-container {
         grid-template-columns: 1fr;
