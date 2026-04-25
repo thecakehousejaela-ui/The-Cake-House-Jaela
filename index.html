@@ -1279,20 +1279,44 @@ if (location.protocol !== 'https:') {
     }
 }
 
-/* ඉතා කුඩා Screen ඇති iPhone සඳහා පමණක් (iPhone SE etc.) */
-@media (max-width: 380px) {
-    .logo-text .main-title {
-        font-size: 0.9rem;
+/* iPhone සහ කුඩා ජංගම දුරකථන සඳහා විශේෂිත සැකසුම් */
+@media (max-width: 480px) {
+    nav {
+        padding: 5px 15px !important; /* Header එක ඇතුළත ඉඩ අඩු කිරීමට */
+        justify-content: space-between !important;
     }
+
     .logo img {
-        height: 45px;
-        width: 45px;
+        height: 45px !important; /* Logo එක කුඩා කිරීමට */
+        width: 45px !important;
     }
+
+    .logo-text .main-title {
+        font-size: 0.85rem !important; /* නම තවත් කුඩා කිරීමට */
+        white-space: nowrap;
+    }
+
+    .logo-text .sub-title {
+        font-size: 0.5rem !important;
+    }
+
+    /* Hamburger Menu එක අනිවාර්යයෙන්ම පෙන්වීමට */
+    .hamburger {
+        display: flex !important;
+        margin-left: auto;
+        padding: 5px;
+    }
+
+    /* Hero section එකේ පින්තූරය කැපීම වැළැක්වීමට */
+    .hero-content {
+        padding: 30px 15px !important;
+        margin-top: 20px;
+    }
+
     .hero h1 {
-        font-size: 1.5rem;
+        font-size: 1.4rem !important;
     }
-}
-      .nav-links {
+}      .nav-links {
         position: fixed;
         top: 80px;
         left: -100%;
