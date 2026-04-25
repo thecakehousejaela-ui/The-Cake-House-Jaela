@@ -1198,26 +1198,15 @@ if (location.protocol !== 'https:') {
     }
 
     /* Responsive Design */
-    /* --- RESPONSIVE DESIGN FOR ALL DEVICES --- */
-
-/* 1. Tablets (iPads) සහ කුඩා Laptops සඳහා (Width 1024px ට අඩු නම්) */
-@media (max-width: 1024px) {
-    .logo-text {
-        display: flex;
-        flex-direction: column;
-    }
-    .logo-text .main-title {
-        font-size: 1.1rem;
-    }
-    .logo-text .sub-title {
-        font-size: 0.6rem;
-    }
-}
-/* --- අවසාන සහ ස්ථිර විසඳුම (All Mobiles & Tablets) --- */
-
+    /* --- අවසාන සහ ස්ථිර විසඳුම (All Mobiles & Tablets) --- */
 @media (max-width: 1024px) {
     
-    /* Logo Text එක සැඟවීම වෙනුවට පෙන්වීම අනිවාර්ය කිරීම */
+    /* Header එකේ ඉඩ කළමනාකරණය */
+    nav {
+        padding: 10px 20px !important;
+        justify-content: space-between !important;
+    }
+
     .logo-text {
         display: flex !important;
         flex-direction: column;
@@ -1231,92 +1220,76 @@ if (location.protocol !== 'https:') {
         font-size: 0.6rem;
     }
 
-    /* Hamburger Menu එක පෙන්වීම */
+    /* Hamburger Menu එක අනිවාර්යයෙන්ම පෙන්වීම */
     .hamburger {
         display: flex !important;
         flex-direction: column;
         z-index: 1100;
+        margin-left: 15px;
     }
 
-    /* Navigation Links සකස් කිරීම */
+    /* Navigation Links සිරස් අතට (Vertical) සකස් කිරීම */
     .nav-links {
         position: fixed;
-        top: 70px; /* Header එකේ උසට ගැලපෙන්න */
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 70px);
-        background: linear-gradient(135deg, var(--primary-pink), var(--light-pink));
+        top: 0;
+        left: -100%; /* මෙනු එක හංගා තැබීම */
+        width: 280px; /* iPad වලදී මුළු screen එකම වැසෙන්නේ නැතිව පැත්තකින් පෙන්වීමට */
+        height: 100vh;
+        background: white;
         flex-direction: column;
-        padding: 40px 0;
-        transition: left 0.4s ease;
-        gap: 0;
+        padding: 80px 20px;
+        transition: 0.4s ease-in-out;
+        gap: 10px;
         z-index: 1000;
-        display: flex;
+        display: flex !important;
+        box-shadow: 5px 0 15px rgba(0,0,0,0.1);
     }
 
+    /* මෙනු එක Active වූ විට පෙන්වීම */
     .nav-links.active {
-        left: 0;
+        left: 0 !important;
     }
 
     .nav-links li {
         width: 100%;
-        text-align: center;
-        padding: 15px 0;
+        text-align: left;
+        border-bottom: 1px solid #eee;
     }
 
     .nav-links a {
         display: block;
-        font-size: 1.2rem;
+        padding: 15px 0;
+        font-size: 1.1rem;
+        color: var(--dark-pink) !important;
     }
 
-    /* Sections වල Grid එක තනි පේළියට හැදීම */
-    .about-container, .contact-container, .reviews-container {
-        grid-template-columns: 1fr !important;
-    }
-
-    .hero h1 {
-        font-size: 1.8rem;
+    /* Cart Icon එක පෙනෙන ලෙස තැබීම */
+    .nav-links li:last-child {
+        border-bottom: none;
+        margin-top: 20px;
     }
 }
 
-/* iPhone සහ කුඩා ජංගම දුරකථන සඳහා විශේෂිත සැකසුම් */
+/* iPhone (Mobile) සඳහා විශේෂිත වූ වෙනස්කම් */
 @media (max-width: 480px) {
-    nav {
-        padding: 5px 15px !important; /* Header එක ඇතුළත ඉඩ අඩු කිරීමට */
-        justify-content: space-between !important;
-    }
-
     .logo img {
-        height: 45px !important; /* Logo එක කුඩා කිරීමට */
+        height: 45px !important;
         width: 45px !important;
     }
 
     .logo-text .main-title {
-        font-size: 0.85rem !important; /* නම තවත් කුඩා කිරීමට */
-        white-space: nowrap;
+        font-size: 0.9rem !important;
     }
 
-    .logo-text .sub-title {
-        font-size: 0.5rem !important;
-    }
-
-    /* Hamburger Menu එක අනිවාර්යයෙන්ම පෙන්වීමට */
-    .hamburger {
-        display: flex !important;
-        margin-left: auto;
-        padding: 5px;
-    }
-
-    /* Hero section එකේ පින්තූරය කැපීම වැළැක්වීමට */
-    .hero-content {
-        padding: 30px 15px !important;
-        margin-top: 20px;
+    .nav-links {
+        width: 100% !important; /* Mobile වලදී screen එකම වැසෙන ලෙස */
     }
 
     .hero h1 {
-        font-size: 1.4rem !important;
+        font-size: 1.5rem !important;
     }
-}      .nav-links {
+}
+      .nav-links {
         position: fixed;
         top: 80px;
         left: -100%;
