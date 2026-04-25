@@ -1213,17 +1213,16 @@ if (location.protocol !== 'https:') {
         font-size: 0.6rem;
     }
 }
-/* --- UPDATED RESPONSIVE DESIGN --- */
-/* --- RESPONSIVE DESIGN FOR ALL DEVICES --- */
+/* --- අවසාන සහ ස්ථිර විසඳුම (All Mobiles & Tablets) --- */
 
-/* 1. iPad සහ Phones දෙකටම පොදුවේ (Width 1024px ට අඩු නම්) */
 @media (max-width: 1024px) {
-    /* නම සහ උපසිරැසිය පෙන්වීම */
+    
+    /* Logo Text එක සැඟවීම වෙනුවට පෙන්වීම අනිවාර්ය කිරීම */
     .logo-text {
         display: flex !important;
         flex-direction: column;
     }
-    
+
     .logo-text .main-title {
         font-size: 1.1rem;
     }
@@ -1232,25 +1231,27 @@ if (location.protocol !== 'https:') {
         font-size: 0.6rem;
     }
 
-    /* Hamburger Menu එක iPad එකේ පෙන්වන්න මේක අනිවාර්යයි */
+    /* Hamburger Menu එක පෙන්වීම */
     .hamburger {
         display: flex !important;
         flex-direction: column;
+        z-index: 1100;
     }
 
-    /* Navigation Links හැංගීම (Hamburger එක එබූ විට පමණක් පෙන්වීමට) */
+    /* Navigation Links සකස් කිරීම */
     .nav-links {
         position: fixed;
-        top: 80px;
+        top: 70px; /* Header එකේ උසට ගැලපෙන්න */
         left: -100%;
         width: 100%;
-        height: calc(100vh - 80px);
+        height: calc(100vh - 70px);
         background: linear-gradient(135deg, var(--primary-pink), var(--light-pink));
         flex-direction: column;
         padding: 40px 0;
         transition: left 0.4s ease;
         gap: 0;
         z-index: 1000;
+        display: flex;
     }
 
     .nav-links.active {
@@ -1260,52 +1261,35 @@ if (location.protocol !== 'https:') {
     .nav-links li {
         width: 100%;
         text-align: center;
-        padding: 10px 0;
+        padding: 15px 0;
     }
 
     .nav-links a {
         display: block;
-        padding: 20px;
         font-size: 1.2rem;
     }
 
-    /* Hero Section එකේ අකුරු සකස් කිරීම */
+    /* Sections වල Grid එක තනි පේළියට හැදීම */
+    .about-container, .contact-container, .reviews-container {
+        grid-template-columns: 1fr !important;
+    }
+
     .hero h1 {
         font-size: 1.8rem;
     }
-
-    .hero-logo {
-        width: 100px;
-        height: 100px;
-    }
-
-    /* Sidebar එක Phone වලට ගැලපීම */
-    .cart-sidebar {
-        width: 100%;
-        right: -100%;
-    }
-
-    .about-container, .contact-container {
-        grid-template-columns: 1fr;
-    }
 }
 
-/* 2. ඉතා කුඩා Phones සඳහා (Width 480px ට අඩු නම්) */
-@media (max-width: 480px) {
+/* ඉතා කුඩා Screen ඇති iPhone සඳහා පමණක් (iPhone SE etc.) */
+@media (max-width: 380px) {
     .logo-text .main-title {
         font-size: 0.9rem;
     }
-    .logo-text .sub-title {
-        font-size: 0.5rem;
-    }
-    
     .logo img {
-        height: 50px;
-        width: 50px;
+        height: 45px;
+        width: 45px;
     }
-
-    .section-title {
-        font-size: 1.8rem;
+    .hero h1 {
+        font-size: 1.5rem;
     }
 }
       .nav-links {
