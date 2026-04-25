@@ -1196,97 +1196,73 @@ if (location.protocol !== 'https:') {
       background: #fff3cd;
       color: #856404;
     }
+/* --- Optimized Responsive Navigation --- */
 
-    /* Responsive Design */
-    /* --- අවසාන සහ ස්ථිර විසඳුම (All Mobiles & Tablets) --- */
+/* 1. iPad සහ මධ්‍යම ප්‍රමාණයේ තිර සඳහා (Width 1024px ට අඩු) */
 @media (max-width: 1024px) {
-    
-    /* Header එකේ ඉඩ කළමනාකරණය */
     nav {
         padding: 10px 20px !important;
         justify-content: space-between !important;
     }
 
-    .logo-text {
-        display: flex !important;
-        flex-direction: column;
-    }
-
-    .logo-text .main-title {
-        font-size: 1.1rem;
-    }
-
-    .logo-text .sub-title {
-        font-size: 0.6rem;
-    }
-
-    /* Hamburger Menu එක අනිවාර්යයෙන්ම පෙන්වීම */
     .hamburger {
-        display: flex !important;
-        flex-direction: column;
-        z-index: 1100;
-        margin-left: 15px;
+        display: flex !important; /* Menu icon එක පෙන්වීමට */
+        z-index: 2000;
     }
 
-    /* Navigation Links සිරස් අතට (Vertical) සකස් කිරීම */
     .nav-links {
+        display: none; /* Default එකේ හංගන්න */
         position: fixed;
         top: 0;
-        left: -100%; /* මෙනු එක හංගා තැබීම */
-        width: 280px; /* iPad වලදී මුළු screen එකම වැසෙන්නේ නැතිව පැත්තකින් පෙන්වීමට */
+        right: 0;
+        width: 250px;
         height: 100vh;
         background: white;
         flex-direction: column;
-        padding: 80px 20px;
-        transition: 0.4s ease-in-out;
-        gap: 10px;
-        z-index: 1000;
-        display: flex !important;
-        box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+        justify-content: flex-start;
+        padding-top: 80px;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        z-index: 1500;
     }
 
-    /* මෙනු එක Active වූ විට පෙන්වීම */
     .nav-links.active {
-        left: 0 !important;
+        display: flex !important; /* Click කළ විට පෙන්වීමට */
     }
 
     .nav-links li {
-        width: 100%;
-        text-align: left;
-        border-bottom: 1px solid #eee;
-    }
-
-    .nav-links a {
-        display: block;
-        padding: 15px 0;
-        font-size: 1.1rem;
-        color: var(--dark-pink) !important;
-    }
-
-    /* Cart Icon එක පෙනෙන ලෙස තැබීම */
-    .nav-links li:last-child {
-        border-bottom: none;
-        margin-top: 20px;
+        margin: 15px 30px;
     }
 }
 
-/* iPhone (Mobile) සඳහා විශේෂිත වූ වෙනස්කම් */
+/* 2. iPhone සහ කුඩා ජංගම දුරකථන සඳහා (Width 480px ට අඩු) */
 @media (max-width: 480px) {
+    /* Header එකේ Logo එක කුඩා කිරීමෙන් Menu එකට ඉඩ ලබා දීම */
     .logo img {
-        height: 45px !important;
-        width: 45px !important;
+        height: 40px !important;
+        width: 40px !important;
     }
 
     .logo-text .main-title {
-        font-size: 0.9rem !important;
+        font-size: 0.85rem !important;
+    }
+
+    .logo-text .sub-title {
+        font-size: 0.5rem !important;
+    }
+
+    /* Hero Section එකේ පෙනුම සකස් කිරීම */
+    .hero h1 {
+        font-size: 1.3rem !important;
+        padding: 0 10px;
+    }
+
+    .hero-content {
+        width: 90% !important;
+        padding: 20px 15px !important;
     }
 
     .nav-links {
-        width: 100% !important; /* Mobile වලදී screen එකම වැසෙන ලෙස */
-    }
-
-    .hero h1 {
-        font-size: 1.5rem !important;
+        width: 100%; /* Mobile වලදී මුළු තිරයම වැසෙන ලෙස */
     }
 }
       .nav-links {
