@@ -1214,14 +1214,16 @@ if (location.protocol !== 'https:') {
     }
 }
 /* --- UPDATED RESPONSIVE DESIGN --- */
+/* --- RESPONSIVE DESIGN FOR ALL DEVICES --- */
 
-@media (max-width: 968px) {
-    /* 1. iPad සහ Phones වල නම පෙන්නන්න */
+/* 1. iPad සහ Phones දෙකටම පොදුවේ (Width 1024px ට අඩු නම්) */
+@media (max-width: 1024px) {
+    /* නම සහ උපසිරැසිය පෙන්වීම */
     .logo-text {
-        display: flex !important; /* !important එකෙන් අනිවාර්යයෙන්ම නම පෙන්වයි */
+        display: flex !important;
         flex-direction: column;
     }
-
+    
     .logo-text .main-title {
         font-size: 1.1rem;
     }
@@ -1230,7 +1232,13 @@ if (location.protocol !== 'https:') {
         font-size: 0.6rem;
     }
 
-    /* 2. Menu එක සකස් කිරීම */
+    /* Hamburger Menu එක iPad එකේ පෙන්වන්න මේක අනිවාර්යයි */
+    .hamburger {
+        display: flex !important;
+        flex-direction: column;
+    }
+
+    /* Navigation Links හැංගීම (Hamburger එක එබූ විට පමණක් පෙන්වීමට) */
     .nav-links {
         position: fixed;
         top: 80px;
@@ -1242,14 +1250,26 @@ if (location.protocol !== 'https:') {
         padding: 40px 0;
         transition: left 0.4s ease;
         gap: 0;
-        display: flex; /* Menu එක වැඩ කිරීමට මෙය අවශ්‍යයි */
+        z-index: 1000;
     }
 
     .nav-links.active {
         left: 0;
     }
 
-    /* 3. Hero Section එක iPad/Phone වලට ගැලපීම */
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 20px;
+        font-size: 1.2rem;
+    }
+
+    /* Hero Section එකේ අකුරු සකස් කිරීම */
     .hero h1 {
         font-size: 1.8rem;
     }
@@ -1258,18 +1278,36 @@ if (location.protocol !== 'https:') {
         width: 100px;
         height: 100px;
     }
+
+    /* Sidebar එක Phone වලට ගැලපීම */
+    .cart-sidebar {
+        width: 100%;
+        right: -100%;
+    }
+
+    .about-container, .contact-container {
+        grid-template-columns: 1fr;
+    }
 }
 
+/* 2. ඉතා කුඩා Phones සඳහා (Width 480px ට අඩු නම්) */
 @media (max-width: 480px) {
-    /* 4. ඉතා කුඩා පෝන් වලදී අකුරු තවත් පොඩි කිරීම */
     .logo-text .main-title {
         font-size: 0.9rem;
     }
     .logo-text .sub-title {
         font-size: 0.5rem;
     }
-}
+    
+    .logo img {
+        height: 50px;
+        width: 50px;
+    }
 
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
       .nav-links {
         position: fixed;
         top: 80px;
