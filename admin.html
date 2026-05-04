@@ -15,6 +15,8 @@
         .btn-save:hover { background: #219150; }
         #adminContent { display: none; } /* මුලින්ම පේන්නේ නැහැ */
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        
 </head>
 <body>
 
@@ -73,19 +75,62 @@
         console.log("Saving:", { name, price, img, desc });
         document.getElementById('status').innerText = "සාර්ථකව සුරැකුණා! (Supabase සම්බන්ධ කළ පසු)";
     }
-</script> 
-  <script>// Supabase සම්බන්ධ කිරීම (admin.html හි script එකට එක් කරන්න)
-const SU_URL = "https://qnaawcdcafdpysykdokv.supabase.co/rest/v1/";
+</script> <script>
+ // Supabase සම්බන්ධතාවය ආරම්භ කිරීම
+const SU_URL = "https://qnaawcdcafdpysykdokv.supabase.co";
 const SU_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFuYWF3Y2RjYWZkcHlzeWtkb2t2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY4NDk5ODcsImV4cCI6MjA5MjQyNTk4N30.hBkiamUOmidDEuLnc7YctmnOdM4RoSEF4j2qw2q4vTQ";
+const _supabase = supabase.createClient(SU_URL, SU_KEY);
 
+// Login පරීක්ෂාව
+function checkPass() {
+    const pass = document.getElementById('passInput').value;
+    if(pass === "1988") {
+        document.getElementById('loginBox').style.display = 'none';
+        document.getElementById('adminContent').style.display = 'block';
+    } else {
+        alert("වැරදි මුරපදයක්!");
+    }
+}
+
+// දත්ත Save කිරීමේ function එක
 async function saveCake() {
-    // දත්ත ලබා ගැනීම...
-    const { data, error } = await supabase
+    // Form එකෙන් දත්ත ලබා ගැනීම
+    const name = document.getElementById('cakeName').value;
+    const price = document.getElementById('cakePrice').value;
+    const img = document.getElementById('cakeImg').value;
+    const desc = document.getElementById('cakeDesc').value;
+
+    if(!name || !price) {
+        alert("නම සහ මිල අනිවාර්යයි!");
+        return;
+    }
+
+    document.getElementById('status').innerText = "ඇතුළත් කරමින් පවතී...";
+
+    // Supabase වෙත දත්ත යැවීම
+    const { data, error } = await _supabase
         .from('cakes')
-        .insert([{ name, price, image_url: img, description: desc }]);
-        
-    if(error) alert("වැරදීමක් සිදු විය!");
-    else alert("සාර්ථකව ඇතුළත් කළා!");
+        .insert([{ 
+            name: name, 
+            price: parseInt(price), 
+            image_url: img, 
+            description: desc 
+        }]);
+
+    if(error) {
+        console.error("Error:", error);
+        alert("වැරදීමක් සිදු විය: " + error.message);
+        document.getElementById('status').innerText = "දෝෂයකි!";
+    } else {
+        alert("සාර්ථකව ඇතුළත් කළා!");
+        document.getElementById('status').innerText = "සාර්ථකයි!";
+        // Form එක clear කිරීම
+        document.getElementById('cakeName').value = "";
+        document.getElementById('cakePrice').value = "";
+        document.getElementById('cakeImg').value = "";
+        document.getElementById('cakeDesc').value = "";
+    }
+}
 }</script>
 
 </body>
