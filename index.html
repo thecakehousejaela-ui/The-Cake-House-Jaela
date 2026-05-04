@@ -2280,6 +2280,65 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
       .catch(err => console.log('Service Worker Not Registered', err));
   }
 </script>
+</script> <script>
+// Me thiyenne oyage Cake Data list eka. 
+// Images walata Google Drive link ekak nathiwa, 
+// me thiyena Google link eka use karanna.
+const cakes = [
+    {
+        id: 1,
+        name: "Chocolate Cake",
+        price: 3500,
+        image: "https://lh3.googleusercontent.com/p/AF1QipMpqb2R_kv97NbQNhRe_oOlYdQPdCOqCrXVTSZT=s680",
+        description: "Rich chocolate sponge with creamy chocolate frosting and ganache layers."
+    },
+    {
+        id: 2,
+        name: "Birthday Cake",
+        price: 4500,
+        image: "https://lh3.googleusercontent.com/p/AF1QipPnSk7mifPjh6FToohiaNbuRJn3q78DxLiGx4Lj=s680",
+        description: "Colorful custom birthday cake with buttercream decorations and sprinkles."
+    },
+    {
+        id: 3,
+        name: "Wedding Cake",
+        price: 12000,
+        image: "https://lh3.googleusercontent.com/p/AF1QipPeAvVhO1Pd-kHR3Cfag5g0BncNlqF9-mjjrQ3Y=s680",
+        description: "Elegant multi-tier wedding cake with fondant flowers and pearl details."
+    },
+    {
+        id: 4,
+        name: "Red Velvet Cake",
+        price: 4200,
+        image: "https://lh3.googleusercontent.com/p/AF1QipNrHuPjzXq9rCgY-1BAwTJlHK9HgU0YgGROVNt6=s680",
+        description: "Classic red velvet with cream cheese frosting and red crumb topping."
+    }
+];
+
+// Cake cards display karana function eka
+function displayCakes() {
+    const grid = document.getElementById('cakesGrid');
+    if(!grid) return;
+
+    grid.innerHTML = cakes.map(cake => `
+        <div class="cake-card fade-in visible">
+            <img src="${cake.image}" alt="${cake.name}" class="cake-image">
+            <div class="cake-content">
+                <h3 class="cake-name">${cake.name}</h3>
+                <p class="cake-description">${cake.description}</p>
+                <p class="cake-price">Rs. ${cake.price.toLocaleString()}</p>
+                <button onclick="addToCart(${cake.id})" class="btn-order">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+            </div>
+        </div>
+    `).join('');
+}
+
+// Page load weddi cakes display karanna
+window.onload = function() {
+    displayCakes();
+};
 </script>
 </body>
 </html>
