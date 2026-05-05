@@ -183,28 +183,35 @@ if (location.protocol !== 'https:') {
     }
 
     .cart-icon {
-   position: relative;
+  position: relative;
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: 1.8rem; /* Icon එකේ ප්‍රමාණය */
     color: var(--dark-pink);
-    display: flex;
+    display: inline-flex; /* Icon එක නිවැරදිව මැදි කිරීමට */
     align-items: center;
+    justify-content: center;
+    padding: 10px; /* Icon එක වටා ඉඩ ලබා දීමට (කැපීම වැළැක්වීමට) */
+    transition: transform 0.3s ease;
 }
-
+.cart-icon:hover {
+    transform: scale(1.1);
+}
     .cart-count {
-      position: absolute;
-    top: -8px;
-    right: -12px;
+     position: absolute;
+    top: 2px; /* Count එක තියෙන තැන අවශ්‍ය පරිදි වෙනස් කරන්න */
+    right: 2px;
     background: var(--dark-pink);
     color: white;
     border-radius: 50%;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     font-weight: bold;
+    border: 2px solid white; /* වඩාත් පැහැදිලිව පෙනීමට */
+}
     }
 
     .hamburger {
