@@ -99,12 +99,13 @@ if (location.protocol !== 'https:') {
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
 
-    nav {
-   display: flex;
-    justify-content: space-between;
+  nav {
+    display: flex;
+    justify-content: space-between; /* Logo එක වමටත්, Menu එක දකුණටත් තල්ලු කරයි */
     align-items: center;
     padding: 10px 5%;
     width: 100%;
+    box-sizing: border-box; /* Padding නිසා පිටතට පැනීම වළක්වයි */
 }
 
     .logo {
@@ -147,12 +148,13 @@ if (location.protocol !== 'https:') {
       font-weight: 500;
     }
 
-    .nav-links {
-   display: flex;
+   .nav-links {
+    display: flex;
     align-items: center;
     list-style: none;
-    margin-left: auto; /* මෙනුව සහ Cart එක දකුණට ගැනීමට */
-    gap: 20px;
+    gap: 25px; /* මෙනු අයිතම අතර ඉඩ */
+    margin: 0;
+    padding: 0;
 }
 
     .nav-links a {
@@ -182,36 +184,34 @@ if (location.protocol !== 'https:') {
       width: 100%;
     }
 
-    .cart-icon {
-  position: relative;
+   .cart-icon {
+    position: relative;
     cursor: pointer;
-    font-size: 1.8rem; /* Icon එකේ ප්‍රමාණය */
+    font-size: 1.5rem;
     color: var(--dark-pink);
-    display: inline-flex; /* Icon එක නිවැරදිව මැදි කිරීමට */
+    display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 10px; /* Icon එක වටා ඉඩ ලබා දීමට (කැපීම වැළැක්වීමට) */
-    transition: transform 0.3s ease;
+    padding: 5px; /* Icon එක කැපීම වැළැක්වීමට */
 }
 .cart-icon:hover {
     transform: scale(1.1);
 }
     .cart-count {
-     position: absolute;
-    top: 2px; /* Count එක තියෙන තැන අවශ්‍ය පරිදි වෙනස් කරන්න */
-    right: 2px;
+    position: absolute;
+    top: -8px;
+    right: -10px;
     background: var(--dark-pink);
     color: white;
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: bold;
-    border: 2px solid white; /* වඩාත් පැහැදිලිව පෙනීමට */
 }
+</style>
     }
 
     .hamburger {
