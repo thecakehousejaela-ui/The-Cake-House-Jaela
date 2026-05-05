@@ -17,7 +17,29 @@ if (location.protocol !== 'https:') {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Cake House Ja-Ela | Fresh Homemade Cakes</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>.whatsapp-float {
+ <style>./* Cart Icon එක Header එකේ දකුණු පසට ගැනීම සඳහා */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin-left: auto; /* මෙනුව සහ Cart එක දකුණට ගැනීමට */
+}
+
+.cart-icon {
+    position: relative;
+    margin-left: 20px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #b03060; /* ඔබ භාවිතා කරන dark-pink වර්ණය */
+}
+<style>.whatsapp-float {
   position: fixed;
   bottom: 25px;
   right: 25px;
