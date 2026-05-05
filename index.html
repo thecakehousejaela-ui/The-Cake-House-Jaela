@@ -99,13 +99,11 @@ if (location.protocol !== 'https:') {
     }
 
     nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 5%;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
+    display: flex;
+    justify-content: space-between; /* Logo එක වමේ සහ මෙනු එක දකුණේ තැබීමට */
+    align-items: center;
+    padding: 10px 5%;
+}
 
     .logo {
       display: flex;
@@ -148,9 +146,10 @@ if (location.protocol !== 'https:') {
     }
 
     .nav-links {
-    display: flex; /* අයිතම පේළියට තැබීමට */
-    align-items: center; /* සිරස් අතට මැදි කිරීමට */
-    gap: 20px; /* අයිතම අතර පරතරය */
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin-left: auto; /* මෙනු එක සහ Cart එක දකුණට තල්ලු කිරීමට */
 }
 
     .nav-links a {
@@ -181,11 +180,11 @@ if (location.protocol !== 'https:') {
     }
 
     .cart-icon {
-      position: relative;
-      cursor: pointer;
-      font-size: 1.3rem;
-      color: var(--dark-pink);
-    }
+    margin-left: 20px; /* අනෙක් links වලින් මදක් ඈත් කිරීමට */
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--dark-pink); /* ඔබ භාවිතා කරන වර්ණය */
+}
 
     .cart-count {
       position: absolute;
