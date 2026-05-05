@@ -16,8 +16,7 @@ if (location.protocol !== 'https:') {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Cake House Ja-Ela | Fresh Homemade Cakes</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>.whatsapp-float {
   position: fixed;
   bottom: 25px;
@@ -49,13 +48,7 @@ if (location.protocol !== 'https:') {
   box-shadow: 0 0 10px #FF7081; 
   
 }
-      <style> /* 2. Cart count eka hariyata penna me CSS kalla danna */
-    .cart-icon {
-      position: relative;
-      font-size: 1.5rem;
-      color: var(--dark-pink);
-      cursor: pointer;
-    }
+
 .logo-img {
   width: 60px;            /* Logo eke size eka oyaata ona widiyata wenas karanna */
   height: 60px;
@@ -197,13 +190,18 @@ if (location.protocol !== 'https:') {
 
     .cart-count {
       position: absolute;
-      top: -10px;
-      right: -10px;
-      background: red; /* Paata lassanata penna */
+      top: -8px;
+      right: -8px;
+      background: var(--dark-pink);
       color: white;
       border-radius: 50%;
-      padding: 2px 6px;
-      font-size: 0.7rem;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: bold;
     }
 
     .hamburger {
@@ -409,9 +407,20 @@ if (location.protocol !== 'https:') {
       margin-bottom: 15px;
     }
 
-    /* 3. Button ekata icon ekak ekathu karanna CSS */
-    .btn-order i {
-      margin-right: 8px;
+    .btn-order {
+      width: 100%;
+      background: var(--primary-pink);
+      color: var(--dark-pink);
+      border: 2px solid var(--dark-pink);
+      padding: 12px;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
 
     .btn-order:hover {
@@ -1361,18 +1370,7 @@ if (location.protocol !== 'https:') {
     }
   </style>
 </head>
-<body> 
-  <!-- Cart icon eka me widiyatada thiyenne balanna -->
-  <div class="cart-icon" onclick="toggleCart()">
-    <i class="fas fa-shopping-cart"></i> <!-- Me kalla aniwaren thiyenna oni -->
-    <span class="cart-count" id="cartCount">0</span>
-  </div>
-
-  <!-- WhatsApp Floating Button (Meka add karaganna) -->
-  <a href="https://wa.me/947XXXXXXXXX" class="whatsapp-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-</body>
+<body>
 
   <!-- Header -->
   <header>
@@ -1604,9 +1602,9 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
   <div class="cart-sidebar" id="cartSidebar">
     <div class="cart-header">
       <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
-      <button class="btn-order">
-    <i class="fas fa-shopping-cart"></i> Add to Cart
-</button>
+      <button class="close-cart" onclick="toggleCart()">
+        <i class="fas fa-times"></i>
+      </button>
     </div>
     
     <div class="cart-items" id="cartItems">
@@ -1746,17 +1744,17 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
     const cakes = [
       {
         id: 1,
-        name: "Chocolate Cake 1Kg ",
+        name: "Chocolate Cake",
         description: "Rich chocolate sponge with creamy chocolate frosting and ganache layers.",
-        price: 5500,
+        price: 3500,
         image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600"
       },
       {
         id: 2,
-        name: "Birthday Cake 1Kg ",
-        description: "Delicious homemade Birthday Cakes ðŸŽ‚ made with Astra butter, icing, eggs, sugar & quality ingredients. Custom designs available as per your choice. Prices start from Rs. 4500 and above..",
+        name: "Birthday Cake",
+        description: "Colorful custom birthday cake with buttercream decorations and sprinkles.",
         price: 4500,
-        image: "https://lh3.googleusercontent.com/p/AF1QipPnSk7mifPjh6FToohiaNbuRJn3q78DxLiGx4Lj=s680-w680-h510-rw"
+        image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600"
       },
       {
         id: 3,
@@ -1767,24 +1765,24 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
       },
       {
         id: 4,
-        name: "Cupcakes (10 pcs)",
+        name: "Cupcakes (6 pcs)",
         description: "Assorted flavored cupcakes with beautiful frosting swirls.",
-        price: 1500,
-        image: "https://lh3.googleusercontent.com/p/AF1QipM4hnX8z7kS9FMPYOx1a1utgabSDXwaSQHDR6Pr=s680-w680-h510-rw"
+        price: 1800,
+        image: "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=600"
       },
       {
         id: 5,
-        name: "Ribbon Cake 1Kg ",
-        description: "Soft, tasty Ribbon Cake â€“ perfect for any occasion.",
-        price: 1800,
-        image: "https://lh3.googleusercontent.com/p/AF1QipO4bte4HLNxwN4hb7x0f_X4raa_RLVLPwPTr1KE=s680-w680-h510-rw"
+        name: "Red Velvet Cake",
+        description: "Classic red velvet with cream cheese frosting and red crumb topping.",
+        price: 4200,
+        image: "https://images.unsplash.com/photo-1586788680434-30cfe7c8e0a5?w=600"
       },
       {
         id: 6,
-        name: "Butter  Cake 1Kg ",
-        description: "Fresh Butter  cake.",
-        price: 1500,
-        image: "https://lh3.googleusercontent.com/p/AF1QipOMbSW9skC8jNOdWAsJsu0l_UJ70Oa71LBsIzJj=s680-w680-h510-rw",
+        name: "Strawberry Cake",
+        description: "Fresh strawberry cake with whipped cream and strawberry glaze.",
+        price: 3800,
+        image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600"
       }
     ];
 
@@ -2282,65 +2280,6 @@ Expertly crafted and freshly baked using only the finest, premium ingredients â€
       .catch(err => console.log('Service Worker Not Registered', err));
   }
 </script>
-</script> <script>
-// Me thiyenne oyage Cake Data list eka. 
-// Images walata Google Drive link ekak nathiwa, 
-// me thiyena Google link eka use karanna.
-const cakes = [
-    {
-        id: 1,
-        name: "Chocolate Cake",
-        price: 3500,
-        image: "https://lh3.googleusercontent.com/p/AF1QipMpqb2R_kv97NbQNhRe_oOlYdQPdCOqCrXVTSZT=s680",
-        description: "Rich chocolate sponge with creamy chocolate frosting and ganache layers."
-    },
-    {
-        id: 2,
-        name: "Birthday Cake",
-        price: 4500,
-        image: "https://drive.google.com/file/d/19M0RNjgN1v8ALbXKq9nEHLKGHChC4PCG/view?usp=drive_link",
-        description: "Delicious homemade Birthday Cakes ðŸŽ‚ made with Astra butter, icing, eggs, sugar & quality ingredients. Custom designs available as per your choice. Prices start from Rs. 4500 and above."
-    },
-    {
-        id: 3,
-        name: "Wedding Cake",
-        price: 12000,
-        image: "https://lh3.googleusercontent.com/p/AF1QipPeAvVhO1Pd-kHR3Cfag5g0BncNlqF9-mjjrQ3Y=s680",
-        description: "Elegant multi-tier wedding cake with fondant flowers and pearl details."
-    },
-    {
-        id: 4,
-        name: "Red Velvet Cake",
-        price: 4200,
-        image: "https://lh3.googleusercontent.com/p/AF1QipNrHuPjzXq9rCgY-1BAwTJlHK9HgU0YgGROVNt6=s680",
-        description: "Classic red velvet with cream cheese frosting and red crumb topping."
-    }
-];
-
-// Cake cards display karana function eka
-function displayCakes() {
-    const grid = document.getElementById('cakesGrid');
-    if(!grid) return;
-
-    grid.innerHTML = cakes.map(cake => `
-        <div class="cake-card fade-in visible">
-            <img src="${cake.image}" alt="${cake.name}" class="cake-image">
-            <div class="cake-content">
-                <h3 class="cake-name">${cake.name}</h3>
-                <p class="cake-description">${cake.description}</p>
-                <p class="cake-price">Rs. ${cake.price.toLocaleString()}</p>
-                <button onclick="addToCart(${cake.id})" class="btn-order">
-                    <i class="fas fa-shopping-cart"></i> Add to Cart
-                </button>
-            </div>
-        </div>
-    `).join('');
-}
-
-// Page load weddi cakes display karanna
-window.onload = function() {
-    displayCakes();
-};
 </script>
 </body>
 </html>
