@@ -98,6 +98,44 @@
     }
 }
     </style>
+   <style>
+      @media only screen and (max-width: 1024px) {
+    /* 1. Hero section එක ඇතුළේ තියෙන දේවල් පිළිවෙළකට පෙළගැස්වීම */
+    .hero {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 80px 20px 40px 20px !important; /* උඩින් සහ වටෙන් ඉඩ හැදීම */
+        text-align: center !important;
+        height: auto !important; /* ෆෝන් එකේදී උස හිර නොකර නිදහස් කිරීම */
+    }
+
+    /* 2. අත් දෙකේ ලෝගෝ එක ෆෝන් එකට ගැලපෙන සයිස් එකට කුඩා කිරීම */
+    .hero-image img, .hero img {
+        max-width: 200px !important; /* ලෝගෝ එක ලස්සනට පොඩි කලා */
+        height: auto !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* 3. Welcome... කියන ලොකු අකුරු පේළිය */
+    .hero h1, .hero-text h1 {
+        font-size: 24px !important; /* අකුරු වල සයිස් එක ෆෝන් එකට ගැලපෙන්න හැදුවා */
+        line-height: 1.3 !important;
+        margin-bottom: 15px !important;
+        color: #b03060 !important;
+    }
+
+    /* 4. ඒකට පල්ලෙහායින් තියෙන විස්තර (Text) ටික */
+    .hero p, .hero-text p {
+        font-size: 14px !important; /* කියවන්න ලේසි සයිස් එකක් */
+        line-height: 1.6 !important;
+        max-width: 100% !important;
+        margin-bottom: 20px !important;
+        padding: 0 10px !important;
+    }
+}
+       </style>
 <head> 
     
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
