@@ -1861,241 +1861,1873 @@ Expertly crafted and freshly baked using only the finest, premium ingredients �
         <p><i class="fas fa-envelope"></i> thecakehousejaela@gmail.com</p>
       </div>
     </div>
+    <!DOCTYPE html>
+<html lang="en">
+   <style>
+/* ලෝගෝ එක වටේ තියෙන සුදු පාට පසුබිම සහ පරතරය අඩු කිරීම */
+.logo-container img, .header img, a img {
+    background-color: transparent !important; /* සුදු පාට පසුබිම නැති කිරීමට */
+    padding: 0 !important;                     /* වටේ තියෙන අනවශ්‍ය ඉඩ අයින් කිරීමට */
+    border: none !important;                    /* බෝඩර් එකක් තිබේ නම් එය අයින් කිරීමට */
+    border-radius: 0 !important;               /* රවුම් හැඩය අයින් කිරීමට (ඕනේ නම් විතරක් තියාගන්න) */
+}
+</style>
+    <style>
+       /* Typing Animation Styles */
+.typing-container {
+    font-size: 2.8rem;
+    color: var(--dark-pink);
+    margin-bottom: 20px;
+    font-weight: 700;
+    min-height: 80px; /* Text එක වැටෙද්දී layout එක උඩ පල්ලෙහා නොයා ස්ථාවරව තියාගන්න */
+}
+
+.cursor {
+    animation: blink 0.7s infinite;
+    color: var(--dark-pink);
+    margin-left: 5px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Phone වලට ගැලපෙන්න අකුරු ප්‍රමාණය */
+@media (max-width: 480px) {
+    .typing-container {
+        font-size: 1.5rem !important;
+        min-height: 50px;
+    }
+}
+       
+
+/* Menu Links (Home, Cakes...) දකුණට තල්ලු කිරීම */
+.nav-links, ul.menu, nav ul {
+    display: flex !important;
+    margin-left: auto !important; /* මේකෙන් මුළු Menu එකම දකුණට යනවා */
+    align-items: center;
+    gap: 20px; /* Menu items අතර පරතරය */
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Cart Icon එක Menu එකටත් දකුණු පැත්තෙන් තැබීම */
+.cart-icon, a[href="#cart"] {
+    margin-left: 20px !important; /* Menu එකයි Cart එකයි අතර පරතරය */
+    display: inline-flex !important;
+    align-items: center;
+}
+
+/* Phone සහ iPad (Mobile/Tablet) තිර වලදීත් ලස්සනට පේන්න */
+@media only screen and (max-width: 1024px) {
+    header, nav, .header-container {
+        padding: 10px 15px !important;
+    }
+    .nav-links, ul.menu, nav ul {
+        gap: 12px !important; /* Phone වලදී ඉඩ මදි නිසා පරතරය පොඩ්ඩක් අඩු කලා */
+    }
+}
+</style>
+  <style> @media only screen and (max-width: 1024px) {
+    /* Hamburger එකේ ප්‍රමාණය හරියටම හිර කිරීම */
+    .hamburger {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 30px !important;
+        height: 22px !important; /* 👈 ඉරි 3 වෙන් වෙන්න උස අනිවාර්යයි */
+        cursor: pointer !important;
+        position: absolute !important;
+        right: 20px !important;
+        top: 25px !important;
+        z-index: 99999 !important;
+        background: transparent !important;
+    }
+
+    /* ඉරි කෑලි 3 එකිනෙක වෙන් කරලා පෙන්වීම */
+    .hamburger span {
+        display: block !important;
+        width: 100% !important;
+        height: 3px !important; /* ඉරක මහත */
+        background-color: #b03060 !important; /* තද රෝස පාට */
+        border-radius: 3px !important;
+        margin: 0 !important; /* පරණ margin බිංදුව කරන්න */
+        transform: none !important; /* එක උඩ එක කැරකීලා තිබුණොත් නැති කරන්න */
+        opacity: 1 !important; /* හැංගිලා තිබුණොත් මතු කරන්න */
+    }
+}
+    </style>
+   <style>
+      @media only screen and (max-width: 1024px) {
+    /* 1. Hero section එක ඇතුළේ තියෙන දේවල් පිළිවෙළකට පෙළගැස්වීම */
+    .hero {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 80px 20px 40px 20px !important; /* උඩින් සහ වටෙන් ඉඩ හැදීම */
+        text-align: center !important;
+        height: auto !important; /* ෆෝන් එකේදී උස හිර නොකර නිදහස් කිරීම */
+    }
+
+    /* 2. අත් දෙකේ ලෝගෝ එක ෆෝන් එකට ගැලපෙන සයිස් එකට කුඩා කිරීම */
+    .hero-image img, .hero img {
+        max-width: 200px !important; /* ලෝගෝ එක ලස්සනට පොඩි කලා */
+        height: auto !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* 3. Welcome... කියන ලොකු අකුරු පේළිය */
+    .hero h1, .hero-text h1 {
+        font-size: 24px !important; /* අකුරු වල සයිස් එක ෆෝන් එකට ගැලපෙන්න හැදුවා */
+        line-height: 1.3 !important;
+        margin-bottom: 15px !important;
+        color: #b03060 !important;
+    }
+
+    /* 4. ඒකට පල්ලෙහායින් තියෙන විස්තර (Text) ටික */
+    .hero p, .hero-text p {
+        font-size: 14px !important; /* කියවන්න ලේසි සයිස් එකක් */
+        line-height: 1.6 !important;
+        max-width: 100% !important;
+        margin-bottom: 20px !important;
+        padding: 0 10px !important;
+    }
+}
+       </style>
+   <style> /* ලැප්ටොප් සහ පරිගණක (Screen එක 1025px වලට වඩා වැඩි) සඳහා විතරයි */
+@media only screen and (min-width: 1025px) {
+    /* 1. මෙනු අයිටම්ස් ටික ලස්සනට පොඩි කිරීම */
+    .nav-links a {
+        font-size: 16px !important; /* 👈 අකුරු වල සයිස් එක (කලින් 20px වගේ ලොකුවට තිබ්බේ) */
+        font-weight: 600 !important; /* අකුරු ටිකක් තදින් පේන්න */
+        padding: 8px 15px !important; /* මෙනු අයිටම් එකක් වටේට තියෙන ඉඩ */
+        transition: all 0.3s ease !important;
+    }
+
+    /* 2. මෙනු එක එක ළඟ ගොඩගැසෙන්නේ නැතිව අයිටම් අතර පරතරය හැදීම */
+    .nav-links {
+        gap: 15px !important; /* 👈 අකුරු එකිනෙකට තියෙන දුර */
+    }
+
+    /* 3. මෙනු එක උඩට මූසිකය (Mouse) අරන් යද්දී ලස්සනට පාට වෙනස් වෙන්න */
+    .nav-links a:hover {
+        color: #ff69b4 !important; /* හොවර් කරද්දී ලස්සන රෝස පාටක් */
+       
+   @media only screen and (min-width: 1025px) {
+    /* About Us කියන Heading එක එක පේළියට ගැනීම */
+    .about-section h2, .about h2, #about h2 {
+        white-space: nowrap !important; /* 👈 බලෙන්ම පේළි දෙකකට කැඩෙන එක නවත්වනවා */
+        font-size: 32px !important;     /* ලැප්ටොප් එකට ගැලපෙන ලස්සන සයිස් එකක් */
+
+       @media only screen and (min-width: 1025px) {
+    /* මෙනු එකේ තියෙන ලින්ක්ස් (About Us ඇතුළුව) බලෙන්ම එකම පේළියක තබා ගැනීම */
+    .nav-links a {
+        white-space: nowrap !important; /* 👈 මේකෙන් "About Us" එකම පේළියකට ගන්නවා */
+        display: inline-block !important;
+    }
+}
+       /* ලැප්ටොප් සහ ඩෙස්ක්ටොප් වලට විතරක් බලපාන කොටස */
+@media only screen and (min-width: 1025px) {
+    
+    /* 1. ලෝගෝ එක තියෙන සුදු කොටුව ලැප්ටොප් එකේදී හැඩගැස්වීම */
+    .hero-image, .hero-content, .logo-container {
+        width: 100% !important;
+        max-width: 550px !important; /* කොටුවේ උපරිම පළල සීමා කරා */
+        margin: 0 auto !important;   /* කොටුව ලැප්ටොප් ස්ක්‍රීන් එකේ මැදටම ගත්තා */
+        padding: 30px !important;
+    }
+
+    /* 2. ලැප්ටොප් එකේදී ලෝගෝ එක ඇදලා කැපෙන එක වැළැක්වීම */
+    .hero-image img, .hero-content img, .hero img {
+        width: 100% !important;
+        max-width: 420px !important;    /* 👈 ලෝගෝ එකේ සයිස් එක ලැප්ටොප් එකට ගැලපෙන්න හැදුවා */
+        height: auto !important;
+        object-fit: contain !important; /* 👈 කිසිම පැත්තක් කැපෙන්න දෙන්නේ නැහැ */
+        display: block !important;
+        margin: 0 auto !important;      /* හරියටම සුදු කොටුවේ මැදටම ගන්නවා */
+    }
+}
+   </style>
+<head> 
+    
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Cake House">
+<link rel="apple-touch-icon" href="https://via.placeholder.com/192">
+    
+    <link rel="manifest" href="manifest.json">
+    <script>
+if (location.protocol !== 'https:') {
+    location.replace(`https:${location.href.substring(location.protocol.length)}`);
+}
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Cake House Ja-Ela | Fresh Homemade Cakes</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ <style>
+    /* 1. මුළු සයිට් එකම දකුණු පැත්තට කැපීලා පිටට පනින එක වැළැක්වීම */
+html, body {
+    max-width: 100% !important;
+    overflow-x: hidden !important; /* දකුණට screen එක ඇදෙන්න දෙන්නේ නැහැ */
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 2. Header එක screen එකටම හරියන්න හිර කිරීම */
+header {
+    width: 100% !important;
+    max-width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* 3. Hamburger එක දකුණු කෙළවරේ සිට 20px ඇතුළතින් ලස්සනට තැබීම */
+@media only screen and (max-width: 1024px) {
+    .hamburger {
+        display: flex !important;
+        position: absolute !important; /* බලෙන්ම නිශ්චිත තැනක තැබීමට */
+        right: 20px !important;       /* දකුණු කෙළවරේ සිට පරතරය */
+        top: 25px !important;        /* උඩ සිට පරතරය */
+       z-index: 99999 !important;     /* හැමදේටම උඩින් පෙනීමට */
+    }
+    
+    .hamburger span {
+        display: block !important;
+        width: 25px !important;
+        height: 3px !important;
+        background-color: #b03060 !important; /* තද රෝස පාට */
+        margin: 4px 0 !important;
+    }
+}
+    /* ===== 1. ANIMATION FOR LOGOS ===== */
+    .hero-content img, img[src*="logo"] {
+        animation: pulse 3s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+    }
+    </style>
+    <style>.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  z-index: 5000;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  background: #20b954;
+} .logo-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid(--dark-pink);
+  box-shadow: 0 0 10px #FF7081; 
+  
+}
+
+.logo-img {
+  width: 60px;            /* Logo eke size eka oyaata ona widiyata wenas karanna */
+  height: 60px;
+  border-radius: 50%;     /* Cake house nisa logo eka round karoth lassanai */
+  object-fit: cover;
+}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-pink: #ffb6c1;
+      --dark-pink: #b03060;
+      --light-pink: #ffd1dc;
+      --cream: #fff7f3;
+      --brown: #4a2c2a;
+      --light-brown: #8b6f6f;
+      --white: #ffffff;
+      --shadow: rgba(0,0,0,0.1);
+      --logo-purple: #9b59b6;
+      --logo-orange: #e67e22;
+      --success: #27ae60;
+      --gold: #f1c40f;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Header & Navigation */
+    header {
+      background: linear-gradient(135deg, var(--primary-pink), var(--light-pink));
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+  nav {
+    display: flex;
+    justify-content: space-between; /* Logo එක වමටත්, Menu එක දකුණටත් තල්ලු කරයි */
+    align-items: center;
+    padding: 10px 5%;
+    width: 100%;
+    box-sizing: border-box; /* Padding නිසා පිටතට පැනීම වළක්වයි */
+}
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo img {
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid(--dark-pink);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      background: white;
+    }
+
+    .logo:hover img {
+      transform: scale(1.05) rotate(5deg);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-text .main-title {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: var(--dark-pink);
+      line-height: 1.2;
+    }
+
+    .logo-text .sub-title {
+      font-size: 0.75rem;
+      color: var(--light-brown);
+      font-weight: 500;
+    }
+
+   .nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 25px; /* මෙනු අයිතම අතර ඉඩ */
+    margin: 0;
+    padding: 0;
+}
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--brown);
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--dark-pink);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--dark-pink);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+   .cart-icon {
+    position: relative;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--dark-pink);
+    display: flex;
+    align-items: center;
+    padding: 5px; /* Icon එක කැපීම වැළැක්වීමට */
+}
+.cart-icon{
+  margin-left: 15px;
+}
+    .cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: var(--dark-pink);
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: var(--dark-pink);
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, rgba(155,89,182,0.2), rgba(230,126,34,0.2)), 
+                  url('https://lh3.googleusercontent.com/p/AF1QipPnSk7mifPjh6FToohiaNbuRJn3q78DxLiGx4Lj=s680-w680-h510-rw') center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .hero-content {
+      background: rgba(255,255,255,0.95);
+      padding: 60px 40px;
+      border-radius: 30px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      max-width: 700px;
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero-logo {
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      margin-bottom: 25px;
+      border: 5px solid white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      animation: float 3s ease-in-out infinite;
+      object-fit: cover;
+      background: white;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      color: var(--dark-pink);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      color: var(--light-brown);
+      margin-bottom: 30px;
+    }
+
+    .btn-primary {
+      background: var(--dark-pink);
+      color: white;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 5px 15px rgba(176,48,96,0.3);
+    }
+
+    .btn-primary:hover {
+      background: #8b2650;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(176,48,96,0.4);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--dark-pink);
+      border: 2px solid var(--dark-pink);
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-secondary:hover {
+      background: var(--dark-pink);
+      color: white;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 80px 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+   .section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--dark-pink);
+  margin-bottom: 50px;
+  position: relative;
+  display: flex; /* Flexbox use karanna header eka design karaganna */
+  flex-direction: column-reverse; /* Icon eka text ekata udin thiyaganna */
+  align-items: center; /* Center karanna horizontal wa */
+  gap: 10px; /* Icon ekath ekka heading eke thiyana ida */
+}
+
+/* Cake icon eka (🎂) style karanna */
+.section-title::after {
+  content: '🎂';
+  display: block;
+  font-size: 0rem; /* 👈 Icon eke size eka meken wenas karanna */
+  color: var(--dark-pink); /* Paata wenas karanna ona nam */
+}
+
+    /* Cakes Section */
+    .cakes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .cake-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px var(--shadow);
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .cake-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    .cake-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .cake-card:hover .cake-image {
+      transform: scale(1.05);
+    }
+
+    .cake-content {
+      padding: 25px;
+    }
+
+    .cake-name {
+      font-size: 1.4rem;
+      color: var(--dark-pink);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .cake-description {
+      color: var(--light-brown);
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+
+    .cake-price {
+      font-size: 1.5rem;
+      color: var(--dark-pink);
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .btn-order {
+      width: 100%;
+      background: var(--primary-pink);
+      color: var(--dark-pink);
+      border: 2px solid var(--dark-pink);
+      padding: 12px;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-order:hover {
+      background: var(--dark-pink);
+      color: white;
+    }
+
+    /* Reviews Section */
+    #reviews {
+      background: linear-gradient(135deg, #fdfbfb, #ebedee);
+    }
+
+    .reviews-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .review-card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px var(--shadow);
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+
+    .review-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .review-card::before {
+      content: '"';
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 4rem;
+      color: var(--primary-pink);
+      opacity: 0.3;
+      font-family: serif;
+    }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .review-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-pink), var(--dark-pink));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .review-info h4 {
+      color: var(--dark-pink);
+      margin-bottom: 5px;
+    }
+
+    .review-stars {
+      color: var(--gold);
+      font-size: 0.9rem;
+    }
+
+    .review-text {
+      color: var(--light-brown);
+      line-height: 1.8;
+      font-style: italic;
+    }
+
+    .review-date {
+      margin-top: 15px;
+      font-size: 0.85rem;
+      color: #999;
+    }
+
+    .add-review-btn {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    /* Review Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 2500;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .review-modal {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 500px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      animation: modalSlide 0.3s ease;
+    }
+
+    @keyframes modalSlide {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--light-brown);
+    }
+
+    .star-rating {
+      display: flex;
+      gap: 10px;
+      font-size: 2rem;
+      color: #ddd;
+      cursor: pointer;
+      margin: 15px 0;
+    }
+
+    .star-rating .star.active {
+      color: var(--gold);
+    }
+
+    .star-rating .star:hover {
+      color: var(--gold);
+    }
+
+    /* Gallery Section */
+    #gallery {
+      background: white;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      cursor: pointer;
+      aspect-ratio: 1;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(176,48,96,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .gallery-overlay i {
+      color: white;
+      font-size: 2rem;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    /* About Section */
+    .about-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-image {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px var(--shadow);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .about-content h3 {
+      font-size: 2rem;
+      color: var(--dark-pink);
+      margin-bottom: 20px;
+    }
+
+    .about-content p {
+      color: var(--light-brown);
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .feature i {
+      color: var(--dark-pink);
+      font-size: 1.2rem;
+    }
+
+    /* Contact Section */
+    #contact {
+      background: linear-gradient(135deg, var(--cream), white);
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .contact-item i {
+      font-size: 1.5rem;
+      color: var(--dark-pink);
+      margin-top: 5px;
+    }
+
+    .contact-item h4 {
+      color: var(--dark-pink);
+      margin-bottom: 5px;
+    }
+
+    .contact-item p {
+      color: var(--light-brown);
+    }
+
+    .contact-form {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px var(--shadow);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--dark-pink);
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      font-family: inherit;
+      transition: border-color 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--primary-pink);
+    }
+
+    .error-message {
+      color: #e74c3c;
+      font-size: 0.85rem;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .success-message {
+      background: #d4edda;
+      color: #155724;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #9b59b6, #8e44ad);
+      color: white;
+      padding: 50px 5% 20px;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 30px;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+    }
+
+    .footer-section p,
+    .footer-section a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      line-height: 2;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: var(--primary-pink);
+    }
+
+    .footer-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 1px solid (--dark-pink);
+      object-fit: cover;
+      background: white;
+      box-shadow: 0 0 10px #FF7081;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      background: white;
+      color: #9b59b6;
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.8);
+    }
+/* ===== CART SIDEBAR FIX ===== */
+
+.cart-sidebar{
+  position: fixed;
+  top: 0;
+  right: -420px;
+  width: 400px;
+  max-width: 100%;
+  height: 100vh;
+  background: #fff;
+  z-index: 9999;
+  transition: right 0.4s ease;
+  box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.cart-sidebar.active{
+  right: 0;
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+  .cart-sidebar{
+    width:100%;
+    right:-100%;
+  }
+
+  .cart-sidebar.active{
+    right:0;
+  }
+
+}
+
+    .cart-header {
+      background: linear-gradient(135deg, var(--primary-pink), var(--light-pink));
+      padding: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-header h3 {
+      color: var(--dark-pink);
+      font-size: 1.5rem;
+    }
+
+    .close-cart {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--dark-pink);
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 15px;
+      padding: 15px;
+      background: var(--cream);
+      border-radius: 10px;
+      margin-bottom: 15px;
+      align-items: center;
+    }
+
+    .cart-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .cart-item-details {
+      flex: 1;
+    }
+
+    .cart-item-name {
+      font-weight: 600;
+      color: var(--dark-pink);
+      margin-bottom: 5px;
+    }
+
+    .cart-item-price {
+      color: var(--light-brown);
+      font-size: 0.9rem;
+    }
+
+    .quantity-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .qty-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--dark-pink);
+      background: white;
+      color: var(--dark-pink);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .qty-btn:hover {
+      background: var(--dark-pink);
+      color: white;
+    }
+
+    .remove-item {
+      background: none;
+      border: none;
+      color: #e74c3c;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: transform 0.2s;
+    }
+
+    .remove-item:hover {
+      transform: scale(1.1);
+    }
+
+    .cart-footer {
+     overflow-y: auto;
+  max-height: 40vh;
+    }
+
+    .cart-summary {
+      margin-bottom: 20px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      color: var(--light-brown);
+    }
+
+    .summary-row.total {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: var(--dark-pink);
+      border-top: 2px solid var(--cream);
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+
+    .payment-methods {
+      margin-bottom: 20px;
+    }
+
+    .payment-methods label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .payment-methods label:hover,
+    .payment-methods input:checked + label {
+      border-color: var(--dark-pink);
+      background: var(--cream);
+    }
+
+    .payment-methods input {
+      display: none;
+    }
+
+    .payment-icon {
+      font-size: 1.5rem;
+      color: var(--dark-pink);
+    }
+
+    .checkout-btn {
+      width: 100%;
+      background: var(--success);
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .checkout-btn:hover {
+      background: #219a52;
+    }
+
+    .checkout-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+
+    .empty-cart {
+      text-align: center;
+      padding: 40px;
+      color: var(--light-brown);
+    }
+
+    .empty-cart i {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      color: var(--primary-pink);
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1500;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Payment Modal */
+    .payment-modal {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 450px;
+      width: 100%;
+      text-align: center;
+      animation: modalSlide 0.3s ease;
+    }
+
+    .payment-success-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--success);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      color: white;
+      font-size: 2.5rem;
+      animation: scaleIn 0.5s ease;
+    }
+
+    @keyframes scaleIn {
+      from { transform: scale(0); }
+      to { transform: scale(1); }
+    }
+
+    .payment-details {
+      background: var(--cream);
+      padding: 20px;
+      border-radius: 15px;
+      margin: 20px 0;
+      text-align: left;
+    }
+
+    .payment-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.9);
+      z-index: 3000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    /* Order History */
+    .order-history {
+      margin-top: 30px;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px var(--shadow);
+    }
+
+    .order-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .order-item:last-child {
+      border-bottom: none;
+    }
+
+    .order-status {
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .status-completed {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    .status-pending {
+      background: #fff3cd;
+      color: #856404;
+    }
+/* --- Optimized Responsive Navigation --- */
+
+/* 1. iPad සහ මධ්‍යම ප්‍රමාණයේ තිර සඳහා (Width 1024px ට අඩු) */
+@media (max-width: 1024px) {
+    nav {
+        padding: 10px 20px !important;
+        justify-content: space-between !important;
+    }
+
+    .hamburger {
+        display: flex !important; /* Menu icon එක පෙන්වීමට */
+       z-index: 2001;
+    }
+
+    .nav-links {
+        display: none; /* Default එකේ හංගන්න */
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 250px;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 80px;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        z-index: 1500;
+    }
+
+    .nav-links.active {
+        display: flex !important; /* Click කළ විට පෙන්වීමට */
+    }
+
+    .nav-links li {
+        margin: 15px 30px;
+    }
+}
+
+/* --- Optimized Responsive Navigation --- */
+
+/* Tablet & Mobile */
+@media (max-width: 1024px) {
+
+  nav {
+    padding: 10px 20px;
+    justify-content: space-between;
+  }
+
+  .hamburger {
+    display: flex;
+    z-index: 2000;
+  }
+.nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%; /* 👈 වමට වෙනුවට දකුණු පැත්තට (-100%) කරලා හංගන්න */
+    width: 280px;  /* 👈 මුළු screen එකම වහන්නේ නැතුව කුඩාවට පේන්න */
+    height: 100vh;
+    background: linear-gradient(135deg, var(--primary-pink), var(--light-pink));
+    flex-direction: column;
+    padding: 100px 20px;
+    transition: right 0.4s ease; /* 👈 ලස්සනට slide වෙන්න */
+    z-index: 2000;
+   /* 👈 මෙන්න මේ පේළි 2 අනිවාර්යයෙන්ම තියෙන්න ඕනේ */
+        overflow-y: auto !important;  
+        max-height: 100vh !important; 
+    }
+}
+
+/* මෙනු එක active වුණාම දකුණු පැත්තෙන් screen එක ඇතුළට එන්න */
+.nav-links.active {
+    right: 0 !important;
+    display: flex !important;
+}
+
+  .nav-links.active {
+    left: 0;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 20px;
+    font-size: 1.2rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero-logo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .about-container,
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image {
+    order: -1;
+  }
+
+  .cart-sidebar {
+    width: 100%;
+    right: -100%;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .reviews-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+
+  .logo img {
+    height: 45px;
+    width: 45px;
+  }
+
+  .logo-text .main-title {
+    font-size: 0.9rem;
+  }
+
+  .logo-text .sub-title {
+    font-size: 0.55rem;
+  }
+
+  .hero-content {
+    padding: 30px 20px;
+    width: 95%;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .contact-form,
+  .review-modal,
+  .payment-modal {
+    padding: 20px;
+  }
+
+  .nav-links {
+    top: 70px;
+    height: calc(100vh - 70px);
+  }
+}
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+     <a href="#" class="logo">
+  <img class="hero-logo" src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAHrWO_OOaE405rjqIq7eiDtoGBTzgC_f2ft_AhefFod2Nr4cPIfc6XoH5G9Hpw8BpVInxeb4TH47g0Lkbg3D52EfRtgOxDFBsFlsU_ZXx_HNGcGc2bP-04SPS9gHq2hw5wZ6mTs3zV4WH1R=s680-w680-h510-rw">
+        <div class="logo-text">
+          <span class="main-title">The Cake House</span>
+          <span class="sub-title">Ja-Ela, Sri Lanka</span>
+        </div>
+      </a>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#cakes">Cakes</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#about">About </a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+          <div class="cart-icon" onclick="toggleCart()">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cartCount">0</span>
+          </div>
+        </li>
+      </ul>
+
+   <div class="custom-hamburger" onclick="toggleMenu()" style="display: none; flex-direction: column; justify-content: space-between; width: 30px; height: 20px; cursor: pointer; z-index: 99999;">
+        <span style="display: block; width: 100%; height: 3px; background-color: #b03060; border-radius: 3px;"></span>
+        <span style="display: block; width: 100%; height: 3px; background-color: #b03060; border-radius: 3px;"></span>
+        <span style="display: block; width: 100%; height: 3px; background-color: #b03060; border-radius: 3px;"></span>
+    </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipNrHuPjzXq9rCgY-1BAwTJlHK9HgU0YgGROVNt6=s680-w680-h510-rw">
+      <h1 class="typing-container">
+    <span id="typing-text"></span><span class="cursor">|</span>
+</h1>
+      <p>Exquisite homemade cakes designed for every special occasion.
+Expertly crafted and freshly baked using only the finest, premium ingredients — delivering a taste of pure indulgence in every bite.
+.</p>
+      <a href="#cakes" class="btn-primary">Order Now <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <!-- Cakes Section -->
+  <section id="cakes">
+    <h2 class="section-title fade-in">Our Delicious Cakes</h2>
+    <div class="cakes-grid" id="cakesGrid">
+      <!-- Cake cards inserted by JavaScript -->
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section id="reviews">
+    <h2 class="section-title fade-in">Customer Reviews</h2>
+    <div class="reviews-container" id="reviewsContainer">
+      <!-- Reviews inserted by JavaScript -->
+    </div>
+    <div class="add-review-btn">
+      <button class="btn-secondary" onclick="openReviewModal()">
+        <i class="fas fa-star"></i> Write a Review
+      </button>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery">
+    <h2 class="section-title fade-in">Our Gallery</h2>
+    <div class="gallery-grid" id="galleryGrid">
+      <!-- Gallery items inserted by JavaScript -->
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="about-container">
+      <div class="about-content fade-in">
+        <h3>About The Cake House Jaela</h3>
+        <p>We are a passionate home-based bakery located in Jaela, Sri Lanka, dedicated to creating beautiful and delicious cakes for all your special moments. Every cake is handcrafted with love, using only the freshest ingredients.</p>
+        <p>From birthday celebrations to weddings, we bring your sweet dreams to life with our custom designs and mouthwatering flavors.</p>
+        
+        <div class="features">
+          <div class="feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Fresh Ingredients Daily</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Custom Designs Available</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Secure Online Payments</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-check-circle"></i>
+            <span> Delivery Service</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="about-image fade-in">
+        <img src="https://lh3.googleusercontent.com/p/AF1QipMpqb2R_kv97NbQNhRe_oOlYdQPdCOqCrXVTSZT=s680-w680-h510-rw" alt="Baker decorating cake">
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2 class="section-title fade-in">Contact Us</h2>
+    <div class="contact-container">
+      <div class="contact-info fade-in">
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <h4>Visit Us</h4>
+            <p>No,145/f/2 Wevallagara.Bollatha.Ganeemulla, Sri Lanka</p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <div>
+            <h4>Call Us</h4>
+            <p>+94 76-6555687</p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <h4>Email Us</h4>
+            <p>thecakehousejaela@gmail.com</p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <i class="fas fa-clock"></i>
+          <div>
+            <h4>Opening Hours</h4>
+            <p>Mon - Sat: 9:00 AM - 9:00 PM<br>Sunday:Close </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form fade-in">
+        <div class="success-message" id="successMessage">
+          <i class="fas fa-check-circle"></i>
+          <span>Thank you! Your message has been sent successfully.</span>
+        </div>
+         <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label for="name">Your Name *</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name">
+            <span class="error-message" id="nameError">Please enter your name</span>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+            <span class="error-message" id="phoneError">Please enter a valid phone number</span>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Your Message *</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell us about your cake requirements..."></textarea>
+            <span class="error-message" id="messageError">Please enter your message</span>
+          </div>
+          
+          <button type="submit" class="btn-primary" style="width: 100%;">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+}
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <img src="https://lh3.googleusercontent.com/p/AF1QipPeAvVhO1Pd-kHR3Cfag5g0BncNlqF9-mjjrQ3Y=s680-w680-h510-rw" class="footer-logo" id="footerLogo">
+        <h3>The Cake House Ja-Ela</h3>
+        <p>Making every celebration sweeter with our delicious homemade cakes. Your satisfaction is our priority.</p>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/profile.php?id=61581229241375"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/thecakehousejaela/?hl=en"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.tiktok.com/@the.cake.house.ja"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <p><a href="#home">Home</a></p>
+        <p><a href="#cakes">Our Cakes</a></p>
+        <p><a href="#reviews">Reviews</a></p>
+        <p><a href="#gallery">Gallery</a></p>
+        <p><a href="#about">About Us</a></p>
+        <p><a href="#contact">Contact</a></p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Payment Methods</h3>
+        <p><i class="fas fa-credit-card"></i> Visa / Mastercard</p>
+        <p><i class="fas fa-university"></i> Bank Transfer</p>
+        <p><i class="fas fa-mobile-alt"></i> PayHere</p>
+        <p><i class="fas fa-money-bill-wave"></i> Cash </p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <p><i class="fas fa-map-marker-alt"></i> No.145/f/2 Wevallagara.Bollatha Ganeemulla, Sri Lanka</p>
+        <p><i class="fas fa-phone"></i> +94 76-6555687</p>
+        <p><i class="fas fa-envelope"></i> thecakehousejaela@gmail.com</p>
+      </div>
+    </div>
     
     <div class="footer-bottom">
       <p>&copy; 2026 The Cake House Jaela. All rights reserved. Made with <i class="fas fa-heart"></i> in Sri Lanka</p>
     </div>
-     <div class="footer-section footer-live-info">
-            <div class="f-datetime">
-                <span id="f-date">Loading Date...</span>
-                <span id="f-clock">00:00:00 AM</span>
-            </div>
-            <div class="f-weather">
-                <span id="f-w-icon">☀️</span>
-                <span id="f-w-temp">--°C</span>
-                <span id="f-w-desc">Loading...</span>
-            </div>
-        </div>
-
-        <div class="footer-section footer-stats">
-            <div class="f-views">
-                <span>👁️ සයිට් එක බලපු ගණන:</span>
-                <strong id="f-view-count">Loading...</strong>
-            </div>
-            <button class="f-like-btn" onclick="addFooterLike()">
-                <span>❤️ Like කරන්න</span>
-                <span id="f-like-count">0</span>
-            </button>
-        </div>
-
-    </div>
-</footer>
-
-<style>
-/* Footer එකේ සම්පූර්ණ Design එක */
-.site-footer {
-    background-color: #fff0f5; /* ලස්සන ලා රෝස පාට පසුබිම */
-    border-top: 2px solid #ffb6c1;
-    padding: 30px 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-top: 50px;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.footer-section {
-    flex: 1;
-    min-width: 250px;
-}
-
-/* බිස්නස් විස්තර */
-.business-info h3 {
-    color: #b03060;
-    margin: 0 0 5px 0;
-    font-size: 20px;
-}
-.business-info p {
-    margin: 0;
-    color: #555;
-    font-size: 14px;
-}
-.copyright {
-    margin-top: 10px !important;
-    font-size: 12px !important;
-    color: #888 !important;
-}
-
-/* ඔරලෝසුව සහ කාලගුණය (මැද කොටස) */
-.footer-live-info {
-    text-align: center;
-    background: rgba(255, 255, 255, 0.6);
-    padding: 12px;
-    border-radius: 10px;
-    border: 1px solid #ffb6c1;
-}
-.f-datetime {
-    display: flex;
-    flex-direction: column;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-#f-date { font-size: 13px; color: #666; }
-#f-clock { font-size: 20px; color: #b03060; }
-
-.f-weather {
-    font-size: 14px;
-    color: #333;
-    font-weight: 600;
-}
-#f-w-desc {
-    background: #b03060;
-    color: white;
-    padding: 1px 8px;
-    border-radius: 10px;
-    font-size: 11px;
-    margin-left: 5px;
-}
-
-/* Views සහ Like (දකුණු කොටස) */
-.footer-stats {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 10px;
-}
-.f-views {
-    font-size: 14px;
-    color: #444;
-}
-#f-view-count {
-    color: #b03060;
-    font-size: 16px;
-}
-
-/* Like බටන් එක */
-.f-like-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: linear-gradient(135deg, #ff69b4, #b03060);
-    color: white;
-    border: none;
-    padding: 8px 18px;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: transform 0.2s;
-    box-shadow: 0 4px 8px rgba(176, 48, 96, 0.2);
-}
-.f-like-btn:hover { transform: scale(1.05); }
-.f-like-btn.liked { background: #b03060; }
-#f-like-count { background: rgba(255, 255, 255, 0.2); padding: 1px 6px; border-radius: 8px; }
-
-/* ෆෝන් එකෙන් බලද්දී පිළිවෙළකට පල්ලෙහාට හැදීම */
-@media only screen and (max-width: 768px) {
-    .footer-content { flex-direction: column; text-align: center; }
-    .footer-stats { align-items: center; }
-}
-</style>
-
-<script>
-// 🕒 1. Footer Live Clock & Date
-function updateFooterClock() {
-    const now = new Date();
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    
-    document.getElementById('f-date').innerText = now.toLocaleDateString('en-US', options);
-    
-    let hours = now.getHours();
-    let minutes = now.getMinutes();
-    let seconds = now.getSeconds();
-    const ampm = hours >= 12 ? 'PM' : 'AM';
-    
-    hours = hours % 12;
-    hours = hours ? hours : 12;
-    minutes = minutes < 10 ? '0' + minutes : minutes;
-    seconds = seconds < 10 ? '0' + seconds : seconds;
-    
-    document.getElementById('f-clock').innerText = hours + ':' + minutes + ':' + seconds + ' ' + ampm;
-}
-setInterval(updateFooterClock, 1000);
-updateFooterClock();
-
-// 🌤️ 2. Footer Live Weather (Ja-Ela)
-function getFooterWeather() {
-    fetch(`https://api.open-meteo.com/v1/forecast?latitude=7.0244&longitude=79.8914&current_weather=true`)
-    .then(res => res.json())
-    .then(data => {
-        const temp = Math.round(data.current_weather.temperature);
-        const code = data.current_weather.weathercode;
-        document.getElementById("f-w-temp").innerText = temp + "°C";
-        
-        let icon = "☀️"; let desc = "පැහැදිලි අහස";
-        if (code >= 1 && code <= 3) { icon = "⛅"; desc = "වලාකුළු"; }
-        else if (code >= 51 && code <= 82) { icon = "🌧️"; desc = "වැසි"; }
-        else if (code >= 95 && code <= 99) { icon = "⛈️"; desc = "ගිගුරුම් වැසි"; }
-        
-        document.getElementById("f-w-icon").innerText = icon;
-        document.getElementById("f-w-desc").innerText = desc;
-    })
-    .catch(() => {
-        document.getElementById("f-w-temp").innerText = "30°C";
-        document.getElementById("f-w-desc").innerText = "පැහැදිලි අහස";
-    });
-}
-getFooterWeather();
-
-// 👁️ ❤️ 3. Footer Like & View Counter
-const footerSiteID = "TheCakeHouseJaela_Footer_2026";
-
-document.addEventListener("DOMContentLoaded", function() {
-    // Views
-    fetch(`https://api.countapi.xyz/hit/${footerSiteID}/views`)
-    .then(res => res.json())
-    .then(res => { document.getElementById("f-view-count").innerText = res.value; })
-    .catch(() => { document.getElementById("f-view-count").innerText = "154"; });
-
-    // Likes
-    fetch(`https://api.countapi.xyz/get/${footerSiteID}/likes`)
-    .then(res => res.json())
-    .then(res => { document.getElementById("f-like-count").innerText = res.value || 0; })
-    .catch(() => { document.getElementById("f-like-count").innerText = "54"; });
-
-    if(localStorage.getItem("footerCakeLiked") === "true") {
-        const btn = document.querySelector(".f-like-btn");
-        if(btn) btn.classList.add("liked");
-    }
-});
-
-function addFooterLike() {
-    if(localStorage.getItem("footerCakeLiked") === "true") {
-        alert("ඔයා දැනටමත් Like එකක් දාලයි තියෙන්නේ! ස්තූතියි! 😊🎂");
-        return;
-    }
-    fetch(`https://api.countapi.xyz/hit/${footerSiteID}/likes`)
-    .then(res => res.json())
-    .then(res => {
-        document.getElementById("f-like-count").innerText = res.value;
-        localStorage.setItem("footerCakeLiked", "true");
-        const btn = document.querySelector(".f-like-btn");
-        if(btn) btn.classList.add("liked");
-    })
-    .catch(() => {
-        let currentLikes = parseInt(document.getElementById("f-like-count").innerText) || 0;
-        document.getElementById("f-like-count").innerText = currentLikes + 1;
-        localStorage.setItem("footerCakeLiked", "true");
-    });
-}
-</script>
   </footer>
 
   <!-- Cart Sidebar -->
@@ -3003,6 +4635,1093 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     .counter-container {
         max-width: 90%;
         padding: 15px;
+    }
+}
+</style>
+<div class="counter-container">
+    
+    <div class="datetime-box">
+        <div id="live-date" class="date-text">Loading Date...</div>
+        <div id="live-clock" class="clock-text">00:00:00 AM</div>
+    </div>
+    
+    <div class="weather-box">
+        <div class="weather-location">📍 Ja-Ela, Sri Lanka</div>
+        <div class="weather-info">
+            <span id="weather-icon" class="w-icon">☀️</span>
+            <span id="weather-temp" class="w-temp">--°C</span>
+            <span id="weather-desc" class="w-desc">කාලගුණය පරීක්ෂා කරමින්...</span>
+        </div>
+    </div>
+    
+    <hr class="counter-divider">
+
+    <div class="counter-box">
+        <i class="eye-icon">👁️</i>
+        <span class="counter-text">සයිට් එක බලපු ගණන:</span>
+        <span id="view-count" class="counter-number">Loading...</span>
+    </div>
+    
+    <button class="like-button" onclick="addLike()">
+        <span class="heart-icon">❤️</span> 
+        <span id="like-text">Like කරන්න</span>
+        <span id="like-count" class="like-number">0</span>
+    </button>
+</div>
+
+<style>
+/* ප්‍රධාන බොක්ස් එක */
+.counter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 40px auto;
+    padding: 25px;
+    max-width: 400px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 2px solid #ffb6c1;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 🕒 ඔරලෝසුවේ ඩිසයින් එක */
+.datetime-box {
+    background: #fff0f5;
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+}
+
+.date-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.clock-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #b03060;
+    letter-spacing: 1px;
+}
+
+/* 🌤️ කාලගුණයේ ඩිසයින් එක */
+.weather-box {
+    background: #f7f9fa;
+    border: 1px solid #e1e8ed;
+    padding: 10px 15px;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.weather-location {
+    font-size: 12px;
+    font-weight: bold;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.weather-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.w-icon {
+    font-size: 24px;
+}
+
+.w-temp {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.w-desc {
+    font-size: 13px;
+    color: #555;
+    background: #eef2f5;
+    padding: 2px 8px;
+    border-radius: 12px;
+}
+
+.counter-divider {
+    width: 100%;
+    border: 0;
+    height: 1px;
+    background: #ffb6c1;
+    margin: 5px 0;
+}
+
+.counter-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.counter-text { font-weight: 600; }
+.counter-number { font-size: 18px; font-weight: bold; color: #b03060; }
+
+/* Like බටන් එක */
+.like-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #ff69b4, #b03060);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 10px rgba(176, 48, 96, 0.3);
+    width: 80%;
+}
+
+.like-button:hover { transform: scale(1.05); }
+.like-button:active { transform: scale(0.95); }
+.like-button.liked { background: #b03060; }
+.like-number { background: rgba(255, 255, 255, 0.2); padding: 2px 8px; border-radius: 10px; font-size: 14px; }
+
+@media only screen and (max-width: 600px) {
+    .counter-container { max-width: 90%; padding: 20px 15px; }
+    .like-button { width: 100%; }
+}
+</style>
+
+<script>
+// 🕒 1. Live Clock & Date Script
+function updateDateTime() {
+    const now = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = now.toLocaleDateString('en-US', options);
+    
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    let seconds = now.getSeconds();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+    
+    document.getElementById('live-date').innerText = formattedDate;
+    document.getElementById('live-clock').innerText = hours + ':' + minutes + ':' + seconds + ' ' + ampm;
+}
+setInterval(updateDateTime, 1000);
+updateDateTime();
+
+
+// 🌤️ 2. Live Weather Script (Ja-Ela කාලගුණය)
+function getLiveWeather() {
+    // Free Weather API එකක් මගින් ජා-ඇල (Ja-Ela) කාලගුණය ලබා ගැනීම
+    const lat = 7.0244; // Ja-Ela Latitude
+    const lon = 79.8914; // Ja-Ela Longitude
+    
+    fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`)
+    .then(res => res.json())
+    .then(data => {
+        const temp = Math.round(data.current_weather.temperature);
+        const code = data.current_weather.weathercode;
+        
+        document.getElementById("weather-temp").innerText = temp + "°C";
+        
+        // Weather Code එක අනුව Icon එක සහ විස්තරය සිංහලෙන් සැකසීම
+        let icon = "☀️";
+        let desc = "පැහැදිලි අහස";
+        
+        if (code === 0) { icon = "☀️"; desc = "පැහැදිලි අහස"; }
+        else if (code >= 1 && code <= 3) { icon = "⛅"; desc = "වලාකුළු ස්වල්පයක්"; }
+        else if (code >= 45 && code <= 48) { icon = "🌫️"; desc = "මීදුම් සහිතයි"; }
+        else if (code >= 51 && code <= 67) { icon = "🌧️"; desc = "සිහින් වැසි"; }
+        else if (code >= 71 && code <= 82) { icon = "🌧️"; desc = "වැසි සහිතයි"; }
+        else if (code >= 95 && code <= 99) { icon = "⛈️"; desc = "ගිගුරුම් සහිත වැසි"; }
+        
+        document.getElementById("weather-icon").innerText = icon;
+        document.getElementById("weather-desc").innerText = desc;
+    })
+    .catch(() => {
+        // API ලෝඩ් වුණේ නැත්නම් සාමාන්‍ය ගාණක් පෙන්වීම
+        document.getElementById("weather-temp").innerText = "30°C";
+        document.getElementById("weather-icon").innerText = "🌤️";
+        document.getElementById("weather-desc").innerText = "සුළු වශයෙන් වලාකුළු";
+    });
+}
+// සයිට් එකට ආපු ගමන් කාලගුණය පෙන්වීම
+getLiveWeather();
+
+
+// 👁️ ❤️ 3. Like & View Counter Script
+const siteID = "TheCakeHouseJaela_Unique_ID_2026";
+
+document.addEventListener("DOMContentLoaded", function() {
+    fetch(`https://api.countapi.xyz/hit/${siteID}/views`)
+    .then(res => res.json())
+    .then(res => { document.getElementById("view-count").innerText = res.value; })
+    .catch(() => { document.getElementById("view-count").innerText = "215"; });
+
+    fetch(`https://api.countapi.xyz/get/${siteID}/likes`)
+    .then(res => res.json())
+    .then(res => { document.getElementById("like-count").innerText = res.value || 0; })
+    .catch(() => { document.getElementById("like-count").innerText = "64"; });
+
+    if(localStorage.getItem("isLiked") === "true") {
+        const btn = document.querySelector(".like-button");
+        btn.classList.add("liked");
+        document.getElementById("like-text").innerText = "Liked! ❤️";
+    }
+});
+
+function addLike() {
+    if(localStorage.getItem("isLiked") === "true") {
+        alert("ඔයා දැනටමත් Like එකක් දාලයි තියෙන්නේ! ස්තූතියි! 😊🎂");
+        return;
+    }
+    fetch(`https://api.countapi.xyz/hit/${siteID}/likes`)
+    .then(res => res.json())
+    .then(res => {
+        document.getElementById("like-count").innerText = res.value;
+        localStorage.setItem("isLiked", "true");
+        const btn = document.querySelector(".like-button");
+        btn.classList.add("liked");
+        document.getElementById("like-text").innerText = "Liked! ❤️";
+    })
+    .catch(() => {
+        let currentLikes = parseInt(document.getElementById("like-count").innerText);
+        document.getElementById("like-count").innerText = currentLikes + 1;
+        localStorage.setItem("isLiked", "true");
+    });
+}
+ <div class="footer-bottom">
+      <p>&copy; 2026 The Cake House Jaela. All rights reserved. Made with <i class="fas fa-heart"></i> in Sri Lanka</p>
+    </div>
+  </footer>
+
+  <!-- Cart Sidebar -->
+  <div class="overlay" id="overlay" onclick="toggleCart()"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
+      <button class="close-cart" onclick="toggleCart()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <div class="cart-items" id="cartItems">
+      <div class="empty-cart">
+        <i class="fas fa-shopping-basket"></i>
+        <p>Your cart is empty</p>
+      </div>
+    </div>
+    
+    <div class="cart-footer" id="cartFooter" style="display: none;">
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>Subtotal:</span>
+          <span id="cartSubtotal">Rs. 0</span>
+        </div>
+        <div class="summary-row">
+          <span>Delivery:</span>
+          <span id="cartDelivery">Rs. 300</span>
+        </div>
+        <div class="summary-row total">
+          <span>Total:</span>
+          <span id="cartTotal">Rs. 0</span>
+        </div>
+      </div>
+      
+      <div class="payment-methods">
+ <div id="bankDetails" style="display:none; margin-top:15px; background:#fff7f3; padding:15px; border-radius:10px;">
+  <h4 style="color:#b03060;">Bank Transfer Details</h4>
+  <p><strong>Bank:</strong> Bank of ceylon </p>
+  <p><strong>Account Name:</strong> k inoka dilrukshi</p>
+  <p><strong>Account Number:</strong> 486100 </p>
+  <p><strong>Branch:</strong> Ja-Ela</p>
+</div>
+  <label>
+   <!-- Bank Transfer -->
+  <input type="radio" id="bank" name="payment" value="bank">
+  <label for="bank">
+    <span class="payment-icon"><i class="fas fa-university"></i></span>
+    Bank Transfer
+  </label>
+
+</div>
+      
+      <button onclick="sendSlipWhatsApp()" class="btn-secondary" style="width:100%; margin-top:15px;">
+  <i class="fab fa-whatsapp"></i> Send Payment Slip via WhatsApp
+</button>
+    </div>
+  </div>
+
+  <!-- Review Modal -->
+  <div class="modal-overlay" id="reviewModal">
+    <div class="review-modal">
+      <button class="modal-close" onclick="closeReviewModal()">
+        <i class="fas fa-times"></i>
+      </button>
+      <h3 style="color: var(--dark-pink); margin-bottom: 20px; text-align: center;">
+        <i class="fas fa-star"></i> Write a Review
+      </h3>
+      
+      <form id="reviewForm" onsubmit="submitReview(event)">
+        <div class="form-group">
+          <label>Your Rating</label>
+          <div class="star-rating" id="starRating">
+            <span class="star" data-rating="1"><i class="fas fa-star"></i></span>
+            <span class="star" data-rating="2"><i class="fas fa-star"></i></span>
+            <span class="star" data-rating="3"><i class="fas fa-star"></i></span>
+            <span class="star" data-rating="4"><i class="fas fa-star"></i></span>
+            <span class="star" data-rating="5"><i class="fas fa-star"></i></span>
+          </div>
+          <input type="hidden" id="ratingValue" value="0">
+          <span class="error-message" id="ratingError">Please select a rating</span>
+        </div>
+        
+        <div class="form-group">
+          <label for="reviewerName">Your Name *</label>
+          <input type="text" id="reviewerName" placeholder="Enter your name">
+          <span class="error-message" id="reviewerNameError">Please enter your name</span>
+        </div>
+        
+        <div class="form-group">
+          <label for="reviewText">Your Review *</label>
+          <textarea id="reviewText" rows="4" placeholder="Share your experience with us..."></textarea>
+          <span class="error-message" id="reviewTextError">Please write your review</span>
+        </div>
+        
+        <button type="submit" class="btn-primary" style="width: 100%;">
+          <i class="fas fa-paper-plane"></i> Submit Review
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Payment Success Modal -->
+  <div class="modal-overlay" id="paymentModal">
+    <div class="payment-modal">
+      <div class="payment-success-icon">
+        <i class="fas fa-check"></i>
+      </div>
+      <h3 style="color: var(--success); margin-bottom: 10px;">Payment Successful!</h3>
+      <p style="color: var(--light-brown); margin-bottom: 20px;">Thank you for your order. We'll deliver your cakes fresh and on time!</p>
+      
+      <div class="payment-details">
+        <div class="payment-row">
+          <span>Order ID:</span>
+          <strong id="orderId">#ORD-001</strong>
+        </div>
+        <div class="payment-row">
+          <span>Amount Paid:</span>
+          <strong id="paidAmount">Rs. 0</strong>
+        </div>
+        <div class="payment-row">
+          <span>Payment Method:</span>
+          <strong id="paymentMethod">Card</strong>
+        </div>
+        <div class="payment-row">
+          <span>Estimated Delivery:</span>
+          <strong></strong>
+        </div>
+      </div>
+      
+      <button class="btn-primary" onclick="closePaymentModal()" style="margin-top: 20px;">
+        <i class="fas fa-home"></i> Continue Shopping
+      </button>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">
+      <i class="fas fa-times"></i>
+    </button>
+    <img src="" alt="Gallery Image" id="lightboxImg">
+  </div>
+
+  <script>
+    // Cake Data
+    const cakes = [
+      {
+        id: 1,
+        name: "Chocolate Cake 1Kg ",
+        description: "Rich chocolate sponge with creamy chocolate frosting and ganache layers.",
+        price: 5500,
+        image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600"
+      },
+      {
+        id: 2,
+        name: "Birthday Cake 1Kg ",
+        description: "Delicious homemade Birthday Cakes 🎂 made with Astra butter, icing, eggs, sugar & quality ingredients. Custom designs available as per your choice. Prices start from Rs. 4500 and above..",
+        price: 4500,
+        image: "https://lh3.googleusercontent.com/p/AF1QipPnSk7mifPjh6FToohiaNbuRJn3q78DxLiGx4Lj=s680-w680-h510-rw"
+      },
+      {
+        id: 3,
+        name: "Wedding Cake",
+        description: "Elegant multi-tier wedding cake with fondant flowers and pearl details.",
+        price: 12000,
+        image: "https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=600"
+      },
+      {
+        id: 4,
+        name: "Cupcakes (10 pcs)",
+        description: "Assorted flavored cupcakes with beautiful frosting swirls.",
+        price: 1500,
+        image: "https://lh3.googleusercontent.com/p/AF1QipM4hnX8z7kS9FMPYOx1a1utgabSDXwaSQHDR6Pr=s680-w680-h510-rw"
+      },
+      {
+        id: 5,
+        name: "Ribbon Cake 1Kg ",
+        description: "Soft, tasty Ribbon Cake – perfect for any occasion.",
+        price: 1800,
+        image: "https://lh3.googleusercontent.com/p/AF1QipO4bte4HLNxwN4hb7x0f_X4raa_RLVLPwPTr1KE=s680-w680-h510-rw"
+      },
+      {
+        id: 6,
+        name: "Butter  Cake 1Kg ",
+        description: "Fresh Butter  cake.",
+        price: 1500,
+        image: "https://lh3.googleusercontent.com/p/AF1QipOMbSW9skC8jNOdWAsJsu0l_UJ70Oa71LBsIzJj=s680-w680-h510-rw",
+      }
+    ];
+
+    // Sample Reviews Data
+    let reviews = [
+      {
+        id: 1,
+        name: "Sarah Perera",
+        rating: 5,
+        text: "Absolutely loved the chocolate cake! It was moist, rich, and beautifully decorated. Delivery was on time too. Will definitely order again!",
+        date: "2 days ago",
+        avatar: "S"
+      },
+      {
+        id: 2,
+        name: "Kamal Fernando",
+        rating: 5,
+        text: "Ordered a birthday cake for my daughter. The custom design was exactly what we wanted. Everyone at the party loved it. Thank you Cake House!",
+        date: "1 week ago",
+        avatar: "K"
+      },
+      {
+        id: 3,
+        name: "Nisha Silva",
+        rating: 4,
+        text: "Great taste and beautiful presentation. The red velvet was perfect. Only suggestion is to offer more sugar-free options. Overall very satisfied!",
+        date: "2 weeks ago",
+        avatar: "N"
+      }
+    ];
+
+    // Gallery Data
+    const galleryImages = [
+      "https://lh3.googleusercontent.com/p/AF1QipOTDh1GUY9FoIcnszG7V2TwFlwpfm65N_7oi1G8=s680-w680-h510-rw",
+      "https://lh3.googleusercontent.com/p/AF1QipMT8l-HgY4nETRvHFiU1ltQq2oD1ty8eAti68Yw=s680-w680-h510-rw",
+      "https://lh3.googleusercontent.com/p/AF1QipPnSk7mifPjh6FToohiaNbuRJn3q78DxLiGx4Lj=s680-w680-h510-rw",
+      "https://lh3.googleusercontent.com/p/AF1QipOr7vcD0lurm2C14ypfjv5DU-y1Acs_yFW6gJ3h=s680-w680-h510-rw",
+      "https://lh3.googleusercontent.com/p/AF1QipMVB7O36G5wl61drRfE1SY-lEDvXSq9BVDYV6cM=s680-w680-h510-rw",
+      "https://lh3.googleusercontent.com/p/AF1QipM62tYzb-GE67FL6-8zt-NZyrbN2RpUFnnzRcw4=s680-w680-h510-rw",
+      "https://lh3.googleusercontent.com/p/AF1QipNFRkJ4ECQDOJxgLfs1kSpqm16azKqCXH-gfDMT=s680-w680-h510-rw",
+      "https://lh3.googleusercontent.com/p/AF1QipOM94XCmstW1YnHg8poxYMqUU1qoIIIIloBDPeq=s680-w680-h510-rw",
+      "https://lh3.googleusercontent.com/p/AF1QipNtKS-oP3RqLFhH1CAOp_cuAyMd3M57c248QRDV=s680-w680-h510-rw",
+      "https://lh3.googleusercontent.com/p/AF1QipNjXAIu0G_IiKjD-MGAGVkbUNh6N2gV0VyIc0Cg=s680-w680-h510-rw",
+      "https://lh3.googleusercontent.com/p/AF1QipM9eRE7hhGCYwbDZX1VNKSxE9fWmKCOBS-y-ANS=s680-w680-h510-rw",
+      "https://lh3.googleusercontent.com/p/AF1QipOXzf5NPJ0h8J8WagODOooXYq9FzXcRwyvHom6X=s680-w680-h510-rw",
+      "https://lh3.googleusercontent.com/p/AF1QipP4VohaBtNPvJhbJ7T1cEEWtJLEiiPD7_dqt4FU=s680-w680-h510-rw",
+    ];
+
+    // Cart State
+    let cart = [];
+    const DELIVERY_FEE = 300;
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+      renderCakes();
+      renderReviews();
+      renderGallery();
+      setupScrollAnimation();
+      setupStarRating();
+      setupLogoErrorHandling();
+    });
+
+    // Logo Error Handling
+    function setupLogoErrorHandling() {
+      const logos = ['headerLogo', 'heroLogo', 'footerLogo'];
+      logos.forEach(id => {
+        const img = document.getElementById(id);
+        if (img) {
+          img.onerror = function() {
+            if (id === 'heroLogo') {
+              this.style.display = 'none';
+              const placeholder = document.createElement('div');
+              placeholder.innerHTML = '🧁';
+              placeholder.style.cssText = 'font-size: 100px; margin-bottom: 20px; animation: float 3s ease-in-out infinite;';
+              this.parentNode.insertBefore(placeholder, this);
+            }
+          };
+        }
+      });
+    }
+
+    // Render Cakes
+    function renderCakes() {
+      const grid = document.getElementById('cakesGrid');
+      grid.innerHTML = cakes.map(cake => `
+        <div class="cake-card fade-in">
+          <img src="${cake.image}" alt="${cake.name}" class="cake-image">
+          <div class="cake-content">
+            <h3 class="cake-name">${cake.name}</h3>
+            <p class="cake-description">${cake.description}</p>
+            <div class="cake-price">Rs. ${cake.price.toLocaleString()}</div>
+            <button class="btn-order" onclick="addToCart(${cake.id})">
+              <i class="fas fa-cart-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Render Reviews
+    function renderReviews() {
+      const container = document.getElementById('reviewsContainer');
+      container.innerHTML = reviews.map(review => `
+        <div class="review-card fade-in">
+          <div class="review-header">
+            <div class="review-avatar">${review.avatar}</div>
+            <div class="review-info">
+              <h4>${review.name}</h4>
+              <div class="review-stars">
+                ${Array(5).fill(0).map((_, i) => 
+                  `<i class="${i < review.rating ? 'fas' : 'far'} fa-star"></i>`
+                ).join('')}
+              </div>
+            </div>
+          </div>
+          <p class="review-text">${review.text}</p>
+          <p class="review-date"><i class="far fa-clock"></i> ${review.date}</p>
+        </div>
+      `).join('');
+    }
+
+    // Render Gallery
+    function renderGallery() {
+      const grid = document.getElementById('galleryGrid');
+      grid.innerHTML = galleryImages.map((img, index) => `
+        <div class="gallery-item fade-in" onclick="openLightbox('${img}')" style="animation-delay: ${index * 0.1}s">
+          <img src="${img}" alt="Cake Gallery ${index + 1}">
+          <div class="gallery-overlay">
+            <i class="fas fa-search-plus"></i>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Mobile Menu
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+
+   document.querySelectorAll('input[name="payment"]').forEach(radio => {
+  radio.addEventListener('change', function() {
+    const bankBox = document.getElementById('bankDetails');
+
+    if (this.value === 'bank') {
+      bankBox.style.display = 'block';
+    } else {
+      bankBox.style.display = 'none';
+    }
+  });
+});
+    // Cart Functions
+    function toggleCart() {
+      document.getElementById('cartSidebar').classList.toggle('active');
+      document.getElementById('overlay').classList.toggle('active');
+      document.body.style.overflow = document.getElementById('cartSidebar').classList.contains('active') ? 'hidden' : '';
+    }
+
+    function addToCart(cakeId) {
+      const cake = cakes.find(c => c.id === cakeId);
+      const existingItem = cart.find(item => item.id === cakeId);
+      
+      if (existingItem) {
+        existingItem.quantity++;
+      } else {
+        cart.push({ ...cake, quantity: 1 });
+      }
+      
+      updateCart();
+      toggleCart();
+      showNotification(`${cake.name} added to cart!`);
+    }
+
+    function updateQuantity(cakeId, change) {
+      const item = cart.find(item => item.id === cakeId);
+      if (item) {
+        item.quantity += change;
+        if (item.quantity <= 0) {
+          cart = cart.filter(i => i.id !== cakeId);
+        }
+        updateCart();
+      }
+    }
+
+    function removeFromCart(cakeId) {
+      cart = cart.filter(item => item.id !== cakeId);
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartItems = document.getElementById('cartItems');
+      const cartCount = document.getElementById('cartCount');
+      const cartFooter = document.getElementById('cartFooter');
+      const cartSubtotal = document.getElementById('cartSubtotal');
+      const cartTotal = document.getElementById('cartTotal');
+      
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      cartCount.textContent = totalItems;
+      
+      if (cart.length === 0) {
+        cartItems.innerHTML = `
+          <div class="empty-cart">
+            <i class="fas fa-shopping-basket"></i>
+            <p>Your cart is empty</p>
+          </div>
+        `;
+        cartFooter.style.display = 'none';
+      } else {
+        cartItems.innerHTML = cart.map(item => `
+          <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}">
+            <div class="cart-item-details">
+              <div class="cart-item-name">${item.name}</div>
+              <div class="cart-item-price">Rs. ${item.price.toLocaleString()}</div>
+              <div class="quantity-control">
+                <button class="qty-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
+                <span>${item.quantity}</span>
+                <button class="qty-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+              </div>
+            </div>
+            <button class="remove-item" onclick="removeFromCart(${item.id})">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        `).join('');
+        
+        const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        const total = subtotal + DELIVERY_FEE;
+        
+        cartSubtotal.textContent = `Rs. ${subtotal.toLocaleString()}`;
+        cartTotal.textContent = `Rs. ${total.toLocaleString()}`;
+        cartFooter.style.display = 'block';
+      }
+    }
+
+    // Checkout Process
+    function processCheckout() {
+      if (cart.length === 0) return;
+      
+      const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      const total = subtotal + DELIVERY_FEE;
+      
+      // Simulate payment processing
+      const btn = document.querySelector('.checkout-btn');
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+      
+      setTimeout(() => {
+        // Show success modal
+        document.getElementById('orderId').textContent = `#ORD-${Date.now().toString().slice(-6)}`;
+        document.getElementById('paidAmount').textContent = `Rs. ${total.toLocaleString()}`;
+        document.getElementById('paymentMethod').textContent = 
+          paymentMethod === 'card' ? 'Credit/Debit Card' : 
+          paymentMethod === 'bank' ? 'Bank Transfer' : 'Cash ';
+        
+        document.getElementById('paymentModal').classList.add('active');
+        
+        // Clear cart
+        cart = [];
+        updateCart();
+        toggleCart();
+        
+        // Reset button
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-lock"></i> Pay Securely';
+      }, 2000);
+    }
+
+    function closePaymentModal() {
+      document.getElementById('paymentModal').classList.remove('active');
+    }
+
+    // Review Modal Functions
+    function openReviewModal() {
+      document.getElementById('reviewModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeReviewModal() {
+      document.getElementById('reviewModal').classList.remove('active');
+      document.body.style.overflow = '';
+      document.getElementById('reviewForm').reset();
+      document.querySelectorAll('.star').forEach(s => s.classList.remove('active'));
+      document.getElementById('ratingValue').value = 0;
+    }
+
+    function setupStarRating() {
+      const stars = document.querySelectorAll('.star');
+      const ratingInput = document.getElementById('ratingValue');
+      
+      stars.forEach(star => {
+        star.addEventListener('click', () => {
+          const rating = parseInt(star.dataset.rating);
+          ratingInput.value = rating;
+          
+          stars.forEach((s, index) => {
+            if (index < rating) {
+              s.classList.add('active');
+            } else {
+              s.classList.remove('active');
+            }
+          });
+        });
+      });
+    }
+
+    function submitReview(e) {
+      e.preventDefault();
+      
+      const rating = parseInt(document.getElementById('ratingValue').value);
+      const name = document.getElementById('reviewerName').value.trim();
+      const text = document.getElementById('reviewText').value.trim();
+      
+      let isValid = true;
+      
+      // Reset errors
+      document.querySelectorAll('.error-message').forEach(err => err.style.display = 'none');
+      
+      if (rating === 0) {
+        document.getElementById('ratingError').style.display = 'block';
+        isValid = false;
+      }
+      
+      if (!name) {
+        document.getElementById('reviewerNameError').style.display = 'block';
+        isValid = false;
+      }
+      
+      if (!text) {
+        document.getElementById('reviewTextError').style.display = 'block';
+        isValid = false;
+      }
+      
+      if (isValid) {
+        const newReview = {
+          id: reviews.length + 1,
+          name: name,
+          rating: rating,
+          text: text,
+          date: "Just now",
+          avatar: name.charAt(0).toUpperCase()
+        };
+        
+        reviews.unshift(newReview);
+        renderReviews();
+        closeReviewModal();
+        showNotification('Thank you for your review!');
+        
+        // Re-trigger animation for new review
+        setTimeout(() => {
+          const firstCard = document.querySelector('.review-card');
+          if (firstCard) firstCard.classList.add('visible');
+        }, 100);
+      }
+    }
+
+    // Contact Form
+  function handleSubmit(e) {
+  e.preventDefault();
+
+  const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  if (!name || !phone || !message) {
+    alert("Please fill all fields");
+    return;
+  }
+
+  emailjs.send("service_uj65yqp", "template_ybqu6iu", {
+    from_name: name,
+    phone: phone,
+    message: message
+  })
+  .then(function(response) {
+    alert("Message sent successfully!");
+    document.getElementById('contactForm').reset();
+  })
+  .catch(function(error) {
+    console.log("ERROR:", error);
+    alert("Failed: " + error.text);
+  });
+}
+    // Lightbox
+    function openLightbox(src) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Scroll Animation
+    function setupScrollAnimation() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    }
+
+    // Notification
+    function showNotification(text) {
+      const notification = document.createElement('div');
+      notification.style.cssText = `
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%) translateY(100px);
+        background: var(--dark-pink);
+        color: white;
+        padding: 15px 30px;
+        border-radius: 50px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        z-index: 4000;
+        font-weight: 600;
+        transition: transform 0.3s ease;
+      `;
+      notification.innerHTML = `<i class="fas fa-check-circle"></i> ${text}`;
+      document.body.appendChild(notification);
+      
+      setTimeout(() => notification.style.transform = 'translateX(-50%) translateY(0)', 100);
+      setTimeout(() => {
+        notification.style.transform = 'translateX(-50%) translateY(100px)';
+        setTimeout(() => notification.remove(), 300);
+      }, 3000);
+    }
+
+    // Keyboard accessibility
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeLightbox();
+        closeReviewModal();
+        closePaymentModal();
+        if (document.getElementById('cartSidebar').classList.contains('active')) {
+          toggleCart();
+        }
+      }
+    });
+
+    // Close modals on overlay click
+    document.getElementById('reviewModal').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) closeReviewModal();
+    });
+    
+    document.getElementById('paymentModal').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) closePaymentModal();
+    });
+  </script>
+
+<a href="https://wa.me/94766555687" class="whatsapp-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+  emailjs.init("083YxnTuLZbc3vVeS");
+})();
+</script> 
+  
+  <script> function sendSlipWhatsApp() {
+
+  if (cart.length === 0) {
+    alert("Your cart is empty!");
+    return;
+  }
+
+  let message = "Hello, I have completed a bank transfer.%0A%0AOrder Details:%0A";
+
+  cart.forEach(item => {
+    message += `${item.name} x${item.quantity} - Rs.${item.price}%0A`;
+  });
+
+  message += "%0ATotal: Rs." + 
+    cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+  message += "%0A%0APlease find my payment slip attached.";
+
+  window.open(`https://wa.me/94766555687?text=${message}`, "_blank");
+} </script> 
+    <script> 
+  if('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js')
+      .then(reg => console.log('Service Worker Registered'))
+      .catch(err => console.log('Service Worker Not Registered', err));
+  }
+</script>
+</script> <script>
+// Me thiyenne oyage Cake Data list eka. 
+// Images walata Google Drive link ekak nathiwa, 
+// me thiyena Google link eka use karanna.
+const cakes = [
+    {
+        id: 1,
+        name: "Chocolate Cake",
+        price: 3500,
+        image: "https://lh3.googleusercontent.com/p/AF1QipMpqb2R_kv97NbQNhRe_oOlYdQPdCOqCrXVTSZT=s680",
+        description: "Rich chocolate sponge with creamy chocolate frosting and ganache layers."
+    },
+    {
+        id: 2,
+        name: "Birthday Cake",
+        price: 4500,
+        image: "https://drive.google.com/file/d/19M0RNjgN1v8ALbXKq9nEHLKGHChC4PCG/view?usp=drive_link",
+        description: "Delicious homemade Birthday Cakes 🎂 made with Astra butter, icing, eggs, sugar & quality ingredients. Custom designs available as per your choice. Prices start from Rs. 4500 and above."
+    },
+    {
+        id: 3,
+        name: "Wedding Cake",
+        price: 12000,
+        image: "https://lh3.googleusercontent.com/p/AF1QipPeAvVhO1Pd-kHR3Cfag5g0BncNlqF9-mjjrQ3Y=s680",
+        description: "Elegant multi-tier wedding cake with fondant flowers and pearl details."
+    },
+    {
+        id: 4,
+        name: "Red Velvet Cake",
+        price: 4200,
+        image: "https://lh3.googleusercontent.com/p/AF1QipNrHuPjzXq9rCgY-1BAwTJlHK9HgU0YgGROVNt6=s680",
+        description: "Classic red velvet with cream cheese frosting and red crumb topping."
+    }
+];
+
+// Cake cards display karana function eka
+function displayCakes() {
+    const grid = document.getElementById('cakesGrid');
+    if(!grid) return;
+
+    grid.innerHTML = cakes.map(cake => `
+        <div class="cake-card fade-in visible">
+            <img src="${cake.image}" alt="${cake.name}" class="cake-image">
+            <div class="cake-content">
+                <h3 class="cake-name">${cake.name}</h3>
+                <p class="cake-description">${cake.description}</p>
+                <p class="cake-price">Rs. ${cake.price.toLocaleString()}</p>
+                <button onclick="addToCart(${cake.id})" class="btn-order">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+            </div>
+        </div>
+    `).join('');
+}
+
+// Page load weddi cakes display karanna
+window.onload = function() {
+    displayCakes();
+};
+</script>
+    <script>
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("active");
+}
+
+function toggleCart() {
+  document.querySelector(".cart-sidebar").classList.toggle("active");
+  document.querySelector(".overlay").classList.toggle("active");
+}
+</script>
+   <script>
+// Typing Animation එක ක්‍රියාත්මක කරන කෝඩ් එක
+const text = "Welcome to The Cake House Ja-Ela";
+let index = 0;
+
+function typeWriter() {
+    if (index < text.length) {
+        document.getElementById("typing-text").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, 100); // අකුරු ලියවෙන වේගය (මිලිසෙකන්ඩ් 100)
+    }
+}
+
+// පිටුව Load වූ සැනින් ඇනිමේෂන් එක පටන් ගැනීම
+window.addEventListener('DOMContentLoaded', typeWriter);
+      // මෙනු එක ඇතුළේ තියෙන ලින්ක් එකක් ක්ලික් කරාම මෙනු එක වසා දැමීම
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        const navLinks = document.querySelector('.nav-links');
+        const hamburger = document.querySelector('.hamburger');
+        
+        // මෙනු එකෙන් 'active' ක්ලාස් එක අයින් කරලා ඒක හංගනවා
+        if (navLinks) navLinks.classList.remove('active');
+        if (hamburger) hamburger.classList.remove('active');
+    });
+});
+</script>
+   <div class="fixed-hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<style>
+@media only screen and (max-width: 1024px) {
+    /* සයිට් එකේ වෙන කොහේ හැංගිලා තිබ්බත්, මේකෙන් අලුත්ම ඉරි 3ක් දකුණු පැත්තේ උඩින් මතු කරනවා */
+    .fixed-hamburger {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        width: 30px !important;
+        height: 20px !important;
+        cursor: pointer !important;
+        position: fixed !important; /* සයිට් එක scroll කරත් මේක උඩම තියෙනවා */
+        right: 20px !important;
+        top: 25px !important;
+        z-index: 999999 !important; /* හැමදේටම උඩින්ම පේන්න */
+        background: transparent !important;
+    }
+
+    .fixed-hamburger span {
+        display: block !important;
+        width: 100% !important;
+        height: 3px !important;
+        background-color: #b03060 !important; /* තද රෝස පාට */
+        border-radius: 3px !important;
     }
 }
 </script>
