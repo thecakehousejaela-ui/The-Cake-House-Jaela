@@ -827,7 +827,7 @@ if (location.protocol !== 'https:') {
       border: 1px solid (--dark-pink);
       object-fit: cover;
       background: white;
-      box-shadow: 10px rgba(#FF7081);
+      box-shadow: 0 0 10px #FF7081;
     }
 
     .social-icons {
@@ -1244,128 +1244,125 @@ if (location.protocol !== 'https:') {
     }
 }
 
-/* 2. iPhone සහ කුඩා ජංගම දුරකථන සඳහා (Width 480px ට අඩු) */
-@media (max-width: 480px) {
-    /* Header එකේ Logo එක කුඩා කිරීමෙන් Menu එකට ඉඩ ලබා දීම */
-    .logo img {
-        height: 40px !important;
-        width: 40px !important;
-    }
+/* --- Optimized Responsive Navigation --- */
 
-    .logo-text .main-title {
-        font-size: 0.85rem !important;
-    }
+/* Tablet & Mobile */
+@media (max-width: 1024px) {
 
-    .logo-text .sub-title {
-        font-size: 0.5rem !important;
-    }
+  nav {
+    padding: 10px 20px;
+    justify-content: space-between;
+  }
 
-    /* Hero Section එකේ පෙනුම සකස් කිරීම */
-    .hero h1 {
-        font-size: 1.3rem !important;
-        padding: 0 10px;
-    }
+  .hamburger {
+    display: flex;
+    z-index: 2000;
+  }
 
-    .hero-content {
-        width: 90% !important;
-        padding: 20px 15px !important;
-    }
+  .nav-links {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: linear-gradient(135deg, var(--primary-pink), var(--light-pink));
+    flex-direction: column;
+    padding: 40px 0;
+    transition: left 0.4s ease;
+    gap: 0;
+  }
 
-    .nav-links {
-        width: 100%; /* Mobile වලදී මුළු තිරයම වැසෙන ලෙස */
-    }
+  .nav-links.active {
+    left: 0;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 20px;
+    font-size: 1.2rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero-logo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .about-container,
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image {
+    order: -1;
+  }
+
+  .cart-sidebar {
+    width: 100%;
+    right: -100%;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .reviews-container {
+    grid-template-columns: 1fr;
+  }
 }
-      .nav-links {
-        position: fixed;
-        top: 80px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 80px);
-        background: linear-gradient(135deg, var(--primary-pink), var(--light-pink));
-        flex-direction: column;
-        padding: 40px 0;
-        transition: left 0.4s ease;
-        gap: 0;
-      }
 
-      .nav-links.active {
-        left: 0;
-      }
+/* Small Mobile Devices */
+@media (max-width: 480px) {
 
-      .nav-links li {
-        width: 100%;
-        text-align: center;
-      }
+  .logo img {
+    height: 45px;
+    width: 45px;
+  }
 
-      .nav-links a {
-        display: block;
-        padding: 20px;
-        font-size: 1.2rem;
-      }
+  .logo-text .main-title {
+    font-size: 0.9rem;
+  }
 
-      .hero h1 {
-        font-size: 2rem;
-      }
+  .logo-text .sub-title {
+    font-size: 0.55rem;
+  }
 
-      .hero p {
-        font-size: 1rem;
-      }
+  .hero-content {
+    padding: 30px 20px;
+    width: 95%;
+  }
 
-      .hero-logo {
-        width: 140px;
-        height: 140px;
-      }
+  .hero h1 {
+    font-size: 1.5rem;
+  }
 
-      .about-container,
-      .contact-container {
-        grid-template-columns: 1fr;
-      }
+  .section-title {
+    font-size: 2rem;
+  }
 
-      .about-image {
-        order: -1;
-      }
+  .contact-form,
+  .review-modal,
+  .payment-modal {
+    padding: 20px;
+  }
 
-      .cart-sidebar {
-        width: 100%;
-        right: -100%;
-      }
-
-      .features {
-        grid-template-columns: 1fr;
-      }
-
-     
-
-      .reviews-container {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero-content {
-        padding: 40px 25px;
-      }
-
-      .section-title {
-        font-size: 2rem;
-      }
-
-      .contact-form,
-      .review-modal,
-      .payment-modal {
-        padding: 25px;
-      }
-
-      .logo img {
-        height: 50px;
-        width: 50px;
-      }
-
-      .hero-logo {
-        width: 65px;
-        height: 65px;
-      }
-    }
+  .nav-links {
+    top: 70px;
+    height: calc(100vh - 70px);
+  }
+}
 
     /* Animations */
     .fade-in {
@@ -1386,7 +1383,7 @@ if (location.protocol !== 'https:') {
   <header>
     <nav>
      <a href="#" class="logo">
-  <img src="https://lh3.googleusercontent.com/p/AF1QipPeAvVhO1Pd-kHR3Cfag5g0BncNlqF9-mjjrQ3Y=s680-w680-h510-rw">
+  <img class="hero-logo" src="https://lh3.googleusercontent.com/p/AF1QipNrHuPjzXq9rCgY-1BAwTJlHK9HgU0YgGROVNt6=s680-w680-h510-rw">
         <div class="logo-text">
           <span class="main-title">The Cake House</span>
           <span class="sub-title">Ja-Ela, Sri Lanka</span>
@@ -2349,6 +2346,16 @@ function displayCakes() {
 window.onload = function() {
     displayCakes();
 };
+</script>
+    <script>
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("active");
+}
+
+function toggleCart() {
+  document.querySelector(".cart-sidebar").classList.toggle("active");
+  document.querySelector(".overlay").classList.toggle("active");
+}
 </script>
 </body>
 </html>
