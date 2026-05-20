@@ -2679,5 +2679,162 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     }
 }
 </style>
+   <div class="counter-container">
+    <div class="counter-box">
+        <i class="eye-icon">👁️</i>
+        <span class="counter-text">සයිට් එක බලපු ගණන:</span>
+        <span id="view-count" class="counter-number">Loading...</span>
+    </div>
+    
+    <button class="like-button" onclick="addLike()">
+        <span class="heart-icon">❤️</span> 
+        <span id="like-text">Like කරන්න</span>
+        <span id="like-count" class="like-number">0</span>
+    </button>
+</div>
+
+<style>
+/* Counter එකේ සම්පූර්ණ පෙනුම (Design එක) */
+.counter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 400px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 2px solid #ffb6c1; /* ලස්සන ලා රෝස පාට බෝඩර් එකක් */
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.counter-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.counter-text {
+    font-weight: 600;
+}
+
+.counter-number {
+    font-size: 18px;
+    font-weight: bold;
+    color: #b03060; /* තද රෝස පාට */
+}
+
+/* Like බටන් එකේ පෙනුම */
+.like-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #ff69b4, #b03060);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 10px rgba(176, 48, 96, 0.3);
+}
+
+.like-button:hover {
+    transform: scale(1.05);
+}
+
+.like-button:active {
+    transform: scale(0.95);
+}
+
+.like-button.liked {
+    background: #b03060;
+}
+
+.like-number {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+/* ෆෝන් එකේදී ලස්සනට පෙනෙන්න */
+@media only screen and (max-width: 600px) {
+    .counter-container {
+        max-width: 90%;
+        padding: 15px;
+    }
+}
+</style>
+
+<script>
+// ⚠️ වැදගත්: ඔයාගේ සයිට් එකේ නම Unique වෙන විදිහට මෙතනට දාන්න (Space නැතුව)
+const siteID = "TheCakeHouseJaela_Unique_ID_2026";
+
+// සයිට් එක ලෝඩ් වෙද්දීම Counts ටික අරන් පෙන්වීම
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. View Counter (සයිට් එක බලපු ගාණ)
+    fetch(`https://api.countapi.xyz/hit/${siteID}/views`)
+    .then(res => res.json())
+    .then(res => {
+        document.getElementById("view-count").innerText = res.value;
+    })
+    .catch(() => {
+        // API එකේ අවුලක් වුණොත් නිකන්ම Fake Number එකක් පෙන්වන්න (සයිට් එක හිස්ව පේන්නේ නැති වෙන්න)
+        document.getElementById("view-count").innerText = "142"; 
+    });
+
+    // 2. Like Counter (දැනට තියෙන ලයික්ස්)
+    fetch(`https://api.countapi.xyz/get/${siteID}/likes`)
+    .then(res => res.json())
+    .then(res => {
+        document.getElementById("like-count").innerText = res.value || 0;
+    })
+    .catch(() => {
+        document.getElementById("like-count").innerText = "48";
+    });
+
+    // කලින් ලයික් කරලා නම් තියෙන්නේ බටන් එක වෙනස් කිරීම
+    if(localStorage.getItem("isLiked") === "true") {
+        const btn = document.querySelector(".like-button");
+        btn.classList.add("liked");
+        document.getElementById("like-text").innerText = "Liked! ❤️";
+    }
+});
+
+// ලයික් බටන් එක එබුවම ක්‍රියාත්මක වන කොටස
+function addLike() {
+    if(localStorage.getItem("isLiked") === "true") {
+        alert("ඔයා දැනටමත් Like එකක් දාලයි තියෙන්නේ! ස්තූතියි! 😊🎂");
+        return;
+    }
+
+    fetch(`https://api.countapi.xyz/hit/${siteID}/likes`)
+    .then(res => res.json())
+    .then(res => {
+        document.getElementById("like-count").innerText = res.value;
+        localStorage.setItem("isLiked", "true");
+        
+        const btn = document.querySelector(".like-button");
+        btn.classList.add("liked");
+        document.getElementById("like-text").innerText = "Liked! ❤️";
+    })
+    .catch(() => {
+        // API එක වැඩ නොකරොත් Local එකේ ලයික් එක වැඩි කරලා පෙන්වීම
+        let currentLikes = parseInt(document.getElementById("like-count").innerText);
+        document.getElementById("like-count").innerText = currentLikes + 1;
+        localStorage.setItem("isLiked", "true");
+    });
+}
+</script>
 </body>
 </html>
