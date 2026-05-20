@@ -1,16 +1,14 @@
-const CACHE_NAME = 'cakehouse-v1';
+const CACHE_NAME = 'cake-house-blogger-v1';
 
-self.addEventListener('install', (event) => {
-    self.skipWaiting();
+self.addEventListener('install', e => {
+  self.skipWaiting();
 });
 
-self.addEventListener('activate', (event) => {
-    event.waitUntil(clients.claim());
+self.addEventListener('activate', e => {
+  e.waitUntil(clients.claim());
 });
 
-// බ්ලොගර් එකෙන් එන Request වලට Cross-Origin අවසර දීම
-self.addEventListener('fetch', (event) => {
-    if (event.request.mode === 'navigate') {
-        event.respondWith(fetch(event.request));
-    }
+self.addEventListener('fetch', e => {
+  // Blogger සයිට් එකේ දේවල් සාමාන්‍ය විදිහට ලෝඩ් වෙන්න හරින්න
+  e.respondWith(fetch(e.request).catch(() => caches.match(e.request)));
 });
