@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <style>
+/* ලෝගෝ එක වටේ තියෙන සුදු පාට පසුබිම සහ පරතරය අඩු කිරීම */
+.logo-container img, .header img, a img {
+    background-color: transparent !important; /* සුදු පාට පසුබිම නැති කිරීමට */
+    padding: 0 !important;                     /* වටේ තියෙන අනවශ්‍ය ඉඩ අයින් කිරීමට */
+    border: none !important;                    /* බෝඩර් එකක් තිබේ නම් එය අයින් කිරීමට */
+    border-radius: 0 !important;               /* රවුම් හැඩය අයින් කිරීමට (ඕනේ නම් විතරක් තියාගන්න) */
+}
+</style>
+    <style>
 /* Header එක ඇතුළේ තියෙන Menu එක සහ Cart එක දකුණු අයිනටම ගැනීම */
 header, nav, .header-container {
     display: flex !important;
