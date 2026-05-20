@@ -2462,5 +2462,21 @@ function toggleCart() {
   document.querySelector(".overlay").classList.toggle("active");
 }
 </script>
+   <script>
+// Typing Animation එක ක්‍රියාත්මක කරන කෝඩ් එක
+const text = "Welcome to The Cake House Ja-Ela";
+let index = 0;
+
+function typeWriter() {
+    if (index < text.length) {
+        document.getElementById("typing-text").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, 100); // අකුරු ලියවෙන වේගය (මිලිසෙකන්ඩ් 100)
+    }
+}
+
+// පිටුව Load වූ සැනින් ඇනිමේෂන් එක පටන් ගැනීම
+window.addEventListener('DOMContentLoaded', typeWriter);
+</script>
 </body>
 </html>
