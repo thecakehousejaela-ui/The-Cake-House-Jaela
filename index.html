@@ -64,7 +64,19 @@ header, nav, .header-container {
     display: inline-flex !important;
     align-items: center;
 }
-
+<style>
+/* සයිට් එක ලෝඩ් වෙද්දීම මෙනු එක ෆෝන් එක පුරා වැසී තිබීම වැළැක්වීම */
+@media (max-width: 768px) {
+    .nav-menu, .sidebar, #menu-overlay { 
+        display: none !important; /* මුලින්ම මෙනු එක හංගන්න */
+    }
+    /* හැබැයි මෙනු එක open කියන class එක ආවොත් විතරක් පෙන්වන්න */
+    .nav-menu.open, .sidebar.active, .open {
+        display: block !important; 
+    }
+}
+</style>
+ <style>  
 /* Phone සහ iPad (Mobile/Tablet) තිර වලදීත් ලස්සනට පේන්න */
 @media only screen and (max-width: 1024px) {
     header, nav, .header-container {
