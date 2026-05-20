@@ -10,6 +10,34 @@
 }
 </style>
     <style>
+       /* Typing Animation Styles */
+.typing-container {
+    font-size: 2.8rem;
+    color: var(--dark-pink);
+    margin-bottom: 20px;
+    font-weight: 700;
+    min-height: 80px; /* Text එක වැටෙද්දී layout එක උඩ පල්ලෙහා නොයා ස්ථාවරව තියාගන්න */
+}
+
+.cursor {
+    animation: blink 0.7s infinite;
+    color: var(--dark-pink);
+    margin-left: 5px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Phone වලට ගැලපෙන්න අකුරු ප්‍රමාණය */
+@media (max-width: 480px) {
+    .typing-container {
+        font-size: 1.5rem !important;
+        min-height: 50px;
+    }
+}
+       
 /* Header එක ඇතුළේ තියෙන Menu එක සහ Cart එක දකුණු අයිනටම ගැනීම */
 header, nav, .header-container {
     display: flex !important;
@@ -1492,6 +1520,9 @@ if (location.protocol !== 'https:') {
     <div class="hero-content">
       <img src="https://lh3.googleusercontent.com/p/AF1QipNrHuPjzXq9rCgY-1BAwTJlHK9HgU0YgGROVNt6=s680-w680-h510-rw">
       <h1>Welcome to <br> The Cake House Ja-Ela</h1>
+       <h1 class="typing-container">
+    <span id="typing-text"></span><span class="cursor">|</span>
+</h1>
       <p>Exquisite homemade cakes designed for every special occasion.
 Expertly crafted and freshly baked using only the finest, premium ingredients — delivering a taste of pure indulgence in every bite.
 .</p>
