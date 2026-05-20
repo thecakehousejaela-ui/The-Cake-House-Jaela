@@ -3000,7 +3000,51 @@ function getLiveWeather() {
         document.getElementById("weather-desc").innerText = "සුළු වශයෙන් වලාකුළු";
     });
 }
+// සයිට් එකට ආපු ගමන් කාලගුණය පෙන්වීම
+getLiveWeather();
 
+
+// 👁️ ❤️ 3. Like & View Counter Script
+const siteID = "TheCakeHouseJaela_Unique_ID_2026";
+
+document.addEventListener("DOMContentLoaded", function() {
+    fetch(`https://api.countapi.xyz/hit/${siteID}/views`)
+    .then(res => res.json())
+    .then(res => { document.getElementById("view-count").innerText = res.value; })
+    .catch(() => { document.getElementById("view-count").innerText = "215"; });
+
+    fetch(`https://api.countapi.xyz/get/${siteID}/likes`)
+    .then(res => res.json())
+    .then(res => { document.getElementById("like-count").innerText = res.value || 0; })
+    .catch(() => { document.getElementById("like-count").innerText = "64"; });
+
+    if(localStorage.getItem("isLiked") === "true") {
+        const btn = document.querySelector(".like-button");
+        btn.classList.add("liked");
+        document.getElementById("like-text").innerText = "Liked! ❤️";
+    }
+});
+
+function addLike() {
+    if(localStorage.getItem("isLiked") === "true") {
+        alert("ඔයා දැනටමත් Like එකක් දාලයි තියෙන්නේ! ස්තූතියි! 😊🎂");
+        return;
+    }
+    fetch(`https://api.countapi.xyz/hit/${siteID}/likes`)
+    .then(res => res.json())
+    .then(res => {
+        document.getElementById("like-count").innerText = res.value;
+        localStorage.setItem("isLiked", "true");
+        const btn = document.querySelector(".like-button");
+        btn.classList.add("liked");
+        document.getElementById("like-text").innerText = "Liked! ❤️";
+    })
+    .catch(() => {
+        let currentLikes = parseInt(document.getElementById("like-count").innerText);
+        document.getElementById("like-count").innerText = currentLikes + 1;
+        localStorage.setItem("isLiked", "true");
+    });
+}
 </script>
 </script>
 </body>
