@@ -2555,5 +2555,37 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     });
 });
 </script>
+   <div class="fixed-hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<style>
+@media only screen and (max-width: 1024px) {
+    /* සයිට් එකේ වෙන කොහේ හැංගිලා තිබ්බත්, මේකෙන් අලුත්ම ඉරි 3ක් දකුණු පැත්තේ උඩින් මතු කරනවා */
+    .fixed-hamburger {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        width: 30px !important;
+        height: 20px !important;
+        cursor: pointer !important;
+        position: fixed !important; /* සයිට් එක scroll කරත් මේක උඩම තියෙනවා */
+        right: 20px !important;
+        top: 25px !important;
+        z-index: 999999 !important; /* හැමදේටම උඩින්ම පේන්න */
+        background: transparent !important;
+    }
+
+    .fixed-hamburger span {
+        display: block !important;
+        width: 100% !important;
+        height: 3px !important;
+        background-color: #b03060 !important; /* තද රෝස පාට */
+        border-radius: 3px !important;
+    }
+}
+</style>
 </body>
 </html>
