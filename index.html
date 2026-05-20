@@ -136,6 +136,27 @@
     }
 }
        </style>
+   <style> /* ලැප්ටොප් සහ පරිගණක (Screen එක 1025px වලට වඩා වැඩි) සඳහා විතරයි */
+@media only screen and (min-width: 1025px) {
+    /* 1. මෙනු අයිටම්ස් ටික ලස්සනට පොඩි කිරීම */
+    .nav-links a {
+        font-size: 16px !important; /* 👈 අකුරු වල සයිස් එක (කලින් 20px වගේ ලොකුවට තිබ්බේ) */
+        font-weight: 600 !important; /* අකුරු ටිකක් තදින් පේන්න */
+        padding: 8px 15px !important; /* මෙනු අයිටම් එකක් වටේට තියෙන ඉඩ */
+        transition: all 0.3s ease !important;
+    }
+
+    /* 2. මෙනු එක එක ළඟ ගොඩගැසෙන්නේ නැතිව අයිටම් අතර පරතරය හැදීම */
+    .nav-links {
+        gap: 15px !important; /* 👈 අකුරු එකිනෙකට තියෙන දුර */
+    }
+
+    /* 3. මෙනු එක උඩට මූසිකය (Mouse) අරන් යද්දී ලස්සනට පාට වෙනස් වෙන්න */
+    .nav-links a:hover {
+        color: #ff69b4 !important; /* හොවර් කරද්දී ලස්සන රෝස පාටක් */
+    }
+} 
+   </style>
 <head> 
     
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
