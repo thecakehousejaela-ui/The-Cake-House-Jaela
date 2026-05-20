@@ -1,5 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+    <style> /* රූපය මෘදුව ලොකු කුඩා වෙමින් ඇනිමේට් වීම */
+.welcome-logo, img[src*="logo"] {
+    animation: pulse 3s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05); /* පොඩ්ඩක් ලොකු වෙනවා */
+    }
+    100% {
+        transform: scale(1);
+    }
+}
     <style>
 /* ලෝගෝ එක වටේ තියෙන සුදු පාට පසුබිම සහ පරතරය අඩු කිරීම */
 .logo-container img, .header img, a img {
