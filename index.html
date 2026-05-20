@@ -38,13 +38,6 @@
     }
 }
        
-/* Header එක ඇතුළේ තියෙන Menu එක සහ Cart එක දකුණු අයිනටම ගැනීම */
-header, nav, .header-container {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    width: 100% !important;
-}
 
 /* Menu Links (Home, Cakes...) දකුණට තල්ලු කිරීම */
 .nav-links, ul.menu, nav ul {
@@ -1319,7 +1312,7 @@ if (location.protocol !== 'https:') {
 
     .hamburger {
         display: flex !important; /* Menu icon එක පෙන්වීමට */
-        z-index: 2000;
+       z-index: 2001;
     }
 
     .nav-links {
@@ -1360,19 +1353,24 @@ if (location.protocol !== 'https:') {
     display: flex;
     z-index: 2000;
   }
-
-  .nav-links {
+.nav-links {
     position: fixed;
-    top: 80px;
-    left: -100%;
-    width: 100%;
-    height: calc(100vh - 80px);
+    top: 0;
+    right: -100%; /* 👈 වමට වෙනුවට දකුණු පැත්තට (-100%) කරලා හංගන්න */
+    width: 280px;  /* 👈 මුළු screen එකම වහන්නේ නැතුව කුඩාවට පේන්න */
+    height: 100vh;
     background: linear-gradient(135deg, var(--primary-pink), var(--light-pink));
     flex-direction: column;
-    padding: 40px 0;
-    transition: left 0.4s ease;
-    gap: 0;
-  }
+    padding: 100px 20px;
+    transition: right 0.4s ease; /* 👈 ලස්සනට slide වෙන්න */
+    z-index: 2000;
+}
+
+/* මෙනු එක active වුණාම දකුණු පැත්තෙන් screen එක ඇතුළට එන්න */
+.nav-links.active {
+    right: 0 !important;
+    display: flex !important;
+}
 
   .nav-links.active {
     left: 0;
