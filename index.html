@@ -168,6 +168,27 @@
         display: inline-block !important;
     }
 }
+       /* ලැප්ටොප් සහ ඩෙස්ක්ටොප් වලට විතරක් බලපාන කොටස */
+@media only screen and (min-width: 1025px) {
+    
+    /* 1. ලෝගෝ එක තියෙන සුදු කොටුව ලැප්ටොප් එකේදී හැඩගැස්වීම */
+    .hero-image, .hero-content, .logo-container {
+        width: 100% !important;
+        max-width: 550px !important; /* කොටුවේ උපරිම පළල සීමා කරා */
+        margin: 0 auto !important;   /* කොටුව ලැප්ටොප් ස්ක්‍රීන් එකේ මැදටම ගත්තා */
+        padding: 30px !important;
+    }
+
+    /* 2. ලැප්ටොප් එකේදී ලෝගෝ එක ඇදලා කැපෙන එක වැළැක්වීම */
+    .hero-image img, .hero-content img, .hero img {
+        width: 100% !important;
+        max-width: 420px !important;    /* 👈 ලෝගෝ එකේ සයිස් එක ලැප්ටොප් එකට ගැලපෙන්න හැදුවා */
+        height: auto !important;
+        object-fit: contain !important; /* 👈 කිසිම පැත්තක් කැපෙන්න දෙන්නේ නැහැ */
+        display: block !important;
+        margin: 0 auto !important;      /* හරියටම සුදු කොටුවේ මැදටම ගන්නවා */
+    }
+}
    </style>
 <head> 
     
