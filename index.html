@@ -2513,6 +2513,17 @@ function typeWriter() {
 
 // පිටුව Load වූ සැනින් ඇනිමේෂන් එක පටන් ගැනීම
 window.addEventListener('DOMContentLoaded', typeWriter);
+      // මෙනු එක ඇතුළේ තියෙන ලින්ක් එකක් ක්ලික් කරාම මෙනු එක වසා දැමීම
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        const navLinks = document.querySelector('.nav-links');
+        const hamburger = document.querySelector('.hamburger');
+        
+        // මෙනු එකෙන් 'active' ක්ලාස් එක අයින් කරලා ඒක හංගනවා
+        if (navLinks) navLinks.classList.remove('active');
+        if (hamburger) hamburger.classList.remove('active');
+    });
+});
 </script>
 </body>
 </html>
