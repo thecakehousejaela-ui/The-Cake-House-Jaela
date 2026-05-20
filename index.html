@@ -94,12 +94,10 @@ if (location.protocol !== 'https:') {
   <title>The Cake House Ja-Ela | Fresh Homemade Cakes</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
  <style>
-    .hero-content img {
-    width: 120px;
-    height: 120px;
-    margin-bottom: 25px;
-    animation: none !important; /* 👈 මේකෙන් ලෝගෝ එක පාවෙන එක සම්පූර්ණයෙන්ම නවතිනවා */
-}
+    /* ===== 1. ANIMATION FOR LOGOS ===== */
+    .hero-content img, img[src*="logo"] {
+        animation: pulse 3s infinite ease-in-out;
+    }
 
     @keyframes pulse {
         0%, 100% { transform: scale(1); }
@@ -214,10 +212,9 @@ if (location.protocol !== 'https:') {
       background: white;
     }
 
-   /* 🛠️ Header එකේ ලෝගෝ එක උඩට Mouse එක ගෙනිච්චාම වෙන ඇනිමේෂන් එක නැවැත්වීම */
-.logo:hover img {
-    transform: none !important; /* කැරකෙන එක සහ ලොකු වෙන එක සම්පූර්ණයෙන්ම නවතී */
-}
+    .logo:hover img {
+      transform: scale(1.05) rotate(5deg);
+    }
 
     .logo-text {
       display: flex;
