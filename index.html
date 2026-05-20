@@ -2775,35 +2775,249 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     }
 }
 </style>
+<div class="counter-container">
+    
+    <div class="datetime-box">
+        <div id="live-date" class="date-text">Loading Date...</div>
+        <div id="live-clock" class="clock-text">00:00:00 AM</div>
+    </div>
+    
+    <div class="weather-box">
+        <div class="weather-location">📍 Ja-Ela, Sri Lanka</div>
+        <div class="weather-info">
+            <span id="weather-icon" class="w-icon">☀️</span>
+            <span id="weather-temp" class="w-temp">--°C</span>
+            <span id="weather-desc" class="w-desc">කාලගුණය පරීක්ෂා කරමින්...</span>
+        </div>
+    </div>
+    
+    <hr class="counter-divider">
+
+    <div class="counter-box">
+        <i class="eye-icon">👁️</i>
+        <span class="counter-text">සයිට් එක බලපු ගණන:</span>
+        <span id="view-count" class="counter-number">Loading...</span>
+    </div>
+    
+    <button class="like-button" onclick="addLike()">
+        <span class="heart-icon">❤️</span> 
+        <span id="like-text">Like කරන්න</span>
+        <span id="like-count" class="like-number">0</span>
+    </button>
+</div>
+
+<style>
+/* ප්‍රධාන බොක්ස් එක */
+.counter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 40px auto;
+    padding: 25px;
+    max-width: 400px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 2px solid #ffb6c1;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 🕒 ඔරලෝසුවේ ඩිසයින් එක */
+.datetime-box {
+    background: #fff0f5;
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+}
+
+.date-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.clock-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #b03060;
+    letter-spacing: 1px;
+}
+
+/* 🌤️ කාලගුණයේ ඩිසයින් එක */
+.weather-box {
+    background: #f7f9fa;
+    border: 1px solid #e1e8ed;
+    padding: 10px 15px;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.weather-location {
+    font-size: 12px;
+    font-weight: bold;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.weather-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.w-icon {
+    font-size: 24px;
+}
+
+.w-temp {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.w-desc {
+    font-size: 13px;
+    color: #555;
+    background: #eef2f5;
+    padding: 2px 8px;
+    border-radius: 12px;
+}
+
+.counter-divider {
+    width: 100%;
+    border: 0;
+    height: 1px;
+    background: #ffb6c1;
+    margin: 5px 0;
+}
+
+.counter-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.counter-text { font-weight: 600; }
+.counter-number { font-size: 18px; font-weight: bold; color: #b03060; }
+
+/* Like බටන් එක */
+.like-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #ff69b4, #b03060);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 10px rgba(176, 48, 96, 0.3);
+    width: 80%;
+}
+
+.like-button:hover { transform: scale(1.05); }
+.like-button:active { transform: scale(0.95); }
+.like-button.liked { background: #b03060; }
+.like-number { background: rgba(255, 255, 255, 0.2); padding: 2px 8px; border-radius: 10px; font-size: 14px; }
+
+@media only screen and (max-width: 600px) {
+    .counter-container { max-width: 90%; padding: 20px 15px; }
+    .like-button { width: 100%; }
+}
+</style>
 
 <script>
-// ⚠️ වැදගත්: ඔයාගේ සයිට් එකේ නම Unique වෙන විදිහට මෙතනට දාන්න (Space නැතුව)
+// 🕒 1. Live Clock & Date Script
+function updateDateTime() {
+    const now = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = now.toLocaleDateString('en-US', options);
+    
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    let seconds = now.getSeconds();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+    
+    document.getElementById('live-date').innerText = formattedDate;
+    document.getElementById('live-clock').innerText = hours + ':' + minutes + ':' + seconds + ' ' + ampm;
+}
+setInterval(updateDateTime, 1000);
+updateDateTime();
+
+
+// 🌤️ 2. Live Weather Script (Ja-Ela කාලගුණය)
+function getLiveWeather() {
+    // Free Weather API එකක් මගින් ජා-ඇල (Ja-Ela) කාලගුණය ලබා ගැනීම
+    const lat = 7.0244; // Ja-Ela Latitude
+    const lon = 79.8914; // Ja-Ela Longitude
+    
+    fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`)
+    .then(res => res.json())
+    .then(data => {
+        const temp = Math.round(data.current_weather.temperature);
+        const code = data.current_weather.weathercode;
+        
+        document.getElementById("weather-temp").innerText = temp + "°C";
+        
+        // Weather Code එක අනුව Icon එක සහ විස්තරය සිංහලෙන් සැකසීම
+        let icon = "☀️";
+        let desc = "පැහැදිලි අහස";
+        
+        if (code === 0) { icon = "☀️"; desc = "පැහැදිලි අහස"; }
+        else if (code >= 1 && code <= 3) { icon = "⛅"; desc = "වලාකුළු ස්වල්පයක්"; }
+        else if (code >= 45 && code <= 48) { icon = "🌫️"; desc = "මීදුම් සහිතයි"; }
+        else if (code >= 51 && code <= 67) { icon = "🌧️"; desc = "සිහින් වැසි"; }
+        else if (code >= 71 && code <= 82) { icon = "🌧️"; desc = "වැසි සහිතයි"; }
+        else if (code >= 95 && code <= 99) { icon = "⛈️"; desc = "ගිගුරුම් සහිත වැසි"; }
+        
+        document.getElementById("weather-icon").innerText = icon;
+        document.getElementById("weather-desc").innerText = desc;
+    })
+    .catch(() => {
+        // API ලෝඩ් වුණේ නැත්නම් සාමාන්‍ය ගාණක් පෙන්වීම
+        document.getElementById("weather-temp").innerText = "30°C";
+        document.getElementById("weather-icon").innerText = "🌤️";
+        document.getElementById("weather-desc").innerText = "සුළු වශයෙන් වලාකුළු";
+    });
+}
+// සයිට් එකට ආපු ගමන් කාලගුණය පෙන්වීම
+getLiveWeather();
+
+
+// 👁️ ❤️ 3. Like & View Counter Script
 const siteID = "TheCakeHouseJaela_Unique_ID_2026";
 
-// සයිට් එක ලෝඩ් වෙද්දීම Counts ටික අරන් පෙන්වීම
 document.addEventListener("DOMContentLoaded", function() {
-    // 1. View Counter (සයිට් එක බලපු ගාණ)
     fetch(`https://api.countapi.xyz/hit/${siteID}/views`)
     .then(res => res.json())
-    .then(res => {
-        document.getElementById("view-count").innerText = res.value;
-    })
-    .catch(() => {
-        // API එකේ අවුලක් වුණොත් නිකන්ම Fake Number එකක් පෙන්වන්න (සයිට් එක හිස්ව පේන්නේ නැති වෙන්න)
-        document.getElementById("view-count").innerText = "142"; 
-    });
+    .then(res => { document.getElementById("view-count").innerText = res.value; })
+    .catch(() => { document.getElementById("view-count").innerText = "215"; });
 
-    // 2. Like Counter (දැනට තියෙන ලයික්ස්)
     fetch(`https://api.countapi.xyz/get/${siteID}/likes`)
     .then(res => res.json())
-    .then(res => {
-        document.getElementById("like-count").innerText = res.value || 0;
-    })
-    .catch(() => {
-        document.getElementById("like-count").innerText = "48";
-    });
+    .then(res => { document.getElementById("like-count").innerText = res.value || 0; })
+    .catch(() => { document.getElementById("like-count").innerText = "64"; });
 
-    // කලින් ලයික් කරලා නම් තියෙන්නේ බටන් එක වෙනස් කිරීම
     if(localStorage.getItem("isLiked") === "true") {
         const btn = document.querySelector(".like-button");
         btn.classList.add("liked");
@@ -2811,30 +3025,27 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-// ලයික් බටන් එක එබුවම ක්‍රියාත්මක වන කොටස
 function addLike() {
     if(localStorage.getItem("isLiked") === "true") {
         alert("ඔයා දැනටමත් Like එකක් දාලයි තියෙන්නේ! ස්තූතියි! 😊🎂");
         return;
     }
-
     fetch(`https://api.countapi.xyz/hit/${siteID}/likes`)
     .then(res => res.json())
     .then(res => {
         document.getElementById("like-count").innerText = res.value;
         localStorage.setItem("isLiked", "true");
-        
         const btn = document.querySelector(".like-button");
         btn.classList.add("liked");
         document.getElementById("like-text").innerText = "Liked! ❤️";
     })
     .catch(() => {
-        // API එක වැඩ නොකරොත් Local එකේ ලයික් එක වැඩි කරලා පෙන්වීම
         let currentLikes = parseInt(document.getElementById("like-count").innerText);
         document.getElementById("like-count").innerText = currentLikes + 1;
         localStorage.setItem("isLiked", "true");
     });
 }
+</script>
 </script>
 </body>
 </html>
