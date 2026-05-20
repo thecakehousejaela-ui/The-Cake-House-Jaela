@@ -160,8 +160,14 @@
     .about-section h2, .about h2, #about h2 {
         white-space: nowrap !important; /* 👈 බලෙන්ම පේළි දෙකකට කැඩෙන එක නවත්වනවා */
         font-size: 32px !important;     /* ලැප්ටොප් එකට ගැලපෙන ලස්සන සයිස් එකක් */
+
+       @media only screen and (min-width: 1025px) {
+    /* මෙනු එකේ තියෙන ලින්ක්ස් (About Us ඇතුළුව) බලෙන්ම එකම පේළියක තබා ගැනීම */
+    .nav-links a {
+        white-space: nowrap !important; /* 👈 මේකෙන් "About Us" එකම පේළියකට ගන්නවා */
+        display: inline-block !important;
     }
-}   
+}
    </style>
 <head> 
     
