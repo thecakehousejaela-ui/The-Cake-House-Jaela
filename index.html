@@ -1,5 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+    <style>
+/* Header එක ඇතුළේ තියෙන Menu එක සහ Cart එක දකුණු අයිනටම ගැනීම */
+header, nav, .header-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+/* Menu Links (Home, Cakes...) දකුණට තල්ලු කිරීම */
+.nav-links, ul.menu, nav ul {
+    display: flex !important;
+    margin-left: auto !important; /* මේකෙන් මුළු Menu එකම දකුණට යනවා */
+    align-items: center;
+    gap: 20px; /* Menu items අතර පරතරය */
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Cart Icon එක Menu එකටත් දකුණු පැත්තෙන් තැබීම */
+.cart-icon, a[href="#cart"] {
+    margin-left: 20px !important; /* Menu එකයි Cart එකයි අතර පරතරය */
+    display: inline-flex !important;
+    align-items: center;
+}
+
+/* Phone සහ iPad (Mobile/Tablet) තිර වලදීත් ලස්සනට පේන්න */
+@media only screen and (max-width: 1024px) {
+    header, nav, .header-container {
+        padding: 10px 15px !important;
+    }
+    .nav-links, ul.menu, nav ul {
+        gap: 12px !important; /* Phone වලදී ඉඩ මදි නිසා පරතරය පොඩ්ඩක් අඩු කලා */
+    }
+}
+</style>
 <head> 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="apple-mobile-web-app-capable" content="yes">
