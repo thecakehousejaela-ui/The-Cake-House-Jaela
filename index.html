@@ -214,9 +214,10 @@ if (location.protocol !== 'https:') {
       background: white;
     }
 
-    .logo:hover img {
-      transform: scale(1.05) rotate(5deg);
-    }
+   /* 🛠️ Header එකේ ලෝගෝ එක උඩට Mouse එක ගෙනිච්චාම වෙන ඇනිමේෂන් එක නැවැත්වීම */
+.logo:hover img {
+    transform: none !important; /* කැරකෙන එක සහ ලොකු වෙන එක සම්පූර්ණයෙන්ම නවතී */
+}
 
     .logo-text {
       display: flex;
