@@ -190,44 +190,6 @@
     }
 }
    </style>
-   <style>
-   /* පවතින ෆුටර් එක ඇතුලත ඔරලෝසුව ඩිසයින් කිරීම */
-.footer-clock-box {
-    background: rgba(255, 255, 255, 0.15) !important; /* පර්පල් එක පේන විදිහට ලස්සන Transparent ගතියක් දුන්නා */
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    padding: 12px 20px !important;
-    border-radius: 12px !important;
-    display: inline-block !important;
-    text-align: center !important;
-    margin-top: 20px !important;
-    float: right !important; /* 👈 දකුණු පැත්තටම ගැනීමට */
-}
-
-#f-simple-date {
-    font-size: 12px !important;
-    font-weight: 600 !important;
-    color: #ffd700 !important; /* දවස ලස්සන රන්වන් කහ පාටින් */
-    margin-bottom: 3px !important;
-    text-transform: uppercase !important;
-    letter-spacing: 1px !important;
-}
-
-#f-simple-clock {
-    font-size: 22px !important;
-    font-weight: bold !important;
-    color: #ffffff !important; /* වෙලාව සුදු පාටින් */
-    letter-spacing: 1px !important;
-}
-
-/* ෆෝන් එකෙන් බලද්දී ඔරලෝසුව මැදට ගැනීම */
-@media only screen and (max-width: 768px) {
-    .footer-clock-box {
-        float: none !important;
-        display: block !important;
-        width: max-content !important;
-        margin: 20px auto 0 auto !important;
-    }
-}
 <head> 
     
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -242,51 +204,6 @@ if (location.protocol !== 'https:') {
     location.replace(`https:${location.href.substring(location.protocol.length)}`);
 }
 </script>
-      
-      <script>
-function runFooterClock() {
-    // 1. දැනට තියෙන සැබෑ වෙලාව සහ දිනය ලබා ගැනීම
-    const now = new Date();
-    
-    // 2. දිනය ලස්සනට සකස් කිරීම (උදා: THURSDAY, MAY 21, 2026)
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const formattedDate = now.toLocaleDateString('en-US', options).toUpperCase();
-    
-    // 3. වෙලාව (Time) පැය, විනාඩි, තත්පර වලට වෙන් කිරීම
-    let hours = now.getHours();
-    let minutes = now.getMinutes();
-    let seconds = now.getSeconds();
-    const ampm = hours >= 12 ? 'PM' : 'AM';
-    
-    hours = hours % 12;
-    hours = hours ? hours : 12; // පැය 0 වුණොත් 12 කරයි
-    minutes = minutes < 10 ? '0' + minutes : minutes;
-    seconds = seconds < 10 ? '0' + seconds : seconds;
-    
-    const formattedTime = hours + ':' + minutes + ':' + seconds + ' ' + ampm;
-    
-    // 4. සයිට් එකේ තියෙන LOADING DATE... බොක්ස් එකට දත්ත ඇතුලත් කිරීම
-    // HTML එකේ ID එක මොකක් වුණත් වැඩ කරන්න ක්‍රම දෙකකටම කෝඩ් එක ලියලා තියෙන්නේ 👇
-    const dateElement = document.getElementById('f-simple-date') || document.querySelector('.footer-clock-box div:first-child');
-    const clockElement = document.getElementById('f-simple-clock') || document.querySelector('.footer-clock-box div:last-child');
-    
-    if (dateElement) {
-        dateElement.innerText = formattedDate;
-    }
-    if (clockElement) {
-        clockElement.innerText = formattedTime;
-    }
-}
-
-// ⏱️ සෑම තත්පරයකදීම (මිලිසෙකන්ඩ් 1000) ඔරලෝසුව ලයිව් අප්ඩේට් කිරීම
-setInterval(runFooterClock, 1000);
-
-// සයිට් එක ලෝඩ් වෙච්ච ගමන්ම 00:00 පේන්නේ නැතුව කෙලින්ම වෙලාව පෙන්වීමට රන් කිරීම
-document.addEventListener("DOMContentLoaded", function() {
-    runFooterClock();
-});
-</script>
-      <script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Cake House Ja-Ela | Fresh Homemade Cakes</title>
@@ -1936,10 +1853,7 @@ Expertly crafted and freshly baked using only the finest, premium ingredients �
         <p><i class="fas fa-mobile-alt"></i> PayHere</p>
         <p><i class="fas fa-money-bill-wave"></i> Cash </p>
       </div>
-      <div class="footer-clock-box">
-    <div id="f-simple-date">Loading Date...</div>
-    <div id="f-simple-clock">00:00:00 AM</div>
-</div>
+      
       <div class="footer-section">
         <h3>Contact Info</h3>
         <p><i class="fas fa-map-marker-alt"></i> No.145/f/2 Wevallagara.Bollatha Ganeemulla, Sri Lanka</p>
@@ -1990,7 +1904,7 @@ Expertly crafted and freshly baked using only the finest, premium ingredients �
  <div id="bankDetails" style="display:none; margin-top:15px; background:#fff7f3; padding:15px; border-radius:10px;">
   <h4 style="color:#b03060;">Bank Transfer Details</h4>
   <p><strong>Bank:</strong> Bank of ceylon </p>
-  <p><strong>Account Name:</strong> ki dilrukshi</p>
+  <p><strong>Account Name:</strong> k inoka dilrukshi</p>
   <p><strong>Account Number:</strong> 486100 </p>
   <p><strong>Branch:</strong> Ja-Ela</p>
 </div>
