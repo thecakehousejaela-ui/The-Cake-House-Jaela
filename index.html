@@ -1861,7 +1861,122 @@ Expertly crafted and freshly baked using only the finest, premium ingredients �
         <p><i class="fas fa-envelope"></i> thecakehousejaela@gmail.com</p>
       </div>
     </div>
+    <div class="footer-right">
+            <div class="footer-clock-box">
+                <div id="f-simple-date">Loading Date...</div>
+                <div id="f-simple-clock">00:00:00 AM</div>
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+<style>
+/* Footer ප්‍රධාන පෙනුම */
+.site-footer {
+    background-color: #fff0f5; /* ලස්සන ලා රෝස පාට පසුබිම */
+    border-top: 2px solid #ffb6c1;
+    padding: 25px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* වම් පැත්තේ බිස්නස් විස්තර */
+.footer-left h3 {
+    color: #b03060;
+    margin: 0 0 5px 0;
+    font-size: 20px;
+}
+.footer-left p {
+    margin: 0;
+    color: #555;
+    font-size: 14px;
+}
+.copyright {
+    margin-top: 8px !important;
+    font-size: 12px !important;
+    color: #888 !important;
+}
+
+/* 🕒 දකුණු පැත්තේ ඔරලෝසුවේ Design එක */
+.footer-right {
+    text-align: right;
+}
+
+.footer-clock-box {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 10px 20px;
+    border-radius: 12px;
+    border: 1px solid #ffb6c1;
+    display: inline-block;
+}
+
+#f-simple-date {
+    font-size: 13px;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 3px;
+    text-transform: uppercase;
+}
+
+#f-simple-clock {
+    font-size: 22px;
+    font-weight: bold;
+    color: #b03060; /* තද රෝස පාට */
+    letter-spacing: 1px;
+}
+
+/* ෆෝන් එකෙන් බලද්දී ඔක්කොම මැදට හැදීම */
+@media only screen and (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-right {
+        text-align: center;
+        width: 100%;
+    }
+}
+</style>
+
+<script>
+// 🕒 ඔරලෝසුව සහ දවස ලයිව් දුවන්න හරින කෝඩ් එක
+function runFooterClock() {
+    const now = new Date();
     
+    // දවස සකස් කිරීම (උදා: Thursday, May 21, 2026)
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('f-simple-date').innerText = now.toLocaleDateString('en-US', options);
+    
+    // වෙලාව සකස් කිරීම
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    let seconds = now.getSeconds();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    
+    hours = hours % 12;
+    hours = hours ? hours : 12; // 0 වුණොත් 12 කරයි
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+    
+    document.getElementById('f-simple-clock').innerText = hours + ':' + minutes + ':' + seconds + ' ' + ampm;
+}
+
+// සෑම තත්පරයකදීම ඔරලෝසුව Update කිරීම
+setInterval(runFooterClock, 1000);
+// සයිට් එක ලෝඩ් වෙච්ච ගමන්ම පෙන්වීමට රන් කිරීම
+runFooterClock();
+</script>
     <div class="footer-bottom">
       <p>&copy; 2026 The Cake House Jaela. All rights reserved. Made with <i class="fas fa-heart"></i> in Sri Lanka</p>
     </div>
@@ -1904,7 +2019,7 @@ Expertly crafted and freshly baked using only the finest, premium ingredients �
  <div id="bankDetails" style="display:none; margin-top:15px; background:#fff7f3; padding:15px; border-radius:10px;">
   <h4 style="color:#b03060;">Bank Transfer Details</h4>
   <p><strong>Bank:</strong> Bank of ceylon </p>
-  <p><strong>Account Name:</strong> k inoka dilrukshi</p>
+  <p><strong>Account Name:</strong> ki dilrukshi</p>
   <p><strong>Account Number:</strong> 486100 </p>
   <p><strong>Branch:</strong> Ja-Ela</p>
 </div>
